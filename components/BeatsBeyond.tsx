@@ -20,9 +20,9 @@ const CAPABILITY_TICKERS = [
 
 export default function BeatsBeyond() {
   return (
-    <section className="relative w-full bg-[#F7F9FC] py-20 sm:py-28 overflow-hidden text-[#17163F] border-b border-[#E3E6EF]">
-      <div className="mx-auto max-w-7xl px-6 sm:px-12 mb-12 sm:mb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <section className="relative w-full bg-[#F7F9FC] py-16 sm:py-28 overflow-hidden text-[#17163F] border-b border-[#E3E6EF]">
+      <div className="mx-auto max-w-7xl px-5 sm:px-12 mb-10 sm:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
           {/* Narrative Left */}
           <div className="lg:col-span-6 space-y-4">
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#28245F] font-bold block">
@@ -33,7 +33,7 @@ export default function BeatsBeyond() {
               <br />
               Bring Teams Together.
             </h2>
-            <p className="text-sm sm:text-base text-[#17163F] leading-relaxed max-w-xl font-normal">
+            <p className="text-xs sm:text-base text-[#17163F] leading-relaxed max-w-xl font-normal">
               Every company event should inspire your people and build real connections. At Thriveus, we take care of everything—from stage setups and lighting to team games and smooth on-the-day coordination.
             </p>
             <p className="text-xs sm:text-sm text-[#62627A] leading-relaxed max-w-xl">
@@ -43,7 +43,7 @@ export default function BeatsBeyond() {
 
           {/* Large Editorial Visual */}
           <div className="lg:col-span-6">
-            <div className="relative h-[360px] sm:h-[440px] w-full overflow-hidden rounded-2xl bg-[#E3E6EF]/40 shadow-[0_20px_50px_rgba(18,16,61,0.06)]">
+            <div className="relative aspect-[4/3] sm:h-[440px] w-full overflow-hidden rounded-2xl bg-[#E3E6EF]/40 shadow-[0_20px_50px_rgba(18,16,61,0.06)]">
               <Image
                 src="/images/featured-experience.jpg"
                 alt="Corporate Experience Production in Dubai"
@@ -52,7 +52,7 @@ export default function BeatsBeyond() {
                 className="object-cover object-center transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <div className="mt-4 flex items-center justify-between text-xs font-mono text-[#62627A]">
+            <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] sm:text-xs font-mono text-[#62627A]">
               <span className="uppercase tracking-widest text-[#17163F] font-semibold">FLAGSHIP EXPERIENCES · UAE</span>
               <span>STAGE ARCHITECTURE &amp; PRODUCTION</span>
             </div>

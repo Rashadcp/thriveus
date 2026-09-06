@@ -36,34 +36,32 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero Header */}
-      <section className="relative pt-36 sm:pt-44 pb-16 sm:pb-24 px-6 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#E3E6EF]/15">
-        <div className="max-w-4xl">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block mb-4">
+      <section className="relative pt-28 sm:pt-48 pb-14 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#28245F]/50">
+        <div className="max-w-4xl space-y-5 sm:space-y-6">
+          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block">
             INITIATE A CONVERSATION · DUBAI HQ
           </span>
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
             Let&apos;s Create Something
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8EDAF2] via-[#8B7BC0] to-white">
-              Remarkable Together.
-            </span>
+            <br className="hidden sm:inline" />
+            {" "}Remarkable Together.
           </h1>
-          <p className="mt-8 text-lg sm:text-2xl text-[#E3E6EF] leading-relaxed font-normal">
+          <p className="mt-6 sm:mt-8 text-base sm:text-2xl text-[#E3E6EF]/85 leading-relaxed font-light max-w-3xl">
             Whether you are curating an executive summit in Dubai or a signature corporate gala, our producers and experiential strategists are ready to collaborate.
           </p>
         </div>
       </section>
 
       {/* Main Content Grid: Form + Info */}
-      <section className="py-20 sm:py-28 px-6 sm:px-12 mx-auto max-w-7xl w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <section className="py-16 sm:py-28 px-5 sm:px-12 mx-auto max-w-7xl w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left Form Column */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-12 rounded-3xl bg-[#28245F] border border-[#E3E6EF]/15 shadow-2xl">
+            <div className="p-5 sm:p-12 rounded-2xl sm:rounded-3xl bg-[#28245F] border border-[#E3E6EF]/15 shadow-2xl">
               <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold block mb-2">
                 PROJECT INQUIRY FORM
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8">
+              <h2 className="font-display text-xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">
                 Tell Us About Your Event
               </h2>
 
@@ -189,7 +187,7 @@ export default function ContactPage() {
           {/* Right Info Column */}
           <div className="lg:col-span-5 space-y-6">
             {/* Direct Contact Card */}
-            <div className="p-8 rounded-3xl bg-[#28245F] border border-[#E3E6EF]/15 space-y-6">
+            <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#28245F] border border-[#E3E6EF]/15 space-y-5 sm:space-y-6">
               <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold block">
                 DIRECT CHANNELS
               </span>
@@ -200,7 +198,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="mailto:curate@thriveus.ae"
-                  className="mt-1 block font-display text-2xl font-bold text-[#8EDAF2] hover:text-[#8B7BC0] transition-colors"
+                  className="mt-1 block font-display text-xl sm:text-2xl font-bold text-[#8EDAF2] hover:text-[#8B7BC0] transition-colors"
                 >
                   curate@thriveus.ae
                 </a>
@@ -210,10 +208,10 @@ export default function ContactPage() {
                 <p className="text-xs uppercase font-mono tracking-widest text-[#E3E6EF]/70">
                   Dubai Headquarters
                 </p>
-                <p className="mt-1 text-base text-white font-medium">
+                <p className="mt-1 text-sm sm:text-base text-white font-medium">
                   Dubai International Financial Centre (DIFC)
                 </p>
-                <p className="text-sm text-[#E3E6EF]/70">
+                <p className="text-xs sm:text-sm text-[#E3E6EF]/70">
                   Dubai, United Arab Emirates
                 </p>
               </div>
@@ -222,7 +220,7 @@ export default function ContactPage() {
                 <p className="text-xs uppercase font-mono tracking-widest text-[#E3E6EF]/70">
                   Operating Hours
                 </p>
-                <p className="mt-1 text-sm text-white font-medium">
+                <p className="mt-1 text-xs sm:text-sm text-white font-medium">
                   Monday – Friday · 09:00 – 18:00 GST
                 </p>
                 <p className="text-xs text-[#8EDAF2] font-mono mt-0.5">
@@ -232,7 +230,7 @@ export default function ContactPage() {
             </div>
 
             {/* Turnkey Assurance Card */}
-            <div className="p-8 rounded-3xl bg-[#28245F] border border-[#8EDAF2]/25 space-y-4">
+            <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#28245F] border border-[#8EDAF2]/25 space-y-4">
               <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold block">
                 THE THRIVEUS PLEDGE
               </span>

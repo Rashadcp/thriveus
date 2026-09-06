@@ -152,41 +152,41 @@ export default function DualMarqueeGallery() {
         </div>
       </div>
 
-      {/* 2. PARALLAX MEDIA CAROUSEL / GALLERY (HORIZONTAL ROW OF HIGH-CONTRAST CARDS WITH LEFT-TILT DOWN HOVER ANIMATION) */}
-      <div className="relative mt-8 sm:mt-14 w-full overflow-hidden">
+      {/* 2. MEDIA CAROUSEL / GALLERY (HORIZONTAL ROW OF HIGH-CONTRAST CARDS) */}
+      <div className="relative mt-8 sm:mt-14 w-full overflow-x-auto sm:overflow-hidden scrollbar-none">
         <motion.div
           style={{ x: galleryX, y: galleryY }}
-          className="flex items-center gap-5 sm:gap-7 w-max px-6 sm:px-12 will-change-transform py-6"
+          className="flex items-center gap-4 sm:gap-7 w-max px-4 sm:px-12 will-change-transform py-4 sm:py-6"
         >
           {GALLERY_IMAGES.map((card, idx) => (
             <motion.div
               key={idx}
               whileHover={{
-                rotate: -3.2,
-                y: 10,
+                rotate: -2.5,
+                y: 6,
                 scale: 1.02,
                 transition: { type: "spring", stiffness: 320, damping: 18 },
               }}
-              className="group relative h-[200px] sm:h-[250px] md:h-[265px] w-[260px] sm:w-[350px] md:w-[380px] flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border border-[#28245F] bg-[#28245F] shadow-[0_15px_45px_rgba(18,16,61,0.6)] cursor-pointer transition-colors duration-300 hover:border-[#8EDAF2] hover:shadow-[0_20px_50px_rgba(142,218,242,0.2)] origin-center will-change-transform"
+              className="group relative h-[210px] sm:h-[250px] md:h-[265px] w-[270px] sm:w-[350px] md:w-[380px] flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border border-[#28245F] bg-[#28245F] shadow-[0_15px_45px_rgba(18,16,61,0.6)] cursor-pointer transition-colors duration-300 hover:border-[#8EDAF2] origin-center will-change-transform"
             >
-              {/* High-Contrast Photo with subtle zoom on hover */}
+              {/* High-Contrast Photo */}
               <Image
                 src={card.src}
                 alt={card.alt}
                 fill
-                sizes="(max-width: 768px) 260px, 380px"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108 brightness-[0.95] contrast-[1.06]"
+                sizes="(max-width: 640px) 270px, (max-width: 1024px) 350px, 380px"
+                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.95] contrast-[1.05]"
               />
 
-              {/* Gradient Vignette - Smoothly fades in only on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#12103D]/95 via-[#12103D]/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              {/* Gradient Vignette - Always subtly present at bottom on mobile, intensifies on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#12103D]/90 via-[#12103D]/30 to-transparent opacity-80 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-              {/* Clean Editorial Caption on Hover */}
-              <div className="absolute inset-x-0 bottom-0 p-5 z-20 pointer-events-none opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[#8EDAF2] block mb-1">
+              {/* Clean Editorial Caption - Visible on mobile, hover-revealed on desktop */}
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-20 pointer-events-none opacity-100 sm:opacity-0 translate-y-0 sm:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-[#8EDAF2] block mb-0.5 sm:mb-1 font-semibold">
                   {card.category}
                 </span>
-                <p className="font-display text-sm sm:text-base font-bold text-white leading-snug">
+                <p className="font-display text-xs sm:text-base font-bold text-white leading-snug">
                   {card.title}
                 </p>
               </div>

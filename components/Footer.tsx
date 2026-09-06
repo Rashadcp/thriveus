@@ -57,13 +57,13 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative w-full bg-[#12103D] border-t border-[#28245F] px-6 sm:px-12 py-16 sm:py-20 text-white overflow-hidden select-none">
+    <footer className="relative w-full bg-[#12103D] border-t border-[#28245F] px-5 sm:px-12 py-12 sm:py-20 text-white overflow-hidden select-none">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 pb-12 border-b border-[#28245F]">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-8 pb-10 sm:pb-12 border-b border-[#28245F]">
           {/* Brand Logo & Tagline */}
-          <div className="space-y-3 max-w-md">
+          <div className="space-y-2.5 sm:space-y-3 max-w-md">
             <Link href="/" className="group inline-flex items-center gap-2.5 sm:gap-3" aria-label="Thriveus Home">
-              <div className="relative h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="relative h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/images/logo-icon.png"
                   alt="Thriveus Logo"
@@ -76,13 +76,13 @@ export default function Footer() {
                 Thrive<span className="italic font-serif font-normal text-[#8B7BC0]">us</span>
               </span>
             </Link>
-            <p className="font-display text-sm tracking-wide text-[#62627A]">
+            <p className="font-display text-xs sm:text-sm tracking-wide text-[#62627A]">
               Curating Impact, One Experience at a Time.
             </p>
           </div>
 
           {/* Social Icons & Live Dubai Time */}
-          <div className="flex items-center gap-6 sm:gap-8">
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8">
             {dubaiTime && (
               <div className="flex flex-col text-left sm:text-right">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#62627A]">
@@ -112,12 +112,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Location */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#62627A]">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs font-mono text-[#62627A] text-center sm:text-left">
           <p>© {new Date().getFullYear()} THRIVEUS EXPERIENTIAL. ALL RIGHTS RESERVED.</p>
-          <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#8EDAF2] shadow-[0_0_6px_#8edaf2]" />
-            <p className="text-[#E3E6EF]/80 font-medium">DUBAI, UAE</p>
-          </div>
+          <p className="text-[#E3E6EF]/70 font-medium tracking-wider uppercase">DUBAI, UAE</p>
         </div>
       </div>
     </footer>

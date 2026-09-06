@@ -9,6 +9,7 @@ import MagneticButton from "@/components/ui/MagneticButton";
 
 interface Project {
   id: string;
+  num: string;
   title: string;
   category: string;
   location: string;
@@ -25,6 +26,7 @@ interface Project {
 const ALL_PROJECTS: Project[] = [
   {
     id: "summit",
+    num: "01",
     title: "Global Corporate Summit",
     category: "Arena Summits",
     location: "Dubai Arena · UAE",
@@ -51,6 +53,7 @@ const ALL_PROJECTS: Project[] = [
   },
   {
     id: "gala",
+    num: "02",
     title: "Burj Khalifa Gala Dinner",
     category: "VIP Galas",
     location: "Downtown Dubai · UAE",
@@ -77,6 +80,7 @@ const ALL_PROJECTS: Project[] = [
   },
   {
     id: "retreat",
+    num: "03",
     title: "Desert Leadership Retreat",
     category: "Executive Retreats",
     location: "Bab Al Shams · Dubai",
@@ -103,6 +107,7 @@ const ALL_PROJECTS: Project[] = [
   },
   {
     id: "lounge",
+    num: "04",
     title: "Bespoke Experiential Lounge",
     category: "VIP Galas",
     location: "DIFC Corporate Build · Dubai",
@@ -144,26 +149,24 @@ export default function WorksPage() {
     <main className="min-h-screen bg-[#12103D] text-white flex flex-col justify-between overflow-x-clip">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative pt-36 sm:pt-44 pb-16 sm:pb-24 px-6 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#E3E6EF]/15">
-        <div className="max-w-4xl">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block mb-4">
+      {/* Hero Section - Confident Typography & Whitespace */}
+      <section className="relative pt-28 sm:pt-48 pb-14 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#28245F]/50">
+        <div className="max-w-4xl space-y-5 sm:space-y-6">
+          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block">
             DOCUMENTED PORTFOLIO · UAE &amp; GCC
           </span>
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
             Curated Impact.
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8EDAF2] via-[#8B7BC0] to-white">
-              Documented Excellence.
-            </span>
+            <br className="hidden sm:inline" />
+            {" "}Documented Excellence.
           </h1>
-          <p className="mt-8 text-lg sm:text-2xl text-[#E3E6EF] leading-relaxed font-normal">
+          <p className="mt-6 sm:mt-8 text-base sm:text-2xl text-[#E3E6EF]/85 leading-relaxed font-light max-w-3xl">
             Explore our signature portfolio of international arena conferences, avant-garde VIP galas, and secluded executive sanctuaries produced across Dubai and the UAE.
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="mt-12 flex flex-wrap gap-2.5 sm:gap-3">
+        {/* Clean Filter Links */}
+        <div className="mt-10 sm:mt-14 flex flex-wrap gap-3 sm:gap-6 border-t border-[#28245F]/50 pt-6 sm:pt-8">
           {CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat;
             return (
@@ -171,10 +174,10 @@ export default function WorksPage() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-300 ${
+                className={`text-[11px] sm:text-xs font-mono uppercase tracking-widest transition-colors ${
                   isSelected
-                    ? "bg-[#8EDAF2] text-[#12103D] font-bold shadow-[0_0_20px_rgba(142,218,242,0.4)]"
-                    : "bg-[#28245F] text-[#E3E6EF] hover:text-white border border-[#E3E6EF]/15 hover:border-[#8EDAF2]/50"
+                    ? "text-[#8EDAF2] font-bold border-b-2 border-[#8EDAF2] pb-1"
+                    : "text-[#E3E6EF]/60 hover:text-white pb-1"
                 }`}
               >
                 {cat}
@@ -184,83 +187,50 @@ export default function WorksPage() {
         </div>
       </section>
 
-      {/* Projects Grid - Reduced Compact Size */}
-      <section className="py-14 sm:py-20 px-6 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#E3E6EF]/15">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Projects Showcase */}
+      <section className="py-20 sm:py-32 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#28245F]/50">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-14">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group rounded-2xl bg-[#28245F] border border-[#E3E6EF]/15 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[#8EDAF2]/60 hover:shadow-[0_15px_35px_rgba(18,16,61,0.5)]"
+              className="group cursor-pointer flex flex-col justify-between"
+              onClick={() => setActiveProject(project)}
             >
-              {/* Media Preview - Reduced Height */}
-              <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-[#12103D]">
-                <Image
-                  src={project.heroImage}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-95"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#28245F] via-transparent to-transparent opacity-80" />
-
-                {/* Top Location & Year Badges */}
-                <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                  <span className="rounded-full bg-[#12103D]/85 backdrop-blur-md px-2.5 py-0.5 text-[9px] font-mono text-[#8EDAF2] border border-[#8EDAF2]/20">
-                    {project.location}
-                  </span>
-                  <span className="rounded-full bg-[#12103D]/85 backdrop-blur-md px-2 py-0.5 text-[9px] font-mono text-white/90 border border-white/10">
-                    {project.year}
-                  </span>
+              <div>
+                <div className="relative h-56 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#28245F]/30">
+                  <Image
+                    src={project.heroImage}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-95"
+                  />
                 </div>
-              </div>
 
-              {/* Card Meta Content - Compact Padding */}
-              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between gap-4">
-                <div>
-                  <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
-                    {project.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-[#12103D]/60 border border-[#8EDAF2]/20 px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider text-[#8EDAF2]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                <div className="mt-5 sm:mt-6 space-y-2">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#E3E6EF]/60">
+                    <span className="font-semibold text-[#8EDAF2]">{project.num} // {project.location}</span>
+                    <span>{project.year}</span>
                   </div>
 
-                  <h3 className="font-display text-base sm:text-lg font-bold text-white leading-snug group-hover:text-[#8EDAF2] transition-colors">
+                  <h3 className="font-display text-lg sm:text-2xl font-bold text-white group-hover:text-[#8EDAF2] transition-colors leading-snug">
                     {project.title}
                   </h3>
 
-                  <p className="mt-2 text-xs text-[#E3E6EF]/75 leading-relaxed line-clamp-2">
+                  <p className="text-xs sm:text-sm text-[#E3E6EF]/75 font-light leading-relaxed pt-1">
                     {project.description}
                   </p>
                 </div>
+              </div>
 
-                {/* Key Metrics Quick View - Compact */}
-                <div className="pt-4 border-t border-[#E3E6EF]/15 flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    {project.metrics.slice(0, 2).map((m) => (
-                      <div key={m.label}>
-                        <span className="font-display text-base sm:text-lg font-bold text-white">
-                          {m.value}
-                        </span>
-                        <p className="text-[9px] font-mono uppercase text-[#8EDAF2]/80">
-                          {m.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => setActiveProject(project)}
-                    className="inline-flex items-center gap-1 text-[11px] font-mono uppercase tracking-wider font-semibold text-[#8EDAF2] hover:text-white transition-colors"
-                  >
-                    <span>Details</span>
-                    <span className="text-sm text-[#8B7BC0]">→</span>
-                  </button>
-                </div>
+              <div className="mt-5 sm:mt-6 pt-4 border-t border-[#28245F]/40 flex items-center justify-between text-xs font-mono">
+                <span className="text-[#E3E6EF]/70">
+                  {project.metrics[0].label}: <strong className="text-white">{project.metrics[0].value}</strong>
+                </span>
+                <span className="font-semibold uppercase tracking-wider text-[#8EDAF2] group-hover:text-white transition-colors inline-flex items-center gap-1">
+                  View Case Study
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </span>
               </div>
             </div>
           ))}
@@ -268,37 +238,37 @@ export default function WorksPage() {
       </section>
 
       {/* Verified Performance Stats */}
-      <section className="py-20 sm:py-28 px-6 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#E3E6EF]/15">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div className="p-6 rounded-2xl bg-[#28245F]/50 border border-[#E3E6EF]/10">
-            <span className="font-display text-4xl sm:text-5xl font-black text-white">
+      <section className="py-20 sm:py-32 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#28245F]/50">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 text-left">
+          <div className="space-y-1.5 sm:space-y-2 pb-5 sm:pb-6 border-b border-[#28245F]/50 md:border-b-0">
+            <span className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white block">
               50+
             </span>
-            <p className="mt-2 text-xs font-mono uppercase tracking-widest text-[#8EDAF2]">
+            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#8EDAF2]">
               Major UAE Productions
             </p>
           </div>
-          <div className="p-6 rounded-2xl bg-[#28245F]/50 border border-[#E3E6EF]/10">
-            <span className="font-display text-4xl sm:text-5xl font-black text-white">
+          <div className="space-y-1.5 sm:space-y-2 pb-5 sm:pb-6 border-b border-[#28245F]/50 md:border-b-0">
+            <span className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white block">
               1,400+
             </span>
-            <p className="mt-2 text-xs font-mono uppercase tracking-widest text-[#8EDAF2]">
+            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#8EDAF2]">
               Peak Arena Capacity
             </p>
           </div>
-          <div className="p-6 rounded-2xl bg-[#28245F]/50 border border-[#E3E6EF]/10">
-            <span className="font-display text-4xl sm:text-5xl font-black text-white">
+          <div className="space-y-1.5 sm:space-y-2 pb-5 sm:pb-6 border-b border-[#28245F]/50 md:border-b-0">
+            <span className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white block">
               98%
             </span>
-            <p className="mt-2 text-xs font-mono uppercase tracking-widest text-[#8EDAF2]">
+            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#8EDAF2]">
               Attendee Engagement
             </p>
           </div>
-          <div className="p-6 rounded-2xl bg-[#28245F]/50 border border-[#E3E6EF]/10">
-            <span className="font-display text-4xl sm:text-5xl font-black text-white">
+          <div className="space-y-1.5 sm:space-y-2">
+            <span className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white block">
               100%
             </span>
-            <p className="mt-2 text-xs font-mono uppercase tracking-widest text-[#8EDAF2]">
+            <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#8EDAF2]">
               On-Time UAE Delivery
             </p>
           </div>
@@ -306,24 +276,24 @@ export default function WorksPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 sm:py-28 px-6 sm:px-12 mx-auto max-w-7xl w-full text-center">
-        <div className="max-w-3xl mx-auto space-y-6">
+      <section className="py-20 sm:py-36 px-5 sm:px-12 mx-auto max-w-7xl w-full text-center">
+        <div className="max-w-3xl mx-auto space-y-5 sm:space-y-6">
           <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block">
-            CUSTOM CASE STUDY DECKS
+            PRIVATE PORTFOLIO DECKS
           </span>
-          <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
+          <h2 className="font-display text-2xl sm:text-5xl lg:text-6xl font-bold text-white leading-snug">
             Have a Specific Production in Mind?
           </h2>
-          <p className="text-[#E3E6EF] text-base sm:text-lg">
-            Request our private NDA portfolio deck including comprehensive floor plans, AV schematics, and client references.
+          <p className="text-[#E3E6EF]/85 text-sm sm:text-lg font-light max-w-xl mx-auto leading-relaxed">
+            Request our private portfolio deck including comprehensive floor plans, AV schematics, and confidential client references.
           </p>
-          <div className="pt-4 flex justify-center gap-4">
+          <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
             <MagneticButton href="/contact" variant="primary">
               Request Full Portfolio
             </MagneticButton>
             <Link
               href="/"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-[#8EDAF2] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center px-5 py-3 text-xs sm:text-sm font-semibold text-[#8EDAF2] hover:text-white transition-colors"
             >
               Return Home →
             </Link>
@@ -336,10 +306,10 @@ export default function WorksPage() {
         <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#12103D]/85 p-4 sm:p-8 backdrop-blur-xl overflow-y-auto">
           <div className="relative w-full max-w-4xl rounded-3xl overflow-hidden border border-[#28245F] bg-[#12103D] shadow-2xl my-8 text-white">
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[#28245F] bg-[#12103D]">
+            <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[#28245F]">
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[#8EDAF2] font-bold block">
-                  VERIFIED CASE STUDY // {activeProject.category}
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#8EDAF2] font-semibold block">
+                  CASE STUDY ARCHIVE // {activeProject.category}
                 </span>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-white mt-0.5">
                   {activeProject.title}
@@ -348,7 +318,7 @@ export default function WorksPage() {
               <button
                 type="button"
                 onClick={() => setActiveProject(null)}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#28245F] text-[#E3E6EF] hover:text-white hover:bg-[#353075] text-sm font-bold transition-colors"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#28245F] text-[#E3E6EF] hover:text-white text-sm font-bold transition-colors"
                 aria-label="Close modal"
               >
                 ✕
@@ -366,59 +336,48 @@ export default function WorksPage() {
                 />
               </div>
 
-              <div className="flex flex-wrap items-center gap-2">
-                {activeProject.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-[#8EDAF2]/30 bg-[#28245F] px-3.5 py-1 text-xs font-mono uppercase tracking-wider text-[#8EDAF2]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
               <div className="space-y-4">
                 <h4 className="font-display text-xl font-bold text-white">
                   Executive Summary
                 </h4>
-                <p className="text-base text-[#E3E6EF] leading-relaxed">
+                <p className="text-base text-[#E3E6EF]/90 leading-relaxed font-light">
                   {activeProject.description}
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-[#28245F]">
-                <div className="p-5 rounded-2xl bg-[#28245F]/60 border border-[#28245F]">
-                  <span className="font-mono text-xs uppercase tracking-widest text-[#8EDAF2] block mb-2 font-bold">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6 border-t border-[#28245F]">
+                <div className="space-y-2">
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#8EDAF2] block font-semibold">
                     THE CHALLENGE
                   </span>
-                  <p className="text-sm text-[#E3E6EF]/90 leading-relaxed">
+                  <p className="text-sm text-[#E3E6EF]/85 leading-relaxed font-light">
                     {activeProject.challenge}
                   </p>
                 </div>
-                <div className="p-5 rounded-2xl bg-[#28245F]/60 border border-[#28245F]">
-                  <span className="font-mono text-xs uppercase tracking-widest text-[#8EDAF2] block mb-2 font-bold">
+                <div className="space-y-2">
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#8EDAF2] block font-semibold">
                     THE EXECUTION &amp; RESULT
                   </span>
-                  <p className="text-sm text-[#E3E6EF]/90 leading-relaxed">
+                  <p className="text-sm text-[#E3E6EF]/85 leading-relaxed font-light">
                     {activeProject.solution}
                   </p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-[#28245F]">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-[#28245F]">
                 {activeProject.metrics.map((m) => (
-                  <div key={m.label} className="p-4 rounded-xl bg-[#28245F] border border-[#28245F]/50 text-center">
-                    <span className="font-display text-2xl font-bold text-white">
+                  <div key={m.label}>
+                    <span className="font-display text-2xl sm:text-3xl font-bold text-white block">
                       {m.value}
                     </span>
-                    <p className="mt-1 text-[10px] font-mono uppercase text-[#8EDAF2]">
+                    <span className="text-[10px] font-mono uppercase text-[#8EDAF2]">
                       {m.label}
-                    </p>
+                    </span>
                   </div>
                 ))}
               </div>
 
-              <div className="space-y-3 pt-6 border-t border-[#28245F]">
+              <div className="space-y-4 pt-6 border-t border-[#28245F]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#8EDAF2] block">
                   Production Moments
                 </span>

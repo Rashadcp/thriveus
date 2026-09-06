@@ -24,15 +24,15 @@ export default function MagneticButton({
 
   const variantStyles = {
     primary:
-      "bg-[#12103D] text-white shadow-[0_4px_20px_rgba(142,218,242,0.22)] hover:shadow-[0_6px_28px_rgba(142,218,242,0.38)] hover:bg-[#28245F] border border-[#8EDAF2]/50 transition-all duration-300",
+      "bg-[#12103D] text-white hover:bg-[#28245F] border border-[#8EDAF2]/50 transition-colors duration-300",
     secondary:
-      "bg-transparent text-[#17163F] border border-[#28245F]/30 hover:border-[#8EDAF2] hover:bg-[#F7F9FC] shadow-sm transition-all duration-300",
+      "bg-transparent text-[#17163F] border border-[#28245F]/30 hover:border-[#8EDAF2] hover:bg-[#F7F9FC] transition-colors duration-300",
     outline:
-      "bg-transparent text-white border border-[#E3E6EF]/25 hover:border-[#8EDAF2] hover:text-[#8EDAF2] transition-all duration-300",
+      "bg-transparent text-white border border-white/20 hover:border-[#8EDAF2] hover:text-[#8EDAF2] transition-colors duration-300",
     ghost:
       "bg-transparent text-[#62627A] hover:text-[#17163F] p-0 hover:scale-100 transition-colors duration-300",
     dark:
-      "bg-[#28245F] text-white border border-[#8EDAF2]/30 hover:border-[#8EDAF2] hover:bg-[#12103D] shadow-lg transition-all duration-300",
+      "bg-[#28245F] text-white border border-[#8EDAF2]/30 hover:border-[#8EDAF2] hover:bg-[#12103D] transition-colors duration-300",
   };
 
   const content = (

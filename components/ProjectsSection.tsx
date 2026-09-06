@@ -82,19 +82,19 @@ export default function ProjectsSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="relative w-full bg-white py-28 sm:py-36 px-6 sm:px-12 overflow-hidden text-[#17163F] border-b border-[#E3E6EF]">
+    <section id="projects" className="relative w-full bg-white py-20 sm:py-36 px-5 sm:px-12 overflow-hidden text-[#17163F] border-b border-[#E3E6EF]">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 pb-8 border-b border-[#E3E6EF]">
+        <div className="mb-12 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-[#E3E6EF]">
           <div>
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#62627A] font-semibold block mb-3">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#62627A] font-semibold block mb-2 sm:mb-3">
               SELECTED WORKS
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#17163F]">
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#17163F]">
               Recent Productions
             </h2>
           </div>
-          <p className="text-sm text-[#62627A] max-w-xs font-light leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#62627A] max-w-xs font-light leading-relaxed">
             Curated corporate events delivered across Dubai, Abu Dhabi, and the wider UAE.
           </p>
         </div>
@@ -109,39 +109,39 @@ export default function ProjectsSection() {
             >
               <div>
                 {/* Clean Photographic Visual */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#F7F9FC]">
+                <div className="relative h-56 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#F7F9FC]">
                   <Image
                     src={project.heroImage}
                     alt={project.title}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 400px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
 
                 {/* Meta & Title */}
-                <div className="mt-6 space-y-2">
+                <div className="mt-5 sm:mt-6 space-y-2">
                   <div className="flex items-center justify-between text-xs font-mono text-[#62627A]">
                     <span className="font-semibold text-[#17163F]">{project.num} // {project.location}</span>
                     <span>{project.tags[0]}</span>
                   </div>
 
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[#17163F] group-hover:text-[#28245F] transition-colors leading-snug">
+                  <h3 className="font-display text-lg sm:text-2xl font-bold text-[#17163F] group-hover:text-[#28245F] transition-colors leading-snug">
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-[#62627A] font-light leading-relaxed pt-1">
+                  <p className="text-xs sm:text-sm text-[#62627A] font-light leading-relaxed pt-1">
                     {project.description}
                   </p>
                 </div>
               </div>
 
               {/* Clean Text Action */}
-              <div className="mt-6 pt-4 border-t border-[#E3E6EF] flex items-center justify-between">
-                <span className="text-xs font-mono text-[#62627A]">
+              <div className="mt-5 sm:mt-6 pt-4 border-t border-[#E3E6EF] flex items-center justify-between text-xs font-mono">
+                <span className="text-[#62627A]">
                   {project.metrics[0].label}: <strong className="text-[#17163F]">{project.metrics[0].value}</strong>
                 </span>
-                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#12103D] group-hover:text-[#28245F] transition-colors inline-flex items-center gap-1.5">
+                <span className="font-semibold uppercase tracking-wider text-[#12103D] group-hover:text-[#28245F] transition-colors inline-flex items-center gap-1">
                   View Case Study
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>
@@ -153,22 +153,22 @@ export default function ProjectsSection() {
 
       {/* Case Study Modal */}
       {activeProject && (
-        <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#12103D]/80 p-4 sm:p-8 backdrop-blur-xl overflow-y-auto">
-          <div className="relative w-full max-w-4xl rounded-3xl overflow-hidden border border-[#28245F] bg-[#12103D] shadow-2xl my-8 text-white">
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#12103D]/80 p-3 sm:p-8 backdrop-blur-xl overflow-y-auto">
+          <div className="relative w-full max-w-4xl rounded-2xl sm:rounded-3xl overflow-hidden border border-[#28245F] bg-[#12103D] shadow-2xl my-4 sm:my-8 text-white">
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[#28245F]">
-              <div>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[#8EDAF2] font-semibold block">
+            <div className="flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 border-b border-[#28245F]">
+              <div className="pr-4">
+                <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-[#8EDAF2] font-semibold block">
                   CASE STUDY ARCHIVE
                 </span>
-                <h3 className="font-display text-lg sm:text-xl font-bold text-white mt-0.5">
+                <h3 className="font-display text-base sm:text-xl font-bold text-white mt-0.5 truncate max-w-[240px] sm:max-w-none">
                   {activeProject.title}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setActiveProject(null)}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-[#28245F] text-[#E3E6EF] hover:text-white text-sm font-bold transition-colors"
+                className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#28245F] text-[#E3E6EF] hover:text-white text-xs sm:text-sm font-bold transition-colors flex-shrink-0"
                 aria-label="Close modal"
               >
                 ✕
@@ -176,33 +176,34 @@ export default function ProjectsSection() {
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 sm:p-8 space-y-8 max-h-[75vh] overflow-y-auto">
-              <div className="relative h-64 sm:h-96 w-full rounded-2xl overflow-hidden border border-[#28245F]">
+            <div className="p-5 sm:p-8 space-y-6 sm:space-y-8 max-h-[75vh] overflow-y-auto">
+              <div className="relative h-48 sm:h-80 w-full rounded-xl sm:rounded-2xl overflow-hidden border border-[#28245F]">
                 <Image
                   src={activeProject.heroImage}
                   alt={activeProject.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 800px"
                   className="object-cover"
                 />
               </div>
 
-              <div className="space-y-4">
-                <h4 className="font-display text-xl font-bold text-white">
+              <div className="space-y-3 sm:space-y-4">
+                <h4 className="font-display text-lg sm:text-xl font-bold text-white">
                   The Experience Brief &amp; Delivery
                 </h4>
-                <p className="text-base text-[#E3E6EF]/90 leading-relaxed font-light">
+                <p className="text-sm sm:text-base text-[#E3E6EF]/90 leading-relaxed font-light">
                   {activeProject.description}
                 </p>
               </div>
 
               {/* Verified Metrics */}
-              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#28245F]">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 pt-5 sm:pt-6 border-t border-[#28245F]">
                 {activeProject.metrics.map((m) => (
                   <div key={m.label}>
-                    <span className="font-display text-2xl sm:text-3xl font-bold text-white block">
+                    <span className="font-display text-xl sm:text-3xl font-bold text-white block">
                       {m.value}
                     </span>
-                    <span className="text-[11px] font-mono uppercase text-[#8EDAF2]">
+                    <span className="text-[10px] sm:text-[11px] font-mono uppercase text-[#8EDAF2]">
                       {m.label}
                     </span>
                   </div>
@@ -210,17 +211,18 @@ export default function ProjectsSection() {
               </div>
 
               {/* Multi-Photo Gallery Preview */}
-              <div className="space-y-3 pt-6 border-t border-[#28245F]">
+              <div className="space-y-3 pt-5 sm:pt-6 border-t border-[#28245F]">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#8EDAF2] block">
                   Production Moments
                 </span>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                   {activeProject.gallery.map((img, i) => (
-                    <div key={i} className="relative h-28 sm:h-36 rounded-xl overflow-hidden border border-[#28245F]">
+                    <div key={i} className="relative h-24 sm:h-36 rounded-lg sm:rounded-xl overflow-hidden border border-[#28245F]">
                       <Image
                         src={img}
                         alt="Production gallery detail"
                         fill
+                        sizes="(max-width: 640px) 50vw, 300px"
                         className="object-cover brightness-95 hover:scale-105 transition-transform duration-500"
                       />
                     </div>

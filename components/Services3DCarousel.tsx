@@ -1,15 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useMotionValue,
-  animate,
-} from "framer-motion";
+import Link from "next/link";
 
 interface ServiceItem {
   id: string;
@@ -18,324 +11,373 @@ interface ServiceItem {
   image: string;
   tag: string;
   description: string;
+  highlights: string[];
 }
 
 const SERVICES: ServiceItem[] = [
   {
     id: "team-building",
     serviceNum: "01",
-    title: "TEAM BUILDING & ENGAGEMENT",
-    tag: "TEAM BUILDING",
+    title: "Team Building & Engagement",
+    tag: "Team Dynamics",
     image: "/images/team-building.jpg",
     description:
-      "Fun team activities that build trust, teamwork, and strong company culture.",
+      "Interactive experiences and team challenges that build authentic trust, collaboration, and high-performance workplace culture.",
+    highlights: ["Custom Team Challenges", "Collaborative Problem-Solving", "Culture & Morale Alignment"],
   },
   {
     id: "immersive-venues",
     serviceNum: "02",
-    title: "VENUE EXPERIENCES",
-    tag: "VENUE EVENTS",
+    title: "Venue Experiences",
+    tag: "Spatial Curation",
     image: "/images/featured-experience.jpg",
     description:
-      "Exciting corporate events hosted in top venues across Dubai and the UAE.",
+      "Immersive corporate gatherings hosted in iconic, premier architectural spaces across Dubai, Abu Dhabi, and the wider UAE.",
+    highlights: ["Architectural Venues", "Full Spatial Staging", "Bespoke VIP Hospitality"],
   },
   {
     id: "training-leadership",
     serviceNum: "03",
-    title: "LEADERSHIP & TRAINING",
-    tag: "TRAINING",
+    title: "Leadership & Training",
+    tag: "Executive Development",
     image: "/images/leadership-training.jpg",
     description:
-      "Practical workshops that help leaders and teams communicate and succeed.",
+      "High-impact leadership masterclasses and executive development workshops focused on modern strategic leadership and communication.",
+    highlights: ["C-Suite Facilitation", "Communication Strategy", "Interactive Masterclasses"],
   },
   {
     id: "conferences-events",
     serviceNum: "04",
-    title: "EVENTS & CONFERENCES",
-    tag: "CONFERENCES",
+    title: "Events & Conferences",
+    tag: "Summits & Galas",
     image: "/images/hero-event.jpg",
     description:
-      "Complete event planning and production for summits, galas, and launches.",
+      "Full-scale production for global summits, corporate galas, and brand launch events from initial spatial concept through flawless execution.",
+    highlights: ["Arena-Scale Keynotes", "Turnkey Audiovisual", "Live Delegate Operations"],
   },
   {
     id: "retreats-incentives",
     serviceNum: "05",
-    title: "COMPANY RETREATS",
-    tag: "RETREATS",
+    title: "Company Retreats",
+    tag: "Executive Offsites",
     image: "/images/desert-retreat.jpg",
     description:
-      "Custom offsite trips in beautiful locations for relaxation and team bonding.",
+      "Bespoke retreat itineraries combining executive strategy sessions with restorative wellness in stunning regional environments.",
+    highlights: ["Desert Sanctuaries", "Executive Salons", "Curated Wellness & Dining"],
   },
   {
     id: "cultural-events",
     serviceNum: "06",
-    title: "CORPORATE CELEBRATIONS",
-    tag: "SPECIAL EVENTS",
+    title: "Corporate Celebrations",
+    tag: "Brand Milestones",
     image: "/images/vip-lounge.jpg",
     description:
-      "Memorable awards nights, Iftar gatherings, and celebrations for your brand.",
+      "Commemorative milestone galas, executive dinners, and celebration evenings engineered to honor organizational achievement.",
+    highlights: ["Awards Ceremonies", "VIP Recognition Nights", "Brand Milestone Galas"],
   },
 ];
 
 export default function Services3DCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [radius, setRadius] = useState(250);
   const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const isScrollingRef = useRef(false);
 
-  const N = SERVICES.length;
-  const angleStep = 360 / N; // 60 degrees per card
+  // Smooth scroll to a specific service step
+  const scrollToService = useCallback((targetIndex: number) => {
+    if (!containerRef.current) return;
+    const containerTop =
+      containerRef.current.getBoundingClientRect().top + window.scrollY;
+    const containerHeight = containerRef.current.offsetHeight;
+    const viewportHeight = window.innerHeight;
+    const scrollableDistance = containerHeight - viewportHeight;
 
-  // Framer Motion scroll tracking over the pinned container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+    if (scrollableDistance <= 0) return;
 
-  // Manual angle offset controlled via arrows, drag, or direct card clicks
-  const manualOffset = useMotionValue(0);
+    // Position each service at the comfortable center of its segment
+    const segmentSize = scrollableDistance / SERVICES.length;
+    const targetScrollY = containerTop + targetIndex * segmentSize + 15;
 
-  // Map scroll progress 0 -> 1 to 0 -> -360 degrees (1 full 3D revolution across cards)
-  const scrollRotation = useTransform(scrollYProgress, [0, 1], [0, -360]);
-
-  // Combine scroll-driven angle and manual user interaction
-  const combinedAngle = useTransform(
-    [scrollRotation, manualOffset],
-    ([scroll, manual]) => (scroll as number) + (manual as number)
-  );
-
-  // Luxurious spring smoothing for heavy, fluid physical rotation
-  const smoothRotation = useSpring(combinedAngle, {
-    stiffness: 95,
-    damping: 24,
-    mass: 0.5,
-  });
-
-  // Dynamic responsive radius scaled proportionally for 100vh viewport
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setRadius(175);
-      } else if (window.innerWidth < 1024) {
-        setRadius(215);
-      } else {
-        setRadius(250);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.scrollTo({
+      top: targetScrollY,
+      behavior: "smooth",
+    });
   }, []);
 
-  // Track active front-facing card index from rotation angle
+  // RequestAnimationFrame-throttled scroll listener for 60/120fps mobile smoothness
   useEffect(() => {
-    const unsubscribe = smoothRotation.on("change", (latest) => {
-      const normalized = ((-latest % 360) + 360) % 360;
-      const idx = Math.round(normalized / angleStep) % N;
-      setActiveIndex(idx);
-    });
-    return () => unsubscribe();
-  }, [smoothRotation, angleStep, N]);
+    let animationFrameId: number | null = null;
 
-  // Navigation handlers
-  const handlePrev = () => {
-    const current = manualOffset.get();
-    animate(manualOffset, current + angleStep, {
-      duration: 0.45,
-      ease: [0.16, 1, 0.3, 1],
-    });
+    const handleScroll = () => {
+      if (animationFrameId !== null) return;
+
+      animationFrameId = requestAnimationFrame(() => {
+        animationFrameId = null;
+        if (!containerRef.current) return;
+
+        const rect = containerRef.current.getBoundingClientRect();
+        const containerHeight = containerRef.current.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        const scrollableDistance = containerHeight - viewportHeight;
+
+        if (scrollableDistance <= 0) return;
+
+        // Before reaching section top
+        if (rect.top > 0) {
+          setActiveIndex((prev) => (prev !== 0 ? 0 : prev));
+          return;
+        }
+
+        // Distance scrolled past the top of the container
+        const scrolledPastTop = -rect.top;
+        const progress = Math.max(0, Math.min(1, scrolledPastTop / scrollableDistance));
+
+        // Smoothly map 0..1 progress to active service with slight boundary margin to prevent flip-flopping
+        const rawIndex = Math.floor(progress * SERVICES.length);
+        const clampedIndex = Math.min(SERVICES.length - 1, Math.max(0, rawIndex));
+
+        setActiveIndex((prev) => (prev !== clampedIndex ? clampedIndex : prev));
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
+
+  // Mobile Horizontal Touch Swipe Support (allows users to swipe left/right between cards seamlessly)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
   };
 
-  const handleNext = () => {
-    const current = manualOffset.get();
-    animate(manualOffset, current - angleStep, {
-      duration: 0.45,
-      ease: [0.16, 1, 0.3, 1],
-    });
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+
+    // If horizontal swipe is prominent and exceeds threshold
+    if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0 && activeIndex < SERVICES.length - 1) {
+        // Swiped Left -> Next service
+        scrollToService(activeIndex + 1);
+      } else if (deltaX > 0 && activeIndex > 0) {
+        // Swiped Right -> Previous service
+        scrollToService(activeIndex - 1);
+      }
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
   };
 
-  const handleSelectCard = (index: number) => {
-    const currentTotal = combinedAngle.get();
-    const currentNorm = ((-currentTotal % 360) + 360) % 360;
-    const targetNorm = index * angleStep;
-    let diff = targetNorm - currentNorm;
-    if (diff > 180) diff -= 360;
-    if (diff < -180) diff += 360;
-
-    const currentManual = manualOffset.get();
-    animate(manualOffset, currentManual - diff, {
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
-    });
-  };
-
-  // Drag / Swipe interaction
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const startAngle = useRef(0);
-
-  const handlePointerDown = (e: React.PointerEvent) => {
-    isDragging.current = true;
-    startX.current = e.clientX;
-    startAngle.current = manualOffset.get();
-  };
-
-  const handlePointerMove = (e: React.PointerEvent) => {
-    if (!isDragging.current) return;
-    const delta = e.clientX - startX.current;
-    manualOffset.set(startAngle.current + delta * 0.35);
-  };
-
-  const handlePointerUp = () => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
-  };
+  const activeService = SERVICES[activeIndex];
 
   return (
     <section
       ref={containerRef}
       id="services"
-      className="relative w-full bg-[#12103D] text-white h-[300vh] border-b border-[#28245F]"
+      className="relative w-full bg-[#12103D] text-white h-[300vh] sm:h-[360vh] border-t border-[#28245F]/50"
     >
-      {/* Subtle Ambient Radial Lighting in Cyan & Lavender */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(142,218,242,0.12)_0%,rgba(139,123,192,0.05)_40%,transparent_65%)]" />
+      {/* Pinned Viewport: 100dvh avoids jumpy mobile address bar resizing */}
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        className="sticky top-0 h-[100dvh] min-h-[560px] w-full flex flex-col justify-between overflow-hidden pt-16 sm:pt-24 pb-4 sm:pb-8 px-4 sm:px-10 lg:px-16 select-none bg-[#12103D]"
+      >
+        {/* 1. Header & Live Segment Progress Bar */}
+        <div className="w-full max-w-7xl mx-auto flex items-end justify-between pb-2.5 sm:pb-4 border-b border-[#28245F]/60 flex-shrink-0">
+          <div>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold">
+                What We Deliver
+              </span>
+              <span className="text-[10px] font-mono text-[#62627A] hidden sm:inline">
+                // Scroll down or swipe to explore
+              </span>
+            </div>
+            <h2 className="font-display text-lg sm:text-3xl font-bold tracking-tight text-white mt-0.5 sm:mt-1">
+              Our Services
+            </h2>
+          </div>
 
-      {/* Pinned Sticky Viewport: perfectly fitted within 100vh with dedicated top navbar clearance */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-between items-center overflow-hidden pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-8 select-none">
-        {/* 1. Header: Positioned with generous clearance below floating navbar */}
-        <div className="text-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold block mb-1">
-            WHAT WE DELIVER
-          </span>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white uppercase">
-            OUR SERVICES
-          </h2>
+          {/* Stepper indicator: 01 / 06 with 6 segmented bars */}
+          <div className="flex flex-col items-end gap-1 sm:gap-2">
+            <div className="flex items-center gap-1.5 font-mono text-[11px] sm:text-sm">
+              <span className="font-bold text-[#8EDAF2]">
+                {activeService.serviceNum}
+              </span>
+              <span className="text-[#62627A]">/ 06</span>
+            </div>
+
+            {/* Segmented Clickable Progress Track */}
+            <div className="flex items-center gap-1 sm:gap-1.5">
+              {SERVICES.map((srv, idx) => (
+                <button
+                  key={srv.id}
+                  type="button"
+                  onClick={() => scrollToService(idx)}
+                  aria-label={`Jump to Service 0${idx + 1}: ${srv.title}`}
+                  className="group py-1 cursor-pointer"
+                >
+                  <div
+                    className={`h-1.5 transition-all duration-300 rounded-full ${
+                      activeIndex === idx
+                        ? "w-6 sm:w-10 bg-[#8EDAF2]"
+                        : activeIndex > idx
+                        ? "w-2.5 sm:w-4 bg-[#8EDAF2]/50"
+                        : "w-2.5 sm:w-4 bg-[#28245F] group-hover:bg-[#28245F]/80"
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* 2. 3D Cylindrical Carousel Viewport: sized so cards never touch header or footer */}
-        <div
-          className="relative h-[280px] sm:h-[300px] w-full flex items-center justify-center cursor-grab active:cursor-grabbing my-auto"
-          style={{
-            perspective: "1200px",
-          }}
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
-        >
-          {/* 3D Revolving Cylinder Ring */}
-          <motion.div
-            className="relative h-full w-full flex items-center justify-center"
-            style={{
-              transformStyle: "preserve-3d",
-              rotateY: smoothRotation,
-            }}
-          >
-            {SERVICES.map((service, index) => {
-              const itemAngle = index * angleStep;
-              const isCurrent = activeIndex === index;
+        {/* 2. Main Center Content: Dual-Layered Smooth Cross-Fade Layout */}
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-14 items-center my-auto flex-1 overflow-hidden py-1 sm:py-4">
+          {/* Visual Photography Frame: Top on Mobile, Right on Desktop */}
+          <div className="order-first lg:order-last lg:col-span-6 flex flex-col justify-center">
+            <div className="relative w-full h-[185px] sm:h-[280px] lg:h-[390px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#28245F]/30 border border-[#28245F]/60 shadow-xl">
+              {/* Stacked Images for instantaneous, silky cross-fading */}
+              {SERVICES.map((srv, idx) => (
+                <div
+                  key={srv.id}
+                  className={`absolute inset-0 transition-all duration-500 ease-out will-change-transform ${
+                    activeIndex === idx
+                      ? "opacity-100 scale-100 z-10 pointer-events-auto"
+                      : "opacity-0 scale-[1.03] z-0 pointer-events-none"
+                  }`}
+                >
+                  <Image
+                    src={srv.image}
+                    alt={srv.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
+                    className="object-cover object-center"
+                    priority={idx === 0}
+                  />
+                  {/* Subtle film overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12103D]/90 via-transparent to-transparent pointer-events-none" />
 
+                  {/* Badge */}
+                  <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 z-10 flex items-center gap-2">
+                    <span className="font-mono text-[9px] sm:text-xs uppercase tracking-wider bg-[#12103D]/85 backdrop-blur-md px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 text-white font-medium">
+                      {srv.tag}
+                    </span>
+                    <span className="font-mono text-[9px] sm:text-[10px] text-[#8EDAF2] hidden sm:inline">
+                      DUBAI &amp; UAE
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Editorial Description Column: Bottom on Mobile, Left on Desktop */}
+          <div className="order-last lg:order-first lg:col-span-6 flex flex-col justify-center relative min-h-[190px] sm:min-h-[260px]">
+            {/* Stacked Editorial Cards for smooth cross-fading without blank flashes */}
+            {SERVICES.map((srv, idx) => {
+              const isCurrent = activeIndex === idx;
               return (
                 <div
-                  key={service.id}
-                  onClick={() => handleSelectCard(index)}
-                  className={`absolute w-[185px] sm:w-[215px] md:w-[225px] bg-[#28245F] text-white rounded-xl overflow-hidden border transition-all duration-300 flex flex-col cursor-pointer ${
+                  key={srv.id}
+                  className={`space-y-2.5 sm:space-y-4 transition-all duration-500 ease-out will-change-transform ${
                     isCurrent
-                      ? "border-[#8EDAF2] shadow-[0_20px_50px_rgba(142,218,242,0.25)] opacity-100 ring-1 ring-[#8EDAF2]/40"
-                      : "border-[#E3E6EF]/15 shadow-[0_15px_35px_rgba(18,16,61,0.6)] opacity-65 hover:opacity-90 hover:border-[#8EDAF2]/50"
+                      ? "opacity-100 translate-y-0 relative z-10 pointer-events-auto"
+                      : "opacity-0 translate-y-3 absolute inset-0 z-0 pointer-events-none"
                   }`}
-                  style={{
-                    transformStyle: "preserve-3d",
-                    transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
-                    backfaceVisibility: "visible", // Rear cards show mirrored perspective in 3D
-                  }}
                 >
-                  {/* Top: Compact Media Container */}
-                  <div className="relative h-[90px] sm:h-[100px] w-full bg-[#12103D]/60 overflow-hidden flex-shrink-0">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 640px) 185px, 225px"
-                      className="object-cover object-center transition-transform duration-500 hover:scale-105 brightness-95"
-                    />
-                    <div className="absolute top-2 left-2 bg-[#12103D]/85 backdrop-blur-md px-2 py-0.5 rounded text-[8px] font-mono uppercase tracking-wider text-[#8EDAF2] border border-[#8EDAF2]/30">
-                      {service.tag}
-                    </div>
+                  {/* Number & Category */}
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <span className="font-mono text-sm sm:text-lg text-[#8EDAF2] font-bold">
+                      {srv.serviceNum}
+                    </span>
+                    <span className="h-px w-6 sm:w-8 bg-[#28245F]" />
+                    <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#62627A]">
+                      {srv.tag}
+                    </span>
                   </div>
 
-                  {/* Bottom: Compact Title & Clean Description */}
-                  <div className="p-2.5 sm:p-3 flex flex-col justify-between bg-[#28245F] flex-1 min-h-[95px] sm:min-h-[105px]">
-                    <div>
-                      <h3 className="font-display text-[10.5px] sm:text-[11.5px] font-black uppercase tracking-tight text-white leading-snug">
-                        {service.title}
-                      </h3>
-                      <p className="mt-1 text-[9.5px] sm:text-[10px] text-[#E3E6EF]/80 leading-relaxed line-clamp-2 font-normal">
-                        {service.description}
-                      </p>
-                    </div>
+                  {/* Service Headline */}
+                  <h3 className="font-display text-lg sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-snug">
+                    {srv.title}
+                  </h3>
 
-                    <div className="mt-2 pt-1.5 border-t border-[#E3E6EF]/15 flex items-center justify-between text-[8px] font-mono uppercase tracking-widest text-[#E3E6EF]/60">
-                      <span className="text-[#8EDAF2] font-semibold">SERVICE // {service.serviceNum}</span>
-                      <span className="text-white font-bold">THRIVEUS</span>
-                    </div>
+                  {/* Service Description */}
+                  <p className="text-xs sm:text-base text-[#E3E6EF]/80 leading-relaxed font-light max-w-xl line-clamp-2 sm:line-clamp-none">
+                    {srv.description}
+                  </p>
+
+                  {/* Key Highlights */}
+                  <div className="pt-0.5 sm:pt-1 flex flex-wrap gap-1 sm:gap-2">
+                    {srv.highlights.map((h) => (
+                      <span
+                        key={h}
+                        className="inline-flex items-center gap-1 font-mono text-[8.5px] sm:text-xs text-[#E3E6EF]/75 bg-[#28245F]/50 border border-[#28245F] rounded-md px-2 py-0.5 sm:px-2.5 sm:py-1"
+                      >
+                        <span className="text-[#8EDAF2]">✦</span>
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Link */}
+                  <div className="pt-1 sm:pt-2">
+                    <Link
+                      href="/services"
+                      className="inline-flex items-center gap-1.5 font-display text-[11px] sm:text-sm uppercase tracking-wider font-semibold text-[#8EDAF2] hover:text-white transition-colors"
+                    >
+                      <span>View full service details</span>
+                      <span aria-hidden="true">→</span>
+                    </Link>
                   </div>
                 </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
 
-        {/* 3. Bottom Controls & Pagination: Clean separation with generous breathing room */}
-        <div className="w-full max-w-sm flex flex-col items-center gap-2.5">
-          {/* Active Service Dots Indicator */}
-          <div className="flex items-center gap-1.5">
-            {SERVICES.map((srv, idx) => (
-              <button
-                key={srv.id}
-                type="button"
-                onClick={() => handleSelectCard(idx)}
-                aria-label={`Go to ${srv.title}`}
-                className={`transition-all duration-300 rounded-full ${
-                  activeIndex === idx
-                    ? "w-6 h-1.5 bg-[#8EDAF2] shadow-[0_0_10px_#8edaf2]"
-                    : "w-1.5 h-1.5 bg-[#28245F] border border-[#E3E6EF]/30 hover:border-[#8EDAF2]"
-                }`}
-              />
-            ))}
+        {/* 3. Bottom Controls & Scroll Hint */}
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between pt-2 sm:pt-3 border-t border-[#28245F]/40 text-[11px] sm:text-xs font-mono text-[#62627A] flex-shrink-0">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <button
+              type="button"
+              onClick={() => scrollToService(Math.max(0, activeIndex - 1))}
+              disabled={activeIndex === 0}
+              className="inline-flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-xs font-semibold text-[#E3E6EF] hover:text-[#8EDAF2] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            >
+              ← Prev
+            </button>
+            <span className="text-[#28245F]">|</span>
+            <button
+              type="button"
+              onClick={() => scrollToService(Math.min(SERVICES.length - 1, activeIndex + 1))}
+              disabled={activeIndex === SERVICES.length - 1}
+              className="inline-flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-xs font-semibold text-[#E3E6EF] hover:text-[#8EDAF2] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            >
+              Next →
+            </button>
           </div>
 
-          {/* Arrows & Active Counter */}
-          <div className="flex items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="group flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-[#E3E6EF]/20 bg-[#28245F] text-white transition-all duration-300 hover:bg-[#8EDAF2] hover:text-[#12103D] hover:border-[#8EDAF2] active:scale-95 shadow-md backdrop-blur-sm"
-              aria-label="Previous Service"
-            >
-              <span className="text-sm sm:text-base font-bold transition-transform duration-300 group-hover:-translate-x-0.5">
-                ←
-              </span>
-            </button>
-
-            <div className="text-center min-w-[140px] sm:min-w-[160px]">
-              <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-[#E3E6EF] block font-semibold">
-                SERVICE 0{activeIndex + 1} OF 0{N}
-              </span>
-              <span className="font-mono text-[8.5px] uppercase tracking-wider text-[#8EDAF2]/80 block">
-                SCROLL · DRAG · CLICK
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={handleNext}
-              className="group flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-[#E3E6EF]/20 bg-[#28245F] text-white transition-all duration-300 hover:bg-[#8EDAF2] hover:text-[#12103D] hover:border-[#8EDAF2] active:scale-95 shadow-md backdrop-blur-sm"
-              aria-label="Next Service"
-            >
-              <span className="text-sm sm:text-base font-bold transition-transform duration-300 group-hover:translate-x-0.5">
-                →
-              </span>
-            </button>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="text-[#8EDAF2] animate-bounce">↓</span>
+            <span className="hidden sm:inline">
+              {activeIndex === SERVICES.length - 1
+                ? "Scroll down to continue to Beats & Beyond"
+                : `Keep scrolling down to reveal 0${activeIndex + 2}`}
+            </span>
+            <span className="sm:hidden text-[10px]">
+              {activeIndex === SERVICES.length - 1 ? "Scroll down to continue" : "Scroll / swipe to explore"}
+            </span>
           </div>
         </div>
       </div>
