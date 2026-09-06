@@ -1,41 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-midnight: #12103D;
-  --color-indigo: #28245F;
-  --color-cyan: #8EDAF2;
-  --color-lavender: #8B7BC0;
-  --color-light-bg: #F7F9FC;
-  --color-pure-white: #FFFFFF;
-  --color-text-primary: #17163F;
-  --color-text-secondary: #62627A;
-  --color-border-subtle: #E3E6EF;
+  --color-indigo: #242057;
+  --color-purple: #75559C;
+  --color-teal: #1782A8;
+  --color-ink: #0B0A0D;
+  --color-white: #FFFFFF;
 
-  /* Palette compatibility mappings */
-  --color-obsidian: #12103D;
-  --color-navy-950: #12103D;
-  --color-navy-900: #1c184c;
-  --color-navy-850: #211d56;
-  --color-navy-800: #28245F;
-  --color-navy-700: #363172;
-  --color-accent-blue: #8EDAF2;
-  --color-accent-cyan: #8EDAF2;
-  --color-accent-indigo: #8B7BC0;
-  --color-offwhite: #F7F9FC;
+  /* Theme token aliases strictly mapped to Section 2.8 Brand Colours */
+  --color-midnight: #0B0A0D;
+  --color-cyan: #1782A8;
+  --color-lavender: #75559C;
+  --color-light-bg: #FFFFFF;
+  --color-pure-white: #FFFFFF;
+  --color-text-primary: #0B0A0D;
+  --color-text-secondary: #75559C;
+
+  --color-obsidian: #0B0A0D;
+  --color-navy-950: #0B0A0D;
+  --color-navy-900: #0B0A0D;
+  --color-navy-850: #242057;
+  --color-navy-800: #242057;
+  --color-navy-700: #242057;
+  --color-accent-blue: #1782A8;
+  --color-accent-cyan: #1782A8;
+  --color-accent-indigo: #75559C;
   --font-display: var(--font-sora), system-ui, sans-serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
 }
 
 :root {
-  --midnight: #12103D;
-  --indigo: #28245F;
-  --cyan: #8EDAF2;
-  --lavender: #8B7BC0;
-  --light-bg: #F7F9FC;
-  --pure-white: #FFFFFF;
-  --text-primary: #17163F;
-  --text-secondary: #62627A;
-  --border-subtle: #E3E6EF;
+  --indigo: #242057;
+  --purple: #75559C;
+  --teal: #1782A8;
+  --ink: #0B0A0D;
+  --white: #FFFFFF;
 }
 
 html {
@@ -49,15 +48,15 @@ html {
 
 body {
   font-family: var(--font-inter), sans-serif;
-  background-color: #12103D;
-  color: #17163F;
+  background-color: #0B0A0D;
+  color: #FFFFFF;
   overflow-x: clip;
   touch-action: manipulation;
 }
 
 ::selection {
-  background: #8EDAF2;
-  color: #12103D;
+  background: #1782A8;
+  color: #FFFFFF;
 }
 
 /* Seamless Continuous Marquee Animations */
@@ -99,23 +98,17 @@ body {
   animation-play-state: paused;
 }
 
-/* Subtle luxury noise texture overlay */
-.bg-noise {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #12103D;
+  background: #0B0A0D;
 }
 ::-webkit-scrollbar-thumb {
-  background: #28245F;
+  background: #242057;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8EDAF2;
+  background: #1782A8;
 }

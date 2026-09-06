@@ -21,7 +21,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#12103D",
+  themeColor: "#0B0A0D",
 };
 
 export const metadata: Metadata = {
@@ -99,7 +99,7 @@ export default function RootLayout({
       lang="en-GB"
       className={`${sora.variable} ${inter.variable} min-h-full scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#12103D] text-white antialiased selection:bg-[#8EDAF2] selection:text-[#12103D]">
+      <body className="min-h-full flex flex-col font-sans bg-[#0B0A0D] text-white antialiased selection:bg-[#1782A8] selection:text-white">
         <RouteTransition>{children}</RouteTransition>
       </body>
     </html>

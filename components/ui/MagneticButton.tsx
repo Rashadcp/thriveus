@@ -20,19 +20,19 @@ export default function MagneticButton({
   variant = "primary",
 }: MagneticButtonProps) {
   const baseStyles =
-    "group relative inline-flex items-center justify-center font-display text-xs sm:text-sm tracking-[0.1em] uppercase font-semibold transition-all duration-300 select-none overflow-hidden rounded-full py-3.5 px-7 outline-none focus-visible:ring-2 focus-visible:ring-[#8EDAF2] hover:scale-[1.02] active:scale-[0.98]";
+    "group relative inline-flex items-center justify-center font-display text-xs sm:text-sm tracking-[0.1em] uppercase font-semibold transition-all duration-300 select-none overflow-hidden rounded-full py-3.5 px-7 outline-none focus-visible:ring-2 focus-visible:ring-[#1782A8] hover:scale-[1.02] active:scale-[0.98]";
 
   const variantStyles = {
     primary:
-      "bg-[#12103D] text-white hover:bg-[#28245F] border border-[#8EDAF2]/50 transition-colors duration-300",
+      "bg-[#0B0A0D] text-white hover:bg-[#242057] border border-[#1782A8]/60 transition-colors duration-300",
     secondary:
-      "bg-transparent text-[#17163F] border border-[#28245F]/30 hover:border-[#8EDAF2] hover:bg-[#F7F9FC] transition-colors duration-300",
+      "bg-transparent text-[#0B0A0D] border border-[#242057]/40 hover:border-[#1782A8] hover:bg-white transition-colors duration-300",
     outline:
-      "bg-transparent text-white border border-white/20 hover:border-[#8EDAF2] hover:text-[#8EDAF2] transition-colors duration-300",
+      "bg-transparent text-white border border-white/20 hover:border-[#1782A8] hover:text-[#1782A8] transition-colors duration-300",
     ghost:
-      "bg-transparent text-[#62627A] hover:text-[#17163F] p-0 hover:scale-100 transition-colors duration-300",
+      "bg-transparent text-[#75559C] hover:text-[#0B0A0D] p-0 hover:scale-100 transition-colors duration-300",
     dark:
-      "bg-[#28245F] text-white border border-[#8EDAF2]/30 hover:border-[#8EDAF2] hover:bg-[#12103D] transition-colors duration-300",
+      "bg-[#242057] text-white border border-[#1782A8]/40 hover:border-[#1782A8] hover:bg-[#0B0A0D] transition-colors duration-300",
   };
 
   const content = (

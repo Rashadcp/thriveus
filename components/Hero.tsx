@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative h-[100dvh] min-h-[580px] w-full overflow-hidden bg-[#12103D] select-none flex items-center justify-center">
+    <section className="relative h-[100dvh] min-h-[580px] w-full overflow-hidden bg-[#0B0A0D] select-none flex items-center justify-center">
       {/* Fullscreen Background Video with Fast-Start Mobile & Desktop Sources */}
       <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
         <video
@@ -25,14 +25,14 @@ export default function Hero() {
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
 
-        {/* Midnight Navy Shade Overlays */}
-        <div className="absolute inset-0 bg-[#12103D]/50 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#12103D] via-transparent to-[#12103D]/60 pointer-events-none" />
+        {/* Ink Shade Overlays */}
+        <div className="absolute inset-0 bg-[#0B0A0D]/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A0D] via-transparent to-[#0B0A0D]/60 pointer-events-none" />
       </div>
 
       {/* Confident Editorial Hero Content - Responsive for All Mobile Screens */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center pt-16 sm:pt-0">
-        <span className="inline-block font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#8EDAF2] mb-3 sm:mb-4 font-medium">
+        <span className="inline-block font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#1782A8] mb-3 sm:mb-4 font-medium">
           Experiential Productions // UAE
         </span>
 
@@ -42,7 +42,7 @@ export default function Hero() {
           {" "}One Experience at a Time.
         </h1>
 
-        <p className="mt-4 sm:mt-6 text-sm sm:text-lg md:text-xl text-[#E3E6EF]/85 max-w-2xl mx-auto font-light leading-relaxed">
+        <p className="mt-4 sm:mt-6 text-sm sm:text-lg md:text-xl text-white/85 max-w-2xl mx-auto font-light leading-relaxed">
           Corporate events, executive summits, and experiential productions across Dubai and the UAE.
         </p>
 
@@ -50,13 +50,13 @@ export default function Hero() {
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
           <Link
             href="/services"
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-white text-[#12103D] font-display text-xs sm:text-sm font-semibold tracking-wider uppercase px-7 py-3.5 hover:bg-[#8EDAF2] transition-colors duration-300 shadow-md"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-white text-[#0B0A0D] font-display text-xs sm:text-sm font-semibold tracking-wider uppercase px-7 py-3.5 hover:bg-[#1782A8] hover:text-white transition-colors duration-300 shadow-md"
           >
             Explore Services
           </Link>
           <Link
             href="/contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-white/25 text-white font-display text-xs sm:text-sm font-medium tracking-wider uppercase px-7 py-3.5 hover:border-[#8EDAF2] hover:text-[#8EDAF2] transition-colors duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-white/25 text-white font-display text-xs sm:text-sm font-medium tracking-wider uppercase px-7 py-3.5 hover:border-[#1782A8] hover:text-[#1782A8] transition-colors duration-300"
           >
             Let&apos;s Create
           </Link>

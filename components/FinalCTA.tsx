@@ -5,10 +5,10 @@ import MagneticButton from "./ui/MagneticButton";
 
 export default function FinalCTA() {
   return (
-    <section className="relative w-full bg-[#12103D] py-20 sm:py-36 lg:py-48 px-5 sm:px-12 overflow-hidden text-white border-t border-[#28245F]/50">
+    <section className="relative w-full bg-[#0B0A0D] py-20 sm:py-36 lg:py-48 px-5 sm:px-12 overflow-hidden text-white border-t border-[#242057]/50">
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         {/* Subtle Eyebrow */}
-        <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold block mb-4 sm:mb-6">
+        <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block mb-4 sm:mb-6">
           INITIATE A CONVERSATION
         </span>
 
@@ -20,7 +20,7 @@ export default function FinalCTA() {
         </h2>
 
         {/* Supporting Line */}
-        <p className="mt-6 sm:mt-8 mx-auto max-w-2xl text-base sm:text-2xl font-light leading-relaxed text-[#E3E6EF]/85">
+        <p className="mt-6 sm:mt-8 mx-auto max-w-2xl text-base sm:text-2xl font-light leading-relaxed text-white/85">
           Let&apos;s design an experience your people will remember.
         </p>
 

@@ -57,9 +57,9 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative w-full bg-[#12103D] border-t border-[#28245F] px-5 sm:px-12 py-12 sm:py-20 text-white overflow-hidden select-none">
+    <footer className="relative w-full bg-[#0B0A0D] border-t border-[#242057] px-5 sm:px-12 py-12 sm:py-20 text-white overflow-hidden select-none">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-8 pb-10 sm:pb-12 border-b border-[#28245F]">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-8 pb-10 sm:pb-12 border-b border-[#242057]">
           {/* Brand Logo & Tagline */}
           <div className="space-y-2.5 sm:space-y-3 max-w-md">
             <Link href="/" className="group inline-flex items-center gap-2.5 sm:gap-3" aria-label="Thriveus Home">
@@ -69,14 +69,14 @@ export default function Footer() {
                   alt="Thriveus Logo"
                   fill
                   sizes="40px"
-                  className="object-contain drop-shadow-[0_0_12px_rgba(142,218,242,0.45)]"
+                  className="object-contain drop-shadow-[0_0_12px_rgba(23,130,168,0.45)]"
                 />
               </div>
-              <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-white transition-colors duration-300 group-hover:text-[#8EDAF2]">
-                Thrive<span className="italic font-serif font-normal text-[#8B7BC0]">us</span>
+              <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-white transition-colors duration-300 group-hover:text-[#1782A8]">
+                Thrive<span className="italic font-serif font-normal text-[#75559C]">us</span>
               </span>
             </Link>
-            <p className="font-display text-xs sm:text-sm tracking-wide text-[#62627A]">
+            <p className="font-display text-xs sm:text-sm tracking-wide text-[#75559C]">
               Curating Impact, One Experience at a Time.
             </p>
           </div>
@@ -85,10 +85,10 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-6 sm:gap-8">
             {dubaiTime && (
               <div className="flex flex-col text-left sm:text-right">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#62627A]">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#75559C]">
                   DUBAI TIME (GST)
                 </span>
-                <span className="font-mono text-xs text-[#8EDAF2] font-semibold">
+                <span className="font-mono text-xs text-[#1782A8] font-semibold">
                   {dubaiTime}
                 </span>
               </div>
@@ -102,7 +102,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#28245F] bg-[#28245F]/50 text-[#E3E6EF] transition-all duration-300 hover:border-[#8EDAF2] hover:bg-[#8EDAF2] hover:text-[#12103D] shadow-sm"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#242057] bg-[#242057]/50 text-white/90 transition-all duration-300 hover:border-[#1782A8] hover:bg-[#1782A8] hover:text-[#0B0A0D] shadow-sm"
                 >
                   {social.icon}
                 </a>
@@ -112,9 +112,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Location */}
-        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs font-mono text-[#62627A] text-center sm:text-left">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs font-mono text-[#75559C] text-center sm:text-left">
           <p>© 2026 THRIVEUS EVENTS CO. L.L.C. ALL RIGHTS RESERVED.</p>
-          <p className="text-[#E3E6EF]/70 font-medium tracking-wider uppercase">DUBAI, UAE</p>
+          <p className="text-white/70 font-medium tracking-wider uppercase">DUBAI, UAE</p>
         </div>
       </div>
     </footer>

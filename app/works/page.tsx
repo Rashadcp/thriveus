@@ -77,19 +77,19 @@ const PRODUCTIONS: Production[] = [
 
 export default function WorksPage() {
   return (
-    <main className="min-h-screen bg-[#12103D] text-white flex flex-col justify-between overflow-x-clip">
+    <main className="min-h-screen bg-[#0B0A0D] text-white flex flex-col justify-between overflow-x-clip">
       <Navbar />
 
       {/* Header Section */}
-      <section className="relative pt-28 sm:pt-48 pb-14 sm:pb-20 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#28245F]/50">
+      <section className="relative pt-28 sm:pt-48 pb-14 sm:pb-20 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#242057]/50">
         <div className="max-w-4xl space-y-4 sm:space-y-6">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block">
+          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#1782A8] block">
             SELECTED WORKS
           </span>
           <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
             Recent Productions
           </h1>
-          <p className="text-base sm:text-2xl text-[#E3E6EF]/85 leading-relaxed font-light max-w-3xl">
+          <p className="text-base sm:text-2xl text-white/85 leading-relaxed font-light max-w-3xl">
             Curated corporate events delivered across Dubai, Abu Dhabi and the wider UAE.
           </p>
         </div>
@@ -101,11 +101,11 @@ export default function WorksPage() {
           {PRODUCTIONS.map((prod) => (
             <div
               key={prod.id}
-              className="group flex flex-col justify-between bg-[#28245F]/20 rounded-2xl p-4 sm:p-5 border border-[#28245F]/60"
+              className="group flex flex-col justify-between bg-[#242057]/20 rounded-2xl p-4 sm:p-5 border border-[#242057]/60"
             >
               <div>
                 {/* Photo */}
-                <div className="relative h-56 sm:h-64 w-full overflow-hidden rounded-xl bg-[#28245F]/40 border border-[#28245F]">
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden rounded-xl bg-[#242057]/40 border border-[#242057]">
                   <Image
                     src={prod.image}
                     alt={prod.title}
@@ -114,7 +114,7 @@ export default function WorksPage() {
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="font-mono text-[9px] uppercase tracking-widest bg-[#12103D]/85 backdrop-blur-md text-[#8EDAF2] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
+                    <span className="font-mono text-[9px] uppercase tracking-widest bg-[#0B0A0D]/85 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
                       {prod.tag}
                     </span>
                   </div>
@@ -122,15 +122,15 @@ export default function WorksPage() {
 
                 {/* Content */}
                 <div className="mt-4 sm:mt-5 space-y-2">
-                  <span className="font-mono text-xs text-[#8EDAF2] block">
+                  <span className="font-mono text-xs text-[#1782A8] block">
                     {prod.meta}
                   </span>
 
-                  <h2 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-[#8EDAF2] transition-colors leading-snug">
+                  <h2 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-[#1782A8] transition-colors leading-snug">
                     {prod.title}
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-[#E3E6EF]/75 font-light leading-relaxed pt-1">
+                  <p className="text-xs sm:text-sm text-white/75 font-light leading-relaxed pt-1">
                     {prod.description}
                   </p>
                 </div>

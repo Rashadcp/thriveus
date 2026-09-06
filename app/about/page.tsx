@@ -31,13 +31,13 @@ const CAPABILITIES = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#12103D] text-white flex flex-col justify-between overflow-x-clip">
+    <main className="min-h-screen bg-[#0B0A0D] text-white flex flex-col justify-between overflow-x-clip">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-28 sm:pt-48 pb-16 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#28245F]/50">
+      <section className="relative pt-28 sm:pt-48 pb-16 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#242057]/50">
         <div className="max-w-4xl space-y-4 sm:space-y-6">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block">
+          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#1782A8] block">
             ABOUT THRIVEUS · DUBAI, UAE
           </span>
           <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
@@ -45,14 +45,14 @@ export default function AboutPage() {
             <br className="hidden sm:inline" />
             {" "}Individuals &amp; Organisations.
           </h1>
-          <p className="mt-4 sm:mt-6 text-base sm:text-2xl text-[#E3E6EF]/85 leading-relaxed font-light max-w-3xl">
+          <p className="mt-4 sm:mt-6 text-base sm:text-2xl text-white/85 leading-relaxed font-light max-w-3xl">
             Thriveus Events Co. L.L.C is a Dubai based corporate engagement company designing and delivering impactful corporate experiences for large enterprise clients across the UAE.
           </p>
         </div>
 
         {/* Narrative Columns */}
-        <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-[#28245F]/60 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
-          <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-[#E3E6EF]/80 font-light leading-relaxed">
+        <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-[#242057]/60 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
+          <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-white/80 font-light leading-relaxed">
             <p>
               We design and deliver corporate experiences for large enterprise clients across the UAE: conferences and summits, corporate celebrations and cultural events, team building programmes, gamified learning, leadership retreats and corporate training.
             </p>
@@ -60,7 +60,7 @@ export default function AboutPage() {
               Our expert team carries more than twenty years of combined experience curating unique experiences, large scale exhibitions, conferences and summits, and today we prioritise serving our key clients in energy, engineering, logistics, water technologies and industrial automation.
             </p>
           </div>
-          <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-[#E3E6EF]/80 font-light leading-relaxed">
+          <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-white/80 font-light leading-relaxed">
             <p>
               Our delivery spans fully private events in the middle of the desert, on megayachts and on islands, through to full scale conferences and summits. We have delivered more than 30 corporate events for 14 enterprise clients, ranging from a six person leadership dinner to a 685 guest arena production.
             </p>
@@ -71,14 +71,14 @@ export default function AboutPage() {
         </div>
 
         {/* Verified Section 3.6 Statistics Strip */}
-        <div className="mt-14 sm:mt-20 pt-8 sm:pt-10 border-t border-[#28245F]/60">
+        <div className="mt-14 sm:mt-20 pt-8 sm:pt-10 border-t border-[#242057]/60">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {STATS.map((stat) => (
               <div key={stat.label} className="space-y-1 sm:space-y-1.5">
                 <span className="font-display text-3xl sm:text-5xl font-bold text-white block">
                   {stat.value}
                 </span>
-                <p className="font-mono text-xs sm:text-sm text-[#8EDAF2] leading-snug">
+                <p className="font-mono text-xs sm:text-sm text-[#1782A8] leading-snug">
                   {stat.label}
                 </p>
               </div>
@@ -92,7 +92,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 space-y-6">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block mb-2">
                 CAPABILITIES
               </span>
               <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-white">
@@ -103,9 +103,9 @@ export default function AboutPage() {
               {CAPABILITIES.map((cap, i) => (
                 <div
                   key={i}
-                  className="flex items-baseline gap-3 py-2.5 border-b border-[#28245F]/50 text-xs sm:text-sm font-light text-[#E3E6EF]"
+                  className="flex items-baseline gap-3 py-2.5 border-b border-[#242057]/50 text-xs sm:text-sm font-light text-white/90"
                 >
-                  <span className="font-mono text-xs text-[#8EDAF2] font-bold">
+                  <span className="font-mono text-xs text-[#1782A8] font-bold">
                     0{i + 1}
                   </span>
                   <span>{cap}</span>
@@ -114,14 +114,14 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 space-y-5 rounded-2xl bg-[#28245F]/30 border border-[#28245F]/70 p-6 sm:p-8">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold block">
+          <div className="lg:col-span-5 space-y-5 rounded-2xl bg-[#242057]/30 border border-[#242057]/70 p-6 sm:p-8">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block">
               HEADQUARTERS
             </span>
             <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
               Dubai, United Arab Emirates
             </h3>
-            <p className="text-sm text-[#E3E6EF]/75 leading-relaxed font-light">
+            <p className="text-sm text-white/75 leading-relaxed font-light">
               Delivering corporate experiences across Dubai, Abu Dhabi, Al Ain, and UAE-wide.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
@@ -130,7 +130,7 @@ export default function AboutPage() {
               </MagneticButton>
               <Link
                 href="/"
-                className="inline-flex items-center justify-center px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#8EDAF2] hover:text-white transition-colors"
+                className="inline-flex items-center justify-center px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#1782A8] hover:text-white transition-colors"
               >
                 Return to Homepage →
               </Link>

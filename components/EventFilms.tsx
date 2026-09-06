@@ -50,17 +50,17 @@ export default function EventFilms() {
   const [playingId, setPlayingId] = useState<string | null>(null);
 
   return (
-    <section className="relative w-full bg-[#12103D] py-20 sm:py-32 px-5 sm:px-12 overflow-hidden text-white border-b border-[#28245F]/50">
+    <section className="relative w-full bg-[#0B0A0D] py-20 sm:py-32 px-5 sm:px-12 overflow-hidden text-white border-b border-[#242057]/50">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-10 sm:mb-16 pb-6 sm:pb-8 border-b border-[#28245F]/60">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold block mb-2 sm:mb-3">
+        <div className="mb-10 sm:mb-16 pb-6 sm:pb-8 border-b border-[#242057]/60">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block mb-2 sm:mb-3">
             EVENT FILMS · ON-GROUND PRODUCTIONS
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
             Live Experiences in Motion
           </h2>
-          <p className="mt-3 text-xs sm:text-base text-[#E3E6EF]/80 font-light max-w-2xl leading-relaxed">
+          <p className="mt-3 text-xs sm:text-base text-white/80 font-light max-w-2xl leading-relaxed">
             Watch real corporate productions, private desert challenges, and arena formats captured live across Dubai and the UAE.
           </p>
         </div>
@@ -73,11 +73,11 @@ export default function EventFilms() {
             return (
               <div
                 key={film.id}
-                className="group w-full rounded-2xl bg-[#28245F]/25 border border-[#28245F]/70 p-4 sm:p-5 transition-all duration-300 hover:border-[#8EDAF2]/50 hover:bg-[#28245F]/40 flex flex-col justify-between"
+                className="group w-full rounded-2xl bg-[#242057]/25 border border-[#242057]/70 p-4 sm:p-5 transition-all duration-300 hover:border-[#1782A8]/50 hover:bg-[#242057]/40 flex flex-col justify-between"
               >
                 <div>
                   {/* Video Embed Frame / Poster Frame */}
-                  <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-[#12103D] border border-[#28245F]">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-[#0B0A0D] border border-[#242057]">
                     {isPlaying ? (
                       <iframe
                         src={`https://www.youtube-nocookie.com/embed/${film.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
@@ -103,18 +103,18 @@ export default function EventFilms() {
                         />
 
                         {/* Dark Vignette */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#12103D]/80 via-[#12103D]/20 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A0D]/80 via-[#0B0A0D]/20 to-transparent pointer-events-none" />
 
                         {/* Top Category Badge */}
                         <div className="absolute top-3 left-3 z-10">
-                          <span className="font-mono text-[9px] uppercase tracking-widest bg-[#12103D]/90 backdrop-blur-md text-[#8EDAF2] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
+                          <span className="font-mono text-[9px] uppercase tracking-widest bg-[#0B0A0D]/90 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
                             {film.tag}
                           </span>
                         </div>
 
                         {/* Play Button Indicator */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-[#8EDAF2] text-[#12103D] shadow-[0_0_25px_rgba(142,218,242,0.6)] transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:bg-white">
+                          <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-[#1782A8] text-white shadow-[0_0_25px_rgba(23,130,168,0.6)] transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:bg-white group-hover/btn:text-[#0B0A0D]">
                             <svg
                               className="h-6 w-6 fill-current translate-x-0.5"
                               viewBox="0 0 24 24"
@@ -125,7 +125,7 @@ export default function EventFilms() {
                         </div>
 
                         {/* Click to Watch Hint */}
-                        <div className="absolute bottom-2.5 right-3 font-mono text-[10px] tracking-wider uppercase text-white/90 bg-[#12103D]/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                        <div className="absolute bottom-2.5 right-3 font-mono text-[10px] tracking-wider uppercase text-white/90 bg-[#0B0A0D]/80 px-2 py-0.5 rounded backdrop-blur-sm">
                           Click to Play
                         </div>
                       </button>
@@ -134,28 +134,28 @@ export default function EventFilms() {
 
                   {/* Text Content */}
                   <div className="mt-4 sm:mt-5 space-y-2">
-                    <span className="font-mono text-xs text-[#8EDAF2] block font-medium">
+                    <span className="font-mono text-xs text-[#1782A8] block font-medium">
                       {film.meta}
                     </span>
 
-                    <h3 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-[#8EDAF2] transition-colors leading-snug">
+                    <h3 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-[#1782A8] transition-colors leading-snug">
                       {film.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-[#E3E6EF]/75 font-light leading-relaxed pt-1">
+                    <p className="text-xs sm:text-sm text-white/75 font-light leading-relaxed pt-1">
                       {film.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Bottom Channel Link */}
-                <div className="mt-5 pt-3 border-t border-[#28245F]/50 flex items-center justify-between text-xs font-mono">
-                  <span className="text-[#62627A]">Thriveus Event Film</span>
+                <div className="mt-5 pt-3 border-t border-[#242057]/50 flex items-center justify-between text-xs font-mono">
+                  <span className="text-[#75559C]">Thriveus Event Film</span>
                   <a
                     href={`https://www.youtube.com/watch?v=${film.youtubeId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#8EDAF2] hover:text-white transition-colors inline-flex items-center gap-1 font-semibold uppercase tracking-wider text-[11px]"
+                    className="text-[#1782A8] hover:text-white transition-colors inline-flex items-center gap-1 font-semibold uppercase tracking-wider text-[11px]"
                   >
                     Open on YouTube →
                   </a>

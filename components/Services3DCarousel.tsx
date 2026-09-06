@@ -223,22 +223,22 @@ export default function Services3DCarousel() {
     <section
       ref={containerRef}
       id="services"
-      className="relative w-full bg-[#12103D] text-white h-[350vh] sm:h-[420vh] border-t border-[#28245F]/50"
+      className="relative w-full bg-[#0B0A0D] text-white h-[350vh] sm:h-[420vh] border-t border-[#242057]/50"
     >
       {/* Pinned Viewport: 100dvh avoids jumpy mobile address bar resizing */}
       <div
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className="sticky top-0 h-[100dvh] min-h-[560px] w-full flex flex-col justify-between overflow-hidden pt-16 sm:pt-24 pb-4 sm:pb-8 px-4 sm:px-10 lg:px-16 select-none bg-[#12103D]"
+        className="sticky top-0 h-[100dvh] min-h-[560px] w-full flex flex-col justify-between overflow-hidden pt-16 sm:pt-24 pb-4 sm:pb-8 px-4 sm:px-10 lg:px-16 select-none bg-[#0B0A0D]"
       >
         {/* 1. Header & Live Segment Progress Bar */}
-        <div className="w-full max-w-7xl mx-auto flex items-end justify-between pb-2.5 sm:pb-4 border-b border-[#28245F]/60 flex-shrink-0">
+        <div className="w-full max-w-7xl mx-auto flex items-end justify-between pb-2.5 sm:pb-4 border-b border-[#242057]/60 flex-shrink-0">
           <div>
             <div className="flex items-center gap-2 sm:gap-3">
-              <span className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#8EDAF2] font-semibold">
+              <span className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold">
                 What We Deliver
               </span>
-              <span className="text-[10px] font-mono text-[#62627A] hidden sm:inline">
+              <span className="text-[10px] font-mono text-[#75559C] hidden sm:inline">
                 // Scroll down or swipe to explore
               </span>
             </div>
@@ -250,10 +250,10 @@ export default function Services3DCarousel() {
           {/* Stepper indicator: 01 / 07 with 7 segmented bars */}
           <div className="flex flex-col items-end gap-1 sm:gap-2">
             <div className="flex items-center gap-1.5 font-mono text-[11px] sm:text-sm">
-              <span className="font-bold text-[#8EDAF2]">
+              <span className="font-bold text-[#1782A8]">
                 {activeService.serviceNum}
               </span>
-              <span className="text-[#62627A]">/ 07</span>
+              <span className="text-[#75559C]">/ 07</span>
             </div>
 
             {/* Segmented Clickable Progress Track */}
@@ -269,10 +269,10 @@ export default function Services3DCarousel() {
                   <div
                     className={`h-1.5 transition-all duration-300 rounded-full ${
                       activeIndex === idx
-                        ? "w-6 sm:w-10 bg-[#8EDAF2]"
+                        ? "w-6 sm:w-10 bg-[#1782A8]"
                         : activeIndex > idx
-                        ? "w-2.5 sm:w-4 bg-[#8EDAF2]/50"
-                        : "w-2.5 sm:w-4 bg-[#28245F] group-hover:bg-[#28245F]/80"
+                        ? "w-2.5 sm:w-4 bg-[#1782A8]/50"
+                        : "w-2.5 sm:w-4 bg-[#242057] group-hover:bg-[#242057]/80"
                     }`}
                   />
                 </button>
@@ -285,7 +285,7 @@ export default function Services3DCarousel() {
         <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-14 items-center my-auto flex-1 overflow-hidden py-1 sm:py-4">
           {/* Visual Photography Frame: Top on Mobile, Right on Desktop */}
           <div className="order-first lg:order-last lg:col-span-6 flex flex-col justify-center">
-            <div className="relative w-full h-[185px] sm:h-[280px] lg:h-[390px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#28245F]/30 border border-[#28245F]/60 shadow-xl">
+            <div className="relative w-full h-[185px] sm:h-[280px] lg:h-[390px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#242057]/30 border border-[#242057]/60 shadow-xl">
               {/* Stacked Images for instantaneous, silky cross-fading */}
               {SERVICES.map((srv, idx) => (
                 <div
@@ -305,14 +305,14 @@ export default function Services3DCarousel() {
                     priority={idx === 0}
                   />
                   {/* Subtle film overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#12103D]/90 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A0D]/90 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badge */}
                   <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 z-10 flex items-center gap-2">
-                    <span className="font-mono text-[9px] sm:text-xs uppercase tracking-wider bg-[#12103D]/85 backdrop-blur-md px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 text-white font-medium">
+                    <span className="font-mono text-[9px] sm:text-xs uppercase tracking-wider bg-[#0B0A0D]/85 backdrop-blur-md px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 text-white font-medium">
                       {srv.tag}
                     </span>
-                    <span className="font-mono text-[9px] sm:text-[10px] text-[#8EDAF2] hidden sm:inline">
+                    <span className="font-mono text-[9px] sm:text-[10px] text-[#1782A8] hidden sm:inline">
                       DUBAI &amp; UAE
                     </span>
                   </div>
@@ -337,11 +337,11 @@ export default function Services3DCarousel() {
                 >
                   {/* Number & Category */}
                   <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="font-mono text-sm sm:text-lg text-[#8EDAF2] font-bold">
+                    <span className="font-mono text-sm sm:text-lg text-[#1782A8] font-bold">
                       {srv.serviceNum}
                     </span>
-                    <span className="h-px w-6 sm:w-8 bg-[#28245F]" />
-                    <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#62627A]">
+                    <span className="h-px w-6 sm:w-8 bg-[#242057]" />
+                    <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#75559C]">
                       {srv.tag}
                     </span>
                   </div>
@@ -352,7 +352,7 @@ export default function Services3DCarousel() {
                   </h3>
 
                   {/* Service Description */}
-                  <p className="text-xs sm:text-base text-[#E3E6EF]/80 leading-relaxed font-light max-w-xl line-clamp-2 sm:line-clamp-none">
+                  <p className="text-xs sm:text-base text-white/80 leading-relaxed font-light max-w-xl line-clamp-2 sm:line-clamp-none">
                     {srv.description}
                   </p>
 
@@ -361,9 +361,9 @@ export default function Services3DCarousel() {
                     {srv.highlights.map((h) => (
                       <span
                         key={h}
-                        className="inline-flex items-center gap-1 font-mono text-[8.5px] sm:text-xs text-[#E3E6EF]/75 bg-[#28245F]/50 border border-[#28245F] rounded-md px-2 py-0.5 sm:px-2.5 sm:py-1"
+                        className="inline-flex items-center gap-1 font-mono text-[8.5px] sm:text-xs text-white/80 bg-[#242057]/50 border border-[#242057] rounded-md px-2 py-0.5 sm:px-2.5 sm:py-1"
                       >
-                        <span className="text-[#8EDAF2]">✦</span>
+                        <span className="text-[#1782A8]">✦</span>
                         {h}
                       </span>
                     ))}
@@ -373,7 +373,7 @@ export default function Services3DCarousel() {
                   <div className="pt-1 sm:pt-2">
                     <Link
                       href="/services"
-                      className="inline-flex items-center gap-1.5 font-display text-[11px] sm:text-sm uppercase tracking-wider font-semibold text-[#8EDAF2] hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1.5 font-display text-[11px] sm:text-sm uppercase tracking-wider font-semibold text-[#1782A8] hover:text-white transition-colors"
                     >
                       <span>View full service details</span>
                       <span aria-hidden="true">→</span>
@@ -386,29 +386,29 @@ export default function Services3DCarousel() {
         </div>
 
         {/* 3. Bottom Controls & Scroll Hint */}
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between pt-2 sm:pt-3 border-t border-[#28245F]/40 text-[11px] sm:text-xs font-mono text-[#62627A] flex-shrink-0">
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between pt-2 sm:pt-3 border-t border-[#242057]/40 text-[11px] sm:text-xs font-mono text-[#75559C] flex-shrink-0">
           <div className="flex items-center gap-3 sm:gap-4">
             <button
               type="button"
               onClick={() => scrollToService(Math.max(0, activeIndex - 1))}
               disabled={activeIndex === 0}
-              className="inline-flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-xs font-semibold text-[#E3E6EF] hover:text-[#8EDAF2] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-xs font-semibold text-white/90 hover:text-[#1782A8] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               ← Prev
             </button>
-            <span className="text-[#28245F]">|</span>
+            <span className="text-[#242057]">|</span>
             <button
               type="button"
               onClick={() => scrollToService(Math.min(SERVICES.length - 1, activeIndex + 1))}
               disabled={activeIndex === SERVICES.length - 1}
-              className="inline-flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-xs font-semibold text-[#E3E6EF] hover:text-[#8EDAF2] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-1 uppercase tracking-wider text-[10px] sm:text-xs font-semibold text-white/90 hover:text-[#1782A8] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               Next →
             </button>
           </div>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-[#8EDAF2] animate-bounce">↓</span>
+            <span className="text-[#1782A8] animate-bounce">↓</span>
             <span className="hidden sm:inline">
               {activeIndex === SERVICES.length - 1
                 ? "Scroll down to continue to Beats & Beyond"

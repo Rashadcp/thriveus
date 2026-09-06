@@ -125,19 +125,19 @@ const SERVICES: ServiceItem[] = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[#12103D] text-white flex flex-col justify-between overflow-x-clip">
+    <main className="min-h-screen bg-[#0B0A0D] text-white flex flex-col justify-between overflow-x-clip">
       <Navbar />
 
       {/* Hero Header */}
-      <section className="relative pt-28 sm:pt-48 pb-16 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#28245F]/50">
+      <section className="relative pt-28 sm:pt-48 pb-16 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#242057]/50">
         <div className="max-w-4xl space-y-4 sm:space-y-6">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block">
+          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#1782A8] block">
             WHAT WE DELIVER · UAE
           </span>
           <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
             Our Services
           </h1>
-          <p className="mt-4 sm:mt-6 text-base sm:text-2xl text-[#E3E6EF]/85 leading-relaxed font-light max-w-3xl">
+          <p className="mt-4 sm:mt-6 text-base sm:text-2xl text-white/85 leading-relaxed font-light max-w-3xl">
             Original corporate experiences, turnkey summits, cultural celebrations, and leadership development delivered across Dubai, Abu Dhabi, Al Ain, and UAE-wide.
           </p>
 
@@ -153,15 +153,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Seven Flagship Services */}
-      <section className="py-16 sm:py-28 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#28245F]/50">
+      <section className="py-16 sm:py-28 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#242057]/50">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {SERVICES.map((srv) => (
             <div
               key={srv.id}
-              className="group flex flex-col justify-between rounded-2xl bg-[#28245F]/25 border border-[#28245F]/70 p-5 sm:p-6 transition-all duration-300 hover:border-[#8EDAF2]/50 hover:bg-[#28245F]/40"
+              className="group flex flex-col justify-between rounded-2xl bg-[#242057]/25 border border-[#242057]/70 p-5 sm:p-6 transition-all duration-300 hover:border-[#1782A8]/50 hover:bg-[#242057]/40"
             >
               <div>
-                <div className="relative h-52 sm:h-60 w-full overflow-hidden rounded-xl bg-[#28245F]/40 border border-[#28245F]">
+                <div className="relative h-52 sm:h-60 w-full overflow-hidden rounded-xl bg-[#242057]/40 border border-[#242057]">
                   <Image
                     src={srv.image}
                     alt={srv.title}
@@ -170,23 +170,23 @@ export default function ServicesPage() {
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="font-mono text-[9px] uppercase tracking-widest bg-[#12103D]/85 backdrop-blur-md text-[#8EDAF2] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
+                    <span className="font-mono text-[9px] uppercase tracking-widest bg-[#0B0A0D]/85 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
                       {srv.tag}
                     </span>
                   </div>
                 </div>
 
                 <div className="mt-5 space-y-3">
-                  <div className="flex items-center gap-2 font-mono text-xs text-[#8EDAF2]">
+                  <div className="flex items-center gap-2 font-mono text-xs text-[#1782A8]">
                     <span className="font-bold">{srv.num}</span>
-                    <span className="text-[#62627A]">/ 07</span>
+                    <span className="text-[#75559C]">/ 07</span>
                   </div>
 
-                  <h2 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-[#8EDAF2] transition-colors leading-snug">
+                  <h2 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-[#1782A8] transition-colors leading-snug">
                     {srv.title}
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-[#E3E6EF]/75 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-light">
                     {srv.description}
                   </p>
 
@@ -194,9 +194,9 @@ export default function ServicesPage() {
                     {srv.bullets.map((bullet) => (
                       <span
                         key={bullet}
-                        className="inline-flex items-center gap-1 font-mono text-[9px] sm:text-[10px] text-[#E3E6EF]/85 bg-[#12103D]/60 border border-[#28245F] rounded-md px-2.5 py-1"
+                        className="inline-flex items-center gap-1 font-mono text-[9px] sm:text-[10px] text-white/85 bg-[#0B0A0D]/60 border border-[#242057] rounded-md px-2.5 py-1"
                       >
-                        <span className="text-[#8EDAF2]">✶</span>
+                        <span className="text-[#1782A8]">✶</span>
                         {bullet}
                       </span>
                     ))}
@@ -211,13 +211,13 @@ export default function ServicesPage() {
       {/* Bottom Conversion Banner */}
       <section className="py-20 sm:py-32 px-5 sm:px-12 mx-auto max-w-7xl w-full text-center">
         <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#8EDAF2] block">
+          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#1782A8] block">
             INITIATE A CONVERSATION
           </span>
           <h2 className="font-display text-2xl sm:text-5xl font-bold text-white leading-tight">
             Ready to Create Something Remarkable?
           </h2>
-          <p className="text-[#E3E6EF]/85 text-sm sm:text-lg font-light max-w-xl mx-auto leading-relaxed">
+          <p className="text-white/85 text-sm sm:text-lg font-light max-w-xl mx-auto leading-relaxed">
             Let&apos;s design an experience your people will remember.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
@@ -226,7 +226,7 @@ export default function ServicesPage() {
             </MagneticButton>
             <Link
               href="/"
-              className="inline-flex items-center justify-center px-5 py-3 text-xs sm:text-sm font-semibold text-[#8EDAF2] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center px-5 py-3 text-xs sm:text-sm font-semibold text-[#1782A8] hover:text-white transition-colors"
             >
               Return Home →
             </Link>
