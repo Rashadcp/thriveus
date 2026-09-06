@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
+@theme {
+  --color-midnight: #12103D;
+  --color-indigo: #28245F;
+  --color-cyan: #8EDAF2;
+  --color-lavender: #8B7BC0;
+  --color-light-bg: #F7F9FC;
+  --color-pure-white: #FFFFFF;
+  --color-text-primary: #17163F;
+  --color-text-secondary: #62627A;
+  --color-border-subtle: #E3E6EF;
+
+  /* Palette compatibility mappings */
+  --color-obsidian: #12103D;
+  --color-navy-950: #12103D;
+  --color-navy-900: #1c184c;
+  --color-navy-850: #211d56;
+  --color-navy-800: #28245F;
+  --color-navy-700: #363172;
+  --color-accent-blue: #8EDAF2;
+  --color-accent-cyan: #8EDAF2;
+  --color-accent-indigo: #8B7BC0;
+  --color-offwhite: #F7F9FC;
+  --font-display: var(--font-sora), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --midnight: #12103D;
+  --indigo: #28245F;
+  --cyan: #8EDAF2;
+  --lavender: #8B7BC0;
+  --light-bg: #F7F9FC;
+  --pure-white: #FFFFFF;
+  --text-primary: #17163F;
+  --text-secondary: #62627A;
+  --border-subtle: #E3E6EF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
+  background-color: #12103D;
+  color: #17163F;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #8EDAF2;
+  color: #12103D;
+}
+
+/* Seamless Continuous Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 32s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle luxury noise texture overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #12103D;
+}
+::-webkit-scrollbar-thumb {
+  background: #28245F;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8EDAF2;
 }
