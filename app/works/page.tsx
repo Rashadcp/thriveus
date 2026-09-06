@@ -83,9 +83,6 @@ export default function WorksPage() {
       {/* Header Section */}
       <section className="relative pt-28 sm:pt-48 pb-14 sm:pb-20 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#242057]/50">
         <div className="max-w-4xl space-y-4 sm:space-y-6">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#1782A8] block">
-            SELECTED WORKS
-          </span>
           <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
             Recent Productions
           </h1>
@@ -114,7 +111,7 @@ export default function WorksPage() {
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="font-mono text-[9px] uppercase tracking-widest bg-[#0B0A0D]/85 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
+                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#0B0A0D]/85 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
                       {prod.tag}
                     </span>
                   </div>
@@ -122,7 +119,7 @@ export default function WorksPage() {
 
                 {/* Content */}
                 <div className="mt-4 sm:mt-5 space-y-2">
-                  <span className="font-mono text-xs text-[#1782A8] block">
+                  <span className="font-display text-xs text-[#1782A8] block font-medium">
                     {prod.meta}
                   </span>
 

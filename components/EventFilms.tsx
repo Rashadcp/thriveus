@@ -54,9 +54,6 @@ export default function EventFilms() {
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-10 sm:mb-16 pb-6 sm:pb-8 border-b border-[#242057]/60">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block mb-2 sm:mb-3">
-            EVENT FILMS · ON-GROUND PRODUCTIONS
-          </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
             Live Experiences in Motion
           </h2>
@@ -107,7 +104,7 @@ export default function EventFilms() {
 
                         {/* Top Category Badge */}
                         <div className="absolute top-3 left-3 z-10">
-                          <span className="font-mono text-[9px] uppercase tracking-widest bg-[#0B0A0D]/90 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
+                          <span className="font-display text-[10px] uppercase tracking-wider bg-[#0B0A0D]/90 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
                             {film.tag}
                           </span>
                         </div>
@@ -123,18 +120,13 @@ export default function EventFilms() {
                             </svg>
                           </div>
                         </div>
-
-                        {/* Click to Watch Hint */}
-                        <div className="absolute bottom-2.5 right-3 font-mono text-[10px] tracking-wider uppercase text-white/90 bg-[#0B0A0D]/80 px-2 py-0.5 rounded backdrop-blur-sm">
-                          Click to Play
-                        </div>
                       </button>
                     )}
                   </div>
 
                   {/* Text Content */}
                   <div className="mt-4 sm:mt-5 space-y-2">
-                    <span className="font-mono text-xs text-[#1782A8] block font-medium">
+                    <span className="font-display text-xs text-[#1782A8] block font-medium">
                       {film.meta}
                     </span>
 
@@ -149,8 +141,7 @@ export default function EventFilms() {
                 </div>
 
                 {/* Bottom Channel Link */}
-                <div className="mt-5 pt-3 border-t border-[#242057]/50 flex items-center justify-between text-xs font-mono">
-                  <span className="text-[#75559C]">Thriveus Event Film</span>
+                <div className="mt-5 pt-3 border-t border-[#242057]/50 flex items-center justify-end text-xs">
                   <a
                     href={`https://www.youtube.com/watch?v=${film.youtubeId}`}
                     target="_blank"

@@ -79,7 +79,7 @@ export default function ProjectsSection() {
         {/* Section Header */}
         <div className="mb-12 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-[#242057]/15">
           <div>
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#75559C] font-semibold block mb-2 sm:mb-3">
+            <span className="font-display text-xs uppercase tracking-wider text-[#75559C] font-semibold block mb-2 sm:mb-3">
               SELECTED WORKS
             </span>
             <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0B0A0D]">
@@ -109,7 +109,7 @@ export default function ProjectsSection() {
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="font-mono text-[9px] uppercase tracking-widest bg-[#0B0A0D]/80 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
+                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#0B0A0D]/80 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
                       {prod.tag}
                     </span>
                   </div>
@@ -117,7 +117,7 @@ export default function ProjectsSection() {
 
                 {/* Content */}
                 <div className="mt-5 sm:mt-6 space-y-2">
-                  <span className="font-mono text-xs text-[#75559C] block">
+                  <span className="font-display text-xs text-[#75559C] block font-medium">
                     {prod.meta}
                   </span>
 

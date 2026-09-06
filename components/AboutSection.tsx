@@ -22,9 +22,6 @@ export default function AboutSection() {
             className="lg:col-span-7 space-y-6"
           >
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#75559C] font-semibold block mb-3 sm:mb-4">
-                ABOUT THRIVEUS
-              </span>
               <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0B0A0D] leading-[1.1]">
                 Everyone Deserves to Thrive—
                 <br className="hidden sm:inline" />

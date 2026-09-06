@@ -44,7 +44,7 @@ export default function TrustedPartnerships() {
       {/* Header Content constrained to max-w-7xl */}
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-12">
         <div className="max-w-3xl space-y-4 sm:space-y-5 pb-10 sm:pb-14">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block">
+          <span className="font-display text-xs uppercase tracking-wider text-[#1782A8] font-semibold block">
             TRUSTED PARTNERSHIPS
           </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">

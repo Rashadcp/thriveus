@@ -37,9 +37,6 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative pt-28 sm:pt-48 pb-16 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#242057]/50">
         <div className="max-w-4xl space-y-4 sm:space-y-6">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#1782A8] block">
-            ABOUT THRIVEUS · DUBAI, UAE
-          </span>
           <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
             Everyone Deserves to Thrive—
             <br className="hidden sm:inline" />
@@ -78,7 +75,7 @@ export default function AboutPage() {
                 <span className="font-display text-3xl sm:text-5xl font-bold text-white block">
                   {stat.value}
                 </span>
-                <p className="font-mono text-xs sm:text-sm text-[#1782A8] leading-snug">
+                <p className="font-display text-xs sm:text-sm text-[#1782A8] font-medium leading-snug">
                   {stat.label}
                 </p>
               </div>
@@ -92,9 +89,6 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 space-y-6">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block mb-2">
-                CAPABILITIES
-              </span>
               <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-white">
                 Turnkey Delivery Across the UAE
               </h2>
@@ -105,7 +99,7 @@ export default function AboutPage() {
                   key={i}
                   className="flex items-baseline gap-3 py-2.5 border-b border-[#242057]/50 text-xs sm:text-sm font-light text-white/90"
                 >
-                  <span className="font-mono text-xs text-[#1782A8] font-bold">
+                  <span className="font-display text-xs text-[#1782A8] font-bold">
                     0{i + 1}
                   </span>
                   <span>{cap}</span>
@@ -115,9 +109,6 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-5 space-y-5 rounded-2xl bg-[#242057]/30 border border-[#242057]/70 p-6 sm:p-8">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block">
-              HEADQUARTERS
-            </span>
             <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
               Dubai, United Arab Emirates
             </h3>

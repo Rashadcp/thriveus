@@ -156,9 +156,6 @@ export default function Navbar() {
             </nav>
 
             <div className="mt-auto pt-8 border-t border-[#242057]">
-              <p className="text-xs uppercase tracking-[0.2em] font-mono text-[#1782A8] mb-4">
-                DUBAI, UNITED ARAB EMIRATES
-              </p>
               <MagneticButton
                 href="/contact"
                 variant="primary"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -35,27 +35,6 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Footer() {
-  const [dubaiTime, setDubaiTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      // Dubai is UTC+4
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: "Asia/Dubai",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      setDubaiTime(new Intl.DateTimeFormat("en-GB", options).format(now));
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <footer className="relative w-full bg-[#0B0A0D] border-t border-[#242057] px-5 sm:px-12 py-12 sm:py-20 text-white overflow-hidden select-none">
       <div className="mx-auto max-w-7xl">
@@ -81,38 +60,25 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Social Icons & Live Dubai Time */}
-          <div className="flex flex-wrap items-center gap-6 sm:gap-8">
-            {dubaiTime && (
-              <div className="flex flex-col text-left sm:text-right">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#75559C]">
-                  DUBAI TIME (GST)
-                </span>
-                <span className="font-mono text-xs text-[#1782A8] font-semibold">
-                  {dubaiTime}
-                </span>
-              </div>
-            )}
-
-            <div className="flex items-center gap-3">
-              {SOCIAL_LINKS.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#242057] bg-[#242057]/50 text-white/90 transition-all duration-300 hover:border-[#1782A8] hover:bg-[#1782A8] hover:text-[#0B0A0D] shadow-sm"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
+          {/* Social Icons */}
+          <div className="flex items-center gap-3">
+            {SOCIAL_LINKS.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#242057] bg-[#242057]/50 text-white/90 transition-all duration-300 hover:border-[#1782A8] hover:bg-[#1782A8] hover:text-[#0B0A0D] shadow-sm"
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
 
         {/* Bottom Bar: Copyright & Location */}
-        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs font-mono text-[#75559C] text-center sm:text-left">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs text-[#75559C] text-center sm:text-left">
           <p>© 2026 THRIVEUS EVENTS CO. L.L.C. ALL RIGHTS RESERVED.</p>
           <p className="text-white/70 font-medium tracking-wider uppercase">DUBAI, UAE</p>
         </div>

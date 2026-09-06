@@ -234,14 +234,9 @@ export default function Services3DCarousel() {
         {/* 1. Header & Live Segment Progress Bar */}
         <div className="w-full max-w-7xl mx-auto flex items-end justify-between pb-2.5 sm:pb-4 border-b border-[#242057]/60 flex-shrink-0">
           <div>
-            <div className="flex items-center gap-2 sm:gap-3">
-              <span className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold">
-                What We Deliver
-              </span>
-              <span className="text-[10px] font-mono text-[#75559C] hidden sm:inline">
-                // Scroll down or swipe to explore
-              </span>
-            </div>
+            <span className="font-display text-xs uppercase tracking-wider text-[#1782A8] font-semibold block">
+              What We Deliver
+            </span>
             <h2 className="font-display text-lg sm:text-3xl font-bold tracking-tight text-white mt-0.5 sm:mt-1">
               Our Services
             </h2>
@@ -249,7 +244,7 @@ export default function Services3DCarousel() {
 
           {/* Stepper indicator: 01 / 07 with 7 segmented bars */}
           <div className="flex flex-col items-end gap-1 sm:gap-2">
-            <div className="flex items-center gap-1.5 font-mono text-[11px] sm:text-sm">
+            <div className="flex items-center gap-1.5 font-display font-medium text-[11px] sm:text-sm">
               <span className="font-bold text-[#1782A8]">
                 {activeService.serviceNum}
               </span>
@@ -308,12 +303,9 @@ export default function Services3DCarousel() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A0D]/90 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badge */}
-                  <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 z-10 flex items-center gap-2">
-                    <span className="font-mono text-[9px] sm:text-xs uppercase tracking-wider bg-[#0B0A0D]/85 backdrop-blur-md px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 text-white font-medium">
+                  <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 z-10">
+                    <span className="font-display text-[10px] sm:text-xs uppercase tracking-wider bg-[#0B0A0D]/85 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-white font-medium">
                       {srv.tag}
-                    </span>
-                    <span className="font-mono text-[9px] sm:text-[10px] text-[#1782A8] hidden sm:inline">
-                      DUBAI &amp; UAE
                     </span>
                   </div>
                 </div>
@@ -337,11 +329,11 @@ export default function Services3DCarousel() {
                 >
                   {/* Number & Category */}
                   <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="font-mono text-sm sm:text-lg text-[#1782A8] font-bold">
+                    <span className="font-display text-sm sm:text-lg text-[#1782A8] font-bold">
                       {srv.serviceNum}
                     </span>
                     <span className="h-px w-6 sm:w-8 bg-[#242057]" />
-                    <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#75559C]">
+                    <span className="font-display text-[10px] sm:text-xs uppercase tracking-wider text-[#75559C] font-semibold">
                       {srv.tag}
                     </span>
                   </div>
@@ -361,7 +353,7 @@ export default function Services3DCarousel() {
                     {srv.highlights.map((h) => (
                       <span
                         key={h}
-                        className="inline-flex items-center gap-1 font-mono text-[8.5px] sm:text-xs text-white/80 bg-[#242057]/50 border border-[#242057] rounded-md px-2 py-0.5 sm:px-2.5 sm:py-1"
+                        className="inline-flex items-center gap-1 font-display text-[9px] sm:text-xs text-white/85 bg-[#242057]/50 border border-[#242057] rounded-md px-2 py-0.5 sm:px-2.5 sm:py-1 font-medium"
                       >
                         <span className="text-[#1782A8]">✦</span>
                         {h}
@@ -386,7 +378,7 @@ export default function Services3DCarousel() {
         </div>
 
         {/* 3. Bottom Controls & Scroll Hint */}
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between pt-2 sm:pt-3 border-t border-[#242057]/40 text-[11px] sm:text-xs font-mono text-[#75559C] flex-shrink-0">
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between pt-2 sm:pt-3 border-t border-[#242057]/40 text-[11px] sm:text-xs font-display text-[#75559C] flex-shrink-0">
           <div className="flex items-center gap-3 sm:gap-4">
             <button
               type="button"

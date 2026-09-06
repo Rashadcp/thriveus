@@ -178,7 +178,7 @@ export default function DualMarqueeGallery() {
 
               {/* Clean Editorial Caption - Visible on mobile, hover-revealed on desktop */}
               <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-20 pointer-events-none opacity-100 sm:opacity-0 translate-y-0 sm:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-[#1782A8] block mb-0.5 sm:mb-1 font-semibold">
+                <span className="font-display text-[10px] uppercase tracking-wider text-[#1782A8] block mb-0.5 sm:mb-1 font-semibold">
                   {card.category}
                 </span>
                 <p className="font-display text-xs sm:text-base font-bold text-white leading-snug">

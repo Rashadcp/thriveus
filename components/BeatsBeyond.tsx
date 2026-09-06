@@ -25,7 +25,7 @@ export default function BeatsBeyond() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
           {/* Narrative Left */}
           <div className="lg:col-span-6 space-y-5">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#75559C] font-bold block">
+            <span className="font-display text-xs uppercase tracking-wider text-[#75559C] font-bold block">
               OUR APPROACH
             </span>
             <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-[#0B0A0D] leading-tight">
@@ -52,10 +52,6 @@ export default function BeatsBeyond() {
                 className="object-cover object-center transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] sm:text-xs font-mono text-[#75559C]">
-              <span className="uppercase tracking-widest text-[#0B0A0D] font-semibold">FLAGSHIP EXPERIENCES · UAE</span>
-              <span>STAGE ARCHITECTURE &amp; PRODUCTION</span>
-            </div>
           </div>
         </div>
 
@@ -66,7 +62,7 @@ export default function BeatsBeyond() {
               <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0B0A0D] block">
                 300+
               </span>
-              <p className="font-mono text-xs sm:text-sm text-[#75559C] leading-snug">
+              <p className="font-display text-xs sm:text-sm text-[#75559C] font-medium leading-snug">
                 Clients Served by the Team
               </p>
             </div>
@@ -74,7 +70,7 @@ export default function BeatsBeyond() {
               <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0B0A0D] block">
                 20+
               </span>
-              <p className="font-mono text-xs sm:text-sm text-[#75559C] leading-snug">
+              <p className="font-display text-xs sm:text-sm text-[#75559C] font-medium leading-snug">
                 Years Combined Experience
               </p>
             </div>
@@ -82,7 +78,7 @@ export default function BeatsBeyond() {
               <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0B0A0D] block">
                 30+
               </span>
-              <p className="font-mono text-xs sm:text-sm text-[#75559C] leading-snug">
+              <p className="font-display text-xs sm:text-sm text-[#75559C] font-medium leading-snug">
                 Signature Events Delivered
               </p>
             </div>
@@ -90,7 +86,7 @@ export default function BeatsBeyond() {
               <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0B0A0D] block">
                 3,000+
               </span>
-              <p className="font-mono text-xs sm:text-sm text-[#75559C] leading-snug">
+              <p className="font-display text-xs sm:text-sm text-[#75559C] font-medium leading-snug">
                 Participants Engaged
               </p>
             </div>
@@ -103,7 +99,7 @@ export default function BeatsBeyond() {
         <div className="animate-marquee-reverse whitespace-nowrap flex items-center">
           {CAPABILITY_TICKERS.map((item, idx) => (
             <div key={idx} className="flex items-center mx-6">
-              <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.16em] font-semibold text-white">
+              <span className="font-display text-xs sm:text-sm uppercase tracking-wider font-semibold text-white">
                 {item}
               </span>
               <span className="mx-6 text-[#1782A8] text-xs">✶</span>

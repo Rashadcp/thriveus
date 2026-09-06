@@ -43,9 +43,6 @@ export default function ContactPage() {
       {/* Hero Header */}
       <section className="relative pt-28 sm:pt-48 pb-14 sm:pb-20 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#242057]/50">
         <div className="max-w-4xl space-y-4 sm:space-y-6">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-[#1782A8] block">
-            INITIATE A CONVERSATION · DUBAI, UAE
-          </span>
           <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
             Let&apos;s Create Something
             <br className="hidden sm:inline" />
@@ -63,9 +60,6 @@ export default function ContactPage() {
           {/* Form Column */}
           <div className="lg:col-span-7">
             <div className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#242057]/30 border border-[#242057]/80 shadow-2xl">
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block mb-2">
-                PROJECT INQUIRY FORM
-              </span>
               <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-6">
                 Tell Us About Your Event
               </h2>
@@ -84,7 +78,7 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="mt-4 text-xs font-mono uppercase tracking-widest text-[#1782A8] hover:underline"
+                    className="mt-4 text-xs font-display uppercase tracking-widest text-[#1782A8] hover:underline"
                   >
                     Submit another inquiry
                   </button>
@@ -93,7 +87,7 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-white/90 mb-2">
+                      <label className="block text-xs font-display font-medium uppercase tracking-wider text-white/90 mb-2">
                         Full Name *
                       </label>
                       <input
@@ -106,7 +100,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-white/90 mb-2">
+                      <label className="block text-xs font-display font-medium uppercase tracking-wider text-white/90 mb-2">
                         Work Email *
                       </label>
                       <input
@@ -122,7 +116,7 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-white/90 mb-2">
+                      <label className="block text-xs font-display font-medium uppercase tracking-wider text-white/90 mb-2">
                         Organisation / Company
                       </label>
                       <input
@@ -134,7 +128,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-white/90 mb-2">
+                      <label className="block text-xs font-display font-medium uppercase tracking-wider text-white/90 mb-2">
                         Contact Number
                       </label>
                       <input
@@ -148,7 +142,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-white/90 mb-2">
+                    <label className="block text-xs font-display font-medium uppercase tracking-wider text-white/90 mb-2">
                       Experience / Event Type
                     </label>
                     <select
@@ -165,7 +159,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-white/90 mb-2">
+                    <label className="block text-xs font-display font-medium uppercase tracking-wider text-white/90 mb-2">
                       Project Vision &amp; Requirements *
                     </label>
                     <textarea
@@ -192,12 +186,8 @@ export default function ContactPage() {
           {/* Direct Details Column */}
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#242057]/30 border border-[#242057]/80 space-y-6">
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block">
-                DIRECT CONTACT
-              </span>
-
               <div>
-                <p className="text-xs uppercase font-mono tracking-widest text-[#75559C]">
+                <p className="text-xs uppercase font-display tracking-wider text-[#75559C] font-semibold">
                   Email Direct
                 </p>
                 <a
@@ -209,19 +199,16 @@ export default function ContactPage() {
               </div>
 
               <div className="pt-4 border-t border-[#242057]/60">
-                <p className="text-xs uppercase font-mono tracking-widest text-[#75559C]">
+                <p className="text-xs uppercase font-display tracking-wider text-[#75559C] font-semibold">
                   Location
                 </p>
                 <p className="mt-1 text-base text-white font-medium">
                   Dubai, United Arab Emirates
                 </p>
-                <p className="text-xs font-mono text-[#1782A8] mt-0.5">
-                  DUBAI · ABU DHABI · AL AIN · UAE WIDE
-                </p>
               </div>
 
               <div className="pt-4 border-t border-[#242057]/60">
-                <p className="text-xs uppercase font-mono tracking-widest text-[#75559C]">
+                <p className="text-xs uppercase font-display tracking-wider text-[#75559C] font-semibold">
                   Experience Delivery
                 </p>
                 <p className="mt-1 text-xs sm:text-sm text-white/75 leading-relaxed font-light">

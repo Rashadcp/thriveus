@@ -7,11 +7,6 @@ export default function FinalCTA() {
   return (
     <section className="relative w-full bg-[#0B0A0D] py-20 sm:py-36 lg:py-48 px-5 sm:px-12 overflow-hidden text-white border-t border-[#242057]/50">
       <div className="relative z-10 mx-auto max-w-4xl text-center">
-        {/* Subtle Eyebrow */}
-        <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1782A8] font-semibold block mb-4 sm:mb-6">
-          INITIATE A CONVERSATION
-        </span>
-
         {/* Large, Confident Headline */}
         <h2 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
           Ready to Create
