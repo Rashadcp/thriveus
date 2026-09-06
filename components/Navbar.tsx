@@ -44,7 +44,7 @@ export default function Navbar() {
         <div
           className={`mx-auto flex items-center justify-between transition-all duration-500 ${
             isScrolled
-              ? "max-w-6xl rounded-full bg-[#0B0A0D]/90 px-6 py-2.5 shadow-[0_12px_40px_rgba(11,10,13,0.6)] backdrop-blur-2xl border border-[#242057]"
+              ? "max-w-6xl rounded-full bg-[#0B0A0D]/90 px-6 py-2.5 shadow-[0_12px_40px_rgba(11,10,13,0.6)] backdrop-blur-2xl border-none"
               : "max-w-7xl"
           }`}
         >
@@ -98,7 +98,7 @@ export default function Navbar() {
             <MagneticButton
               href="/contact"
               variant="primary"
-              className="!py-2.5 !px-5 text-xs font-semibold"
+              className="!py-2.5 !px-5 text-xs font-semibold !border-none !border-0 shadow-sm"
             >
               Let&apos;s Create
             </MagneticButton>
