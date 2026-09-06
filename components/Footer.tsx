@@ -55,7 +55,7 @@ export default function Footer() {
                 Thrive<span className="italic font-serif font-normal text-[#75559C]">us</span>
               </span>
             </Link>
-            <p className="font-display text-xs sm:text-sm tracking-wide text-[#75559C]">
+            <p className="font-display text-xs sm:text-sm tracking-wide text-white/90">
               Curating Impact, One Experience at a Time.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#242057] bg-[#242057]/50 text-white/90 transition-all duration-300 hover:border-[#1782A8] hover:bg-[#1782A8] hover:text-[#0B0A0D] shadow-sm"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#242057] bg-[#242057]/50 text-white transition-all duration-300 hover:border-[#1782A8] hover:bg-[#1782A8] hover:text-[#0B0A0D] shadow-sm"
               >
                 {social.icon}
               </a>
@@ -78,9 +78,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Location */}
-        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs text-[#75559C] text-center sm:text-left">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs text-white/90 text-center sm:text-left">
           <p>© 2026 THRIVEUS EVENTS CO. L.L.C. ALL RIGHTS RESERVED.</p>
-          <p className="text-white/70 font-medium tracking-wider uppercase">DUBAI, UAE</p>
+          <p className="text-white font-semibold tracking-wider uppercase">DUBAI, UAE</p>
         </div>
       </div>
     </footer>
