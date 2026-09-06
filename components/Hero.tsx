@@ -32,10 +32,6 @@ export default function Hero() {
 
       {/* Confident Editorial Hero Content - Responsive for All Mobile Screens */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center pt-16 sm:pt-0">
-        <span className="inline-block font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#1782A8] mb-3 sm:mb-4 font-medium">
-          Experiential Productions // UAE
-        </span>
-
         <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.12]">
           Curating Impact,
           <br className="hidden sm:inline" />
