@@ -16,64 +16,103 @@ interface ServiceItem {
 
 const SERVICES: ServiceItem[] = [
   {
-    id: "team-building",
+    id: "curated-experiences",
     serviceNum: "01",
-    title: "Team Building & Engagement",
-    tag: "Team Dynamics",
-    image: "/images/team-building.jpg",
+    title: "Curated Experiences",
+    tag: "SIGNATURE FORMATS",
+    image: "/images/arena-games-wide.jpg",
     description:
-      "Interactive experiences and team challenges that build authentic trust, collaboration, and high-performance workplace culture.",
-    highlights: ["Custom Team Challenges", "Collaborative Problem-Solving", "Culture & Morale Alignment"],
+      "Original, large format experiences designed around your people and your objectives. Arena scale game shows inspired by the survival formats everyone knows, city wide challenge races, megayacht productions, island and beach escapes, and fully private experiences deep in the desert, each built as a storyline rather than a schedule of activities.",
+    highlights: [
+      "Arena Game Formats",
+      "City Wide Challenge Races",
+      "Yacht, Island & Beach Escapes",
+      "Fully Private Desert Experiences",
+    ],
   },
   {
-    id: "immersive-venues",
+    id: "conferences-productions",
     serviceNum: "02",
-    title: "Venue Experiences",
-    tag: "Spatial Curation",
-    image: "/images/featured-experience.jpg",
+    title: "Conferences & Corporate Productions",
+    tag: "SUMMITS & PRODUCTIONS",
+    image: "/images/conference-summit.jpg",
     description:
-      "Immersive corporate gatherings hosted in iconic, premier architectural spaces across Dubai, Abu Dhabi, and the wider UAE.",
-    highlights: ["Architectural Venues", "Full Spatial Staging", "Bespoke VIP Hospitality"],
+      "End to end delivery for multi day conferences, summits and executive gatherings: venue, staging, audio visual, registration and delegate operations under one accountable partner.",
+    highlights: [
+      "Multi Day Conferences",
+      "Turnkey Audio Visual",
+      "Delegate Operations",
+    ],
   },
   {
-    id: "training-leadership",
+    id: "celebrations-cultural",
     serviceNum: "03",
-    title: "Leadership & Training",
-    tag: "Executive Development",
-    image: "/images/leadership-training.jpg",
+    title: "Celebrations & Cultural Events",
+    tag: "MILESTONES & CULTURE",
+    image: "/images/gala-stage.jpg",
     description:
-      "High-impact leadership masterclasses and executive development workshops focused on modern strategic leadership and communication.",
-    highlights: ["C-Suite Facilitation", "Communication Strategy", "Interactive Masterclasses"],
+      "Annual staff events, award nights, themed galas, iftars, cultural festivals and family day carnivals, designed with genuine cultural fluency across Emirati, South Asian and international workforces.",
+    highlights: [
+      "Award Nights & Galas",
+      "Iftar & Cultural Programmes",
+      "Family Day Carnivals",
+    ],
   },
   {
-    id: "conferences-events",
+    id: "team-building",
     serviceNum: "04",
-    title: "Events & Conferences",
-    tag: "Summits & Galas",
-    image: "/images/hero-event.jpg",
+    title: "Experiential Team Building",
+    tag: "TEAM DYNAMICS",
+    image: "/images/desert-golden-hour.jpg",
     description:
-      "Full-scale production for global summits, corporate galas, and brand launch events from initial spatial concept through flawless execution.",
-    highlights: ["Arena-Scale Keynotes", "Turnkey Audiovisual", "Live Delegate Operations"],
+      "Desert, beach, island, yacht, city and indoor programmes across two tiers: high energy engagement days, and outcome driven simulations with storylines, roles and stakes. Our desert programmes run at a fully private camp in the middle of the desert, an experience generic operators cannot replicate.",
+    highlights: [
+      "Fully Private Desert Camp",
+      "Beach, Island & Marine Formats",
+      "Indoor Simulations",
+    ],
   },
   {
-    id: "retreats-incentives",
+    id: "coaching-training",
     serviceNum: "05",
-    title: "Company Retreats",
-    tag: "Executive Offsites",
-    image: "/images/desert-retreat.jpg",
+    title: "Coaching, Training & Capability Building",
+    tag: "WHERE THRIVE IS EARNED",
+    image: "/images/training-session.jpg",
     description:
-      "Bespoke retreat itineraries combining executive strategy sessions with restorative wellness in stunning regional environments.",
-    highlights: ["Desert Sanctuaries", "Executive Salons", "Curated Wellness & Dining"],
+      "One to one coaching, group training and experiential leadership programmes for managers and rising leaders, delivered by senior facilitators and measured before and after so development is proven, not presumed.",
+    highlights: [
+      "Leadership Development Programmes",
+      "One to One Coaching",
+      "Measured Outcomes",
+    ],
   },
   {
-    id: "cultural-events",
+    id: "gamified-learning",
     serviceNum: "06",
-    title: "Corporate Celebrations",
-    tag: "Brand Milestones",
-    image: "/images/vip-lounge.jpg",
+    title: "Gamified Learning & Training",
+    tag: "LEARNING THAT LANDS",
+    image: "/images/gamified-learning.jpg",
     description:
-      "Commemorative milestone galas, executive dinners, and celebration evenings engineered to honor organizational achievement.",
-    highlights: ["Awards Ceremonies", "VIP Recognition Nights", "Brand Milestone Galas"],
+      "Safety awareness, KPI reinforcement and leadership development delivered through play, simulation and competition, with measurement built in so outcomes are visible rather than assumed.",
+    highlights: [
+      "Safety & Compliance Games",
+      "Leadership Programmes",
+      "Built In Measurement",
+    ],
+  },
+  {
+    id: "leadership-retreats",
+    serviceNum: "07",
+    title: "Leadership Retreats",
+    tag: "EXECUTIVE OFFSITES",
+    image: "/images/alain-retreat.jpg",
+    description:
+      "Mountain, desert and resort retreats built for senior teams: strategy sessions by day, campfires and shared tables by night. Recent programmes include a mountain retreat in Al Ain and private desert experiences for senior leadership groups.",
+    highlights: [
+      "Mountain & Desert Settings",
+      "Facilitated Strategy Sessions",
+      "Overnight Formats",
+    ],
   },
 ];
 
@@ -184,7 +223,7 @@ export default function Services3DCarousel() {
     <section
       ref={containerRef}
       id="services"
-      className="relative w-full bg-[#12103D] text-white h-[300vh] sm:h-[360vh] border-t border-[#28245F]/50"
+      className="relative w-full bg-[#12103D] text-white h-[350vh] sm:h-[420vh] border-t border-[#28245F]/50"
     >
       {/* Pinned Viewport: 100dvh avoids jumpy mobile address bar resizing */}
       <div
@@ -208,13 +247,13 @@ export default function Services3DCarousel() {
             </h2>
           </div>
 
-          {/* Stepper indicator: 01 / 06 with 6 segmented bars */}
+          {/* Stepper indicator: 01 / 07 with 7 segmented bars */}
           <div className="flex flex-col items-end gap-1 sm:gap-2">
             <div className="flex items-center gap-1.5 font-mono text-[11px] sm:text-sm">
               <span className="font-bold text-[#8EDAF2]">
                 {activeService.serviceNum}
               </span>
-              <span className="text-[#62627A]">/ 06</span>
+              <span className="text-[#62627A]">/ 07</span>
             </div>
 
             {/* Segmented Clickable Progress Track */}

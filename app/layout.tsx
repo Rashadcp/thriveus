@@ -26,17 +26,20 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thriveus.ae"),
-  title: "Thriveus | Corporate Events & Experiences in UAE",
+  title: "Thriveus | Corporate Events, Team Building & Experiences in UAE",
   description:
-    "Thriveus creates purposeful corporate events, employee engagement experiences, team building, retreats, conferences and immersive experiences across the UAE and beyond.",
+    "Thriveus designs corporate experiences across the UAE. Team building, gamified learning, celebrations, retreats and conferences for enterprise teams.",
   keywords: [
     "Corporate Events UAE",
-    "Dubai Event Production",
-    "Experiential Experiences Dubai",
-    "NeoThrive Technology",
-    "Corporate Galas UAE",
-    "Executive Conferences Dubai",
-    "Experiential Marketing UAE",
+    "Team Building Dubai",
+    "Squid Game Styled Event Dubai",
+    "Squid Game Inspired Team Building UAE",
+    "Gamified Learning UAE",
+    "Corporate Celebrations Dubai",
+    "Leadership Retreats UAE",
+    "Corporate Training Dubai",
+    "Experiential Events Dubai",
+    "Conference Production Dubai",
   ],
   authors: [{ name: "Thriveus Experiential" }],
   creator: "Thriveus",
@@ -62,23 +65,23 @@ export const metadata: Metadata = {
       "Corporate experiences designed to connect people, inspire action and create lasting impact.",
     url: "https://thriveus.ae",
     siteName: "Thriveus",
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
     images: [
       {
-        url: "/images/hero-event.jpg",
+        url: "/images/arena-games-wide.jpg",
         width: 1376,
         height: 768,
-        alt: "Thriveus Luxury Corporate Experiences Dubai",
+        alt: "Thriveus Corporate Events and Experiences Dubai",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thriveus | Corporate Events & Experiences in UAE",
+    title: "Thriveus | Corporate Events, Team Building & Experiences in UAE",
     description:
-      "Curating Impact, One Experience at a Time. High-end corporate events & experiential productions in Dubai.",
-    images: ["/images/hero-event.jpg"],
+      "Thriveus designs corporate experiences across the UAE. Team building, gamified learning, celebrations, retreats and conferences for enterprise teams.",
+    images: ["/images/arena-games-wide.jpg"],
   },
   robots: {
     index: true,
@@ -93,7 +96,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`${sora.variable} ${inter.variable} min-h-full scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans bg-[#12103D] text-white antialiased selection:bg-[#8EDAF2] selection:text-[#12103D]">
@@ -102,3 +105,4 @@ export default function RootLayout({
     </html>
   );
 }
+

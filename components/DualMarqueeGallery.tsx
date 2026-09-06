@@ -4,83 +4,78 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const BLUE_ITEMS = [
-  "EXPERIENCES DESIGNED FOR IMPACT",
-  "EMPLOYEE ENGAGEMENT & TEAM BUILDING",
-  "DUBAI · ABU DHABI · RIYADH",
-  "CURATING IMPACT, ONE EXPERIENCE AT A TIME",
-  "FULL-SCOPE CORPORATE EVENTS & CONFERENCES",
-  "VENUE-BASED IMMERSIVE EXPERIENCES",
-  "EXPERIENCES DESIGNED FOR IMPACT",
-  "EXECUTIVE LEADERSHIP & RETREATS",
-  "CURATING IMPACT, ONE EXPERIENCE AT A TIME",
-  "DUBAI · ABU DHABI · RIYADH",
-];
-
-const NAVY_ITEMS = [
+const TICKER_ROW_1 = [
   "THRIVEUS EXPERIENTIAL",
   "CORPORATE TRAINING & LEADERSHIP",
-  "OFFSITE RETREATS & INCENTIVE PROGRAMS",
+  "OFFSITE RETREATS & INCENTIVE PROGRAMMES",
   "CURATED CORPORATE & CULTURAL EVENTS",
-  "DUBAI HEADQUARTERS · UAE",
-  "DESIGN + PRODUCTION + FABRICATION",
   "GAMIFIED LEARNING & LIVE EVENTS",
-  "THRIVEUS EXPERIENTIAL",
-  "HIGH-END VIDEO PRODUCTION",
+  "DESIGN + PRODUCTION + FABRICATION",
+  "CSR & COMMUNITY PROGRAMMES",
   "DUBAI HEADQUARTERS · UAE",
+];
+
+const TICKER_ROW_2 = [
+  "EXPERIENCES DESIGNED FOR IMPACT",
+  "EMPLOYEE ENGAGEMENT & TEAM BUILDING",
+  "DUBAI · ABU DHABI · AL AIN · UAE WIDE",
+  "CURATING IMPACT, ONE EXPERIENCE AT A TIME",
+  "FULL SCOPE CORPORATE EVENTS & CONFERENCES",
+  "VENUE BASED IMMERSIVE EXPERIENCES",
+  "EXECUTIVE LEADERSHIP & RETREATS",
 ];
 
 // 4x extended arrays to ensure 100% unbroken, infinite background coverage
-const EXTENDED_BLUE = [
-  ...BLUE_ITEMS,
-  ...BLUE_ITEMS,
-  ...BLUE_ITEMS,
-  ...BLUE_ITEMS,
+const EXTENDED_NAVY = [
+  ...TICKER_ROW_1,
+  ...TICKER_ROW_1,
+  ...TICKER_ROW_1,
+  ...TICKER_ROW_1,
 ];
 
-const EXTENDED_NAVY = [
-  ...NAVY_ITEMS,
-  ...NAVY_ITEMS,
-  ...NAVY_ITEMS,
-  ...NAVY_ITEMS,
+const EXTENDED_BLUE = [
+  ...TICKER_ROW_2,
+  ...TICKER_ROW_2,
+  ...TICKER_ROW_2,
+  ...TICKER_ROW_2,
 ];
 
 const GALLERY_IMAGES = [
   {
-    src: "/images/team-building.jpg",
-    alt: "Corporate Team Building and Innovation Workshop",
-    category: "EMPLOYEE ENGAGEMENT",
-    title: "Team Innovation Workshop Dubai",
+    src: "/images/arena-games-wide.jpg",
+    alt: "Corporate teams competing in a branded arena game zone in Dubai",
+    category: "SIGNATURE FORMATS",
+    title: "The Arena Games · 685 Guests",
   },
   {
-    src: "/images/leadership-training.jpg",
-    alt: "Executive Leadership Summit and Masterclass",
-    category: "LEADERSHIP DEVELOPMENT",
-    title: "Executive Leadership Masterclass",
+    src: "/images/desert-golden-hour.jpg",
+    alt: "Private desert immersion experience for enterprise teams",
+    category: "EXPERIENTIAL TEAM BUILDING",
+    title: "Fully Private Desert Immersion · Al Faqa",
   },
   {
-    src: "/images/hero-event.jpg",
-    alt: "Global Corporate Summit Arena",
-    category: "CONFERENCES & SUMMITS",
-    title: "Global Leadership Summit Arena",
+    src: "/images/gala-stage.jpg",
+    alt: "Corporate celebrations themed gala dinner stage production",
+    category: "CORPORATE CELEBRATIONS",
+    title: "Themed Gala Dinner · 120 Guests",
   },
   {
-    src: "/images/featured-experience.jpg",
-    alt: "Avant-Garde Gala Dinner and Immersive Venue",
-    category: "IMMERSIVE VENUES",
-    title: "Burj Khalifa Gala Suite",
+    src: "/images/alain-retreat.jpg",
+    alt: "Executive mountain leadership retreat in Al Ain",
+    category: "LEADERSHIP RETREATS",
+    title: "Mountain Retreat · Al Ain",
   },
   {
-    src: "/images/desert-retreat.jpg",
-    alt: "Executive Desert Sanctuary Retreat",
-    category: "OFFSITE RETREATS",
-    title: "Bab Al Shams Desert Retreat",
+    src: "/images/megayacht-event.jpg",
+    alt: "Luxury megayacht corporate hospitality event in Dubai Marina",
+    category: "MARINE EXPERIENCES",
+    title: "Luxury Megayacht Event · 275 Guests",
   },
   {
-    src: "/images/vip-lounge.jpg",
-    alt: "Curated Corporate Activation Lounge",
-    category: "CURATED CORPORATE EVENTS",
-    title: "DIFC Corporate Lounge & Activation",
+    src: "/images/family-carnival.jpg",
+    alt: "Family day carnival and corporate cultural celebration",
+    category: "FAMILY & CULTURAL EVENTS",
+    title: "Family Day Carnival · 215 Guests",
   },
 ];
 
@@ -125,7 +120,7 @@ export default function DualMarqueeGallery() {
                   {item}
                 </span>
                 <span className="mx-5 sm:mx-8 text-[#8EDAF2] text-xs sm:text-sm">
-                  ✦
+                  ✶
                 </span>
               </div>
             ))}
@@ -144,7 +139,7 @@ export default function DualMarqueeGallery() {
                   {item}
                 </span>
                 <span className="mx-5 sm:mx-8 text-[#8EDAF2] text-xs sm:text-sm">
-                  ✦
+                  ✶
                 </span>
               </div>
             ))}

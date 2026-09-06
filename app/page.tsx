@@ -5,7 +5,8 @@ import AboutSection from "@/components/AboutSection";
 import Services3DCarousel from "@/components/Services3DCarousel";
 import BeatsBeyond from "@/components/BeatsBeyond";
 import ProjectsSection from "@/components/ProjectsSection";
-import NeoThrive from "@/components/NeoThrive";
+import EventFilms from "@/components/EventFilms";
+import TrustedPartnerships from "@/components/TrustedPartnerships";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -19,7 +20,8 @@ export default function HomePage() {
       <Services3DCarousel />
       <BeatsBeyond />
       <ProjectsSection />
-      <NeoThrive />
+      <EventFilms />
+      <TrustedPartnerships />
       <FinalCTA />
       <Footer />
     </main>

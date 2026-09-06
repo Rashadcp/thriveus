@@ -28,7 +28,7 @@ export default function AboutSection() {
               <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#17163F] leading-[1.1]">
                 Everyone Deserves to Thrive—
                 <br className="hidden sm:inline" />
-                {" "}Individuals &amp; Organizations.
+                {" "}Individuals &amp; Organisations.
               </h2>
             </div>
 
@@ -64,8 +64,8 @@ export default function AboutSection() {
           >
             <div className="relative aspect-[4/3] sm:h-[480px] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[#E3E6EF] bg-white shadow-[0_20px_50px_rgba(18,16,61,0.08)]">
               <Image
-                src="/images/team-building.jpg"
-                alt="Thriveus Corporate Workshop in Dubai"
+                src="/images/about-crowd.jpg"
+                alt="Large corporate audience at a Thriveus arena experience in Dubai"
                 fill
                 sizes="(max-width: 1024px) 100vw, 500px"
                 className="object-cover object-center brightness-100 transition-transform duration-700 hover:scale-105"
