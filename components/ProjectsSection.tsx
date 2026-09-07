@@ -21,7 +21,7 @@ const PRODUCTIONS: Production[] = [
     meta: "685+ guests · Dubai · February 2026",
     description:
       "A full arena production for the annual staff event of a global engineering consultancy. Our Squid Game inspired arena format brought custom game zones, elimination style rounds, live scoring and a survival themed storyline that turned 685 colleagues into competing squads for one unforgettable afternoon.",
-    image: "/images/corporate-ballroom-team.jpg",
+    image: "/images/arena-games-squidgame.jpg",
   },
   {
     id: "work-02-megayacht",
@@ -109,11 +109,6 @@ export default function ProjectsSection() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/90 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold shadow-sm">
-                      {prod.tag}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content */}

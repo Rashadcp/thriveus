@@ -26,7 +26,7 @@ export const PRODUCTIONS: ProductionItem[] = [
     meta: "685+ guests · Dubai · February 2026",
     description:
       "A full arena production for the annual staff event of a global engineering consultancy. Our Squid Game inspired arena format brought custom game zones, elimination style rounds, live scoring and a survival themed storyline that turned 685 colleagues into competing squads for one unforgettable afternoon.",
-    image: "/images/corporate-ballroom-team.jpg",
+    image: "/images/arena-games-squidgame.jpg",
     youtubeId: "97YFzz0Bk-Y",
   },
   {
@@ -209,13 +209,6 @@ export default function WorksClient() {
                 <div>
                   {/* Media Container: Photo by default; YouTube embed on click */}
                   <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-[#000000] border border-[#8A5FA8]/30">
-                    {/* Category Tag Badge */}
-                    <div className="absolute top-2.5 left-2.5 z-30 pointer-events-none">
-                      <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/90 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold shadow-sm">
-                        {prod.tag}
-                      </span>
-                    </div>
-
                     {/* Active YouTube Iframe using privacy-enhanced youtube-nocookie.com */}
                     {hasVideo && isPlaying && (
                       <iframe

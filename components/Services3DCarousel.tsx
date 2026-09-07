@@ -17,36 +17,36 @@ const CircularGallery = dynamic(() => import("@/components/CircularGallery"), {
 
 const CIRCULAR_SERVICES = [
   {
-    image: "/images/corporate-ballroom-team.jpg",
-    text: "Enterprise Gatherings",
+    image: "/images/gallery-conference-production.jpg",
+    text: "Conferences & Summits",
   },
   {
-    image: "/images/our-approach-team.jpg",
-    text: "Team Celebrations",
+    image: "/images/gallery-arena-games-floor.jpg",
+    text: "Signature Formats",
   },
   {
-    image: "/images/gala-dinner-ballroom.jpg",
+    image: "/images/gallery-spc-awards-stage.jpg",
     text: "Galas & Award Nights",
   },
   {
-    image: "/images/cultural-drum-celebration.jpg",
+    image: "/images/gallery-onam-performance.jpg",
     text: "Celebrations & Cultural",
   },
   {
-    image: "/images/resort-teambuilding-lawn.jpg",
-    text: "Experiential Team Building",
+    image: "/images/gallery-desert-camp.jpg",
+    text: "Desert & Outdoor Formats",
   },
   {
-    image: "/images/resort-leadership-circle.jpg",
-    text: "Capability & Leadership",
+    image: "/images/gallery-mountain-session.jpg",
+    text: "Executive Retreats",
   },
   {
-    image: "/images/team-challenge-burj.jpg",
-    text: "Gamified Learning",
+    image: "/images/gallery-arena-squad-action.jpg",
+    text: "Gamified Challenges",
   },
   {
-    image: "/images/alain-mountain-summit.jpg",
-    text: "Leadership Retreats",
+    image: "/images/gallery-spc-gala-celebration.jpg",
+    text: "Corporate Recognition",
   },
 ];
 
