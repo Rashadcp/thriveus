@@ -31,40 +31,40 @@ const RIBBON_ROW_2 = [...TICKER_ROW_2, ...TICKER_ROW_2];
 
 const GALLERY_IMAGES = [
   {
-    src: "/images/arena-games-wide.jpg",
-    alt: "Corporate teams competing in a branded arena game zone in Dubai",
+    src: "/images/aramco-summit.jpg",
+    alt: "Aramco and Subsea 7 enterprise stakeholder alignment summit in Dubai",
+    category: "CONFERENCES & SUMMITS",
+    title: "Aramco & Subsea 7 · Alignment Summit",
+  },
+  {
+    src: "/images/team-challenge-burj.jpg",
+    alt: "Corporate team challenge with live gamified competition in Dubai",
     category: "SIGNATURE FORMATS",
-    title: "The Arena Games · 685 Guests",
+    title: "The Team Challenge · Burj Al Arab Edition",
   },
   {
-    src: "/images/desert-golden-hour.jpg",
-    alt: "Private desert immersion experience for enterprise teams",
-    category: "EXPERIENTIAL TEAM BUILDING",
-    title: "Fully Private Desert Immersion · Al Faqa",
-  },
-  {
-    src: "/images/gala-stage.jpg",
-    alt: "Corporate celebrations themed gala dinner stage production",
+    src: "/images/cultural-drum-celebration.jpg",
+    alt: "Corporate celebration with traditional live cultural performance",
     category: "CORPORATE CELEBRATIONS",
-    title: "Themed Gala Dinner · 120 Guests",
+    title: "Cultural Drum Celebration · Live Festival",
   },
   {
-    src: "/images/alain-retreat.jpg",
-    alt: "Executive mountain leadership retreat in Al Ain",
+    src: "/images/alain-mountain-summit.jpg",
+    alt: "Executive mountain leadership retreat in Jebel Hafeet, Al Ain",
     category: "LEADERSHIP RETREATS",
-    title: "Mountain Retreat · Al Ain",
+    title: "Mountain Retreat · Jebel Hafeet, Al Ain",
   },
   {
-    src: "/images/megayacht-event.jpg",
-    alt: "Luxury megayacht corporate hospitality event in Dubai Marina",
-    category: "MARINE EXPERIENCES",
-    title: "Luxury Megayacht Event · 275 Guests",
+    src: "/images/gala-dinner-ballroom.jpg",
+    alt: "Corporate gala dinner celebration and awards evening in luxury hotel ballroom",
+    category: "GALAS & AWARDS",
+    title: "Corporate Gala Dinner · Luxury Ballroom",
   },
   {
-    src: "/images/family-carnival.jpg",
-    alt: "Family day carnival and corporate cultural celebration",
-    category: "FAMILY & CULTURAL EVENTS",
-    title: "Family Day Carnival · 215 Guests",
+    src: "/images/resort-teambuilding-lawn.jpg",
+    alt: "Corporate outdoor engagement and team dynamic experience",
+    category: "EXPERIENTIAL TEAM BUILDING",
+    title: "Resort Team Building · Engagement Day",
   },
 ];
 

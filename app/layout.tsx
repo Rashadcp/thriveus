@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/arena-games-wide.jpg",
+        url: "/images/corporate-ballroom-team.jpg",
         width: 1376,
         height: 768,
         alt: "Thriveus Corporate Events and Experiences Dubai",
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     title: "Thriveus | Corporate Events, Team Building & Experiences in UAE",
     description:
       "Thriveus designs corporate experiences across the UAE. Team building, gamified learning, celebrations, retreats and conferences for enterprise teams.",
-    images: ["/images/arena-games-wide.jpg"],
+    images: ["/images/corporate-ballroom-team.jpg"],
   },
   robots: {
     index: true,

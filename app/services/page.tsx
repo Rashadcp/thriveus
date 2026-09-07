@@ -35,7 +35,7 @@ const SERVICES: ServiceItem[] = [
       "Yacht, Island & Beach Escapes",
       "Fully Private Desert Experiences",
     ],
-    image: "/images/arena-games-wide.jpg",
+    image: "/images/gala-dinner-ballroom.jpg",
   },
   {
     id: "conferences-productions",
@@ -49,7 +49,7 @@ const SERVICES: ServiceItem[] = [
       "Turnkey Audio Visual",
       "Delegate Operations",
     ],
-    image: "/images/conference-summit.jpg",
+    image: "/images/aramco-summit.jpg",
   },
   {
     id: "celebrations-cultural",
@@ -63,7 +63,7 @@ const SERVICES: ServiceItem[] = [
       "Iftar & Cultural Programmes",
       "Family Day Carnivals",
     ],
-    image: "/images/gala-stage.jpg",
+    image: "/images/cultural-drum-celebration.jpg",
   },
   {
     id: "team-building",
@@ -77,7 +77,7 @@ const SERVICES: ServiceItem[] = [
       "Beach, Island & Marine Formats",
       "Indoor Simulations",
     ],
-    image: "/images/desert-golden-hour.jpg",
+    image: "/images/resort-teambuilding-lawn.jpg",
   },
   {
     id: "coaching-training",
@@ -91,7 +91,7 @@ const SERVICES: ServiceItem[] = [
       "One to One Coaching",
       "Measured Outcomes",
     ],
-    image: "/images/training-session.jpg",
+    image: "/images/resort-leadership-circle.jpg",
   },
   {
     id: "gamified-learning",
@@ -105,7 +105,7 @@ const SERVICES: ServiceItem[] = [
       "Leadership Programmes",
       "Built In Measurement",
     ],
-    image: "/images/gamified-learning.jpg",
+    image: "/images/team-challenge-burj.jpg",
   },
   {
     id: "leadership-retreats",
@@ -119,7 +119,7 @@ const SERVICES: ServiceItem[] = [
       "Facilitated Strategy Sessions",
       "Overnight Formats",
     ],
-    image: "/images/alain-retreat.jpg",
+    image: "/images/alain-mountain-summit.jpg",
   },
 ];
 

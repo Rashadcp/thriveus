@@ -59,7 +59,7 @@ function SafeThumbnail({ film }: { film: FilmItem }) {
         if (src.includes("maxresdefault")) {
           setSrc(`https://img.youtube.com/vi/${film.youtubeId}/hqdefault.jpg`);
         } else {
-          setSrc("/images/team-building.jpg");
+          setSrc("/images/corporate-ballroom-team.jpg");
         }
       }}
       className="object-cover object-center brightness-90 transition-transform duration-700 ease-out group-hover:scale-105"

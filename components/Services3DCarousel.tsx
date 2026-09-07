@@ -17,31 +17,35 @@ const CircularGallery = dynamic(() => import("@/components/CircularGallery"), {
 
 const CIRCULAR_SERVICES = [
   {
-    image: "/images/arena-games-wide.jpg",
-    text: "Curated Experiences",
+    image: "/images/corporate-ballroom-team.jpg",
+    text: "Enterprise Gatherings",
   },
   {
-    image: "/images/conference-summit.jpg",
+    image: "/images/aramco-summit.jpg",
     text: "Conferences & Productions",
   },
   {
-    image: "/images/gala-stage.jpg",
+    image: "/images/gala-dinner-ballroom.jpg",
+    text: "Galas & Award Nights",
+  },
+  {
+    image: "/images/cultural-drum-celebration.jpg",
     text: "Celebrations & Cultural",
   },
   {
-    image: "/images/desert-golden-hour.jpg",
+    image: "/images/resort-teambuilding-lawn.jpg",
     text: "Experiential Team Building",
   },
   {
-    image: "/images/training-session.jpg",
+    image: "/images/resort-leadership-circle.jpg",
     text: "Capability & Leadership",
   },
   {
-    image: "/images/gamified-learning.jpg",
+    image: "/images/team-challenge-burj.jpg",
     text: "Gamified Learning",
   },
   {
-    image: "/images/alain-retreat.jpg",
+    image: "/images/alain-mountain-summit.jpg",
     text: "Leadership Retreats",
   },
 ];

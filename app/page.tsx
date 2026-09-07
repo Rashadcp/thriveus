@@ -5,8 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import Services3DCarousel from "@/components/Services3DCarousel";
 import BeatsBeyond from "@/components/BeatsBeyond";
 import ProjectsSection from "@/components/ProjectsSection";
-import EventFilms from "@/components/EventFilms";
-import TrustedPartnerships from "@/components/TrustedPartnerships";
+import ClientReviews from "@/components/ClientReviews";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -20,8 +19,7 @@ export default function HomePage() {
       <Services3DCarousel />
       <BeatsBeyond />
       <ProjectsSection />
-      <EventFilms />
-      <TrustedPartnerships />
+      <ClientReviews />
       <FinalCTA />
       <Footer />
     </main>

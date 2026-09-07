@@ -67,8 +67,8 @@ export default function AboutSection() {
           >
             <div className="relative aspect-[4/3] sm:h-[480px] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[#1C164B]/15 bg-[#EAE7DC] shadow-[0_20px_50px_rgba(28,22,75,0.08)]">
               <Image
-                src="/images/about-crowd.jpg"
-                alt="Large corporate audience at a Thriveus arena experience in Dubai"
+                src="/images/corporate-ballroom-team.jpg"
+                alt="Large enterprise corporate team celebrating together at a Thriveus event in Dubai"
                 fill
                 sizes="(max-width: 1024px) 100vw, 500px"
                 className="object-cover object-center brightness-100 transition-transform duration-700 hover:scale-105"

@@ -14,7 +14,7 @@ export default function Hero() {
           muted
           playsInline
           preload="metadata"
-          poster="/images/hero-event.jpg"
+          poster="/images/corporate-ballroom-team.jpg"
           className="h-full w-full object-cover object-center brightness-[0.78] contrast-[1.05]"
         >
           <source

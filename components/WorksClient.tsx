@@ -127,7 +127,7 @@ function SafeThumbnail({ prod }: { prod: ProductionItem }) {
         if (src.includes("maxresdefault")) {
           setSrc(`https://i.ytimg.com/vi/${prod.youtubeId}/hqdefault.jpg`);
         } else {
-          setSrc("/images/arena-games-hero.jpg");
+          setSrc("/images/aramco-summit.jpg");
         }
       }}
       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
@@ -264,16 +264,6 @@ export default function WorksClient() {
 
                       {/* Ambient Gradient Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/85 via-[#1C164B]/25 to-transparent pointer-events-none" />
-
-                      {/* Badges: Category & Ref Code */}
-                      <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5">
-                        <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/90 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold">
-                          {prod.tag}
-                        </span>
-                        <span className="font-mono text-[9px] uppercase tracking-wider bg-[#8A5FA8]/85 backdrop-blur-md text-[#EAE7DC] px-2 py-1 rounded-full font-bold">
-                          {prod.refCode}
-                        </span>
-                      </div>
 
                       {/* Click-to-Play Button */}
                       <button
