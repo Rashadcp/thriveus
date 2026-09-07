@@ -36,9 +36,9 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#0B0A0D] border-t border-[#242057] px-5 sm:px-12 py-12 sm:py-20 text-white overflow-hidden select-none">
+    <footer className="relative w-full bg-[#1C164B] border-t border-[#8A5FA8]/30 px-5 sm:px-12 py-12 sm:py-20 text-white overflow-hidden select-none">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-8 pb-10 sm:pb-12 border-b border-[#242057]">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-8 pb-10 sm:pb-12 border-b border-[#8A5FA8]/30">
           {/* Brand Logo & Tagline */}
           <div className="space-y-2.5 sm:space-y-3 max-w-md">
             <Link href="/" className="group inline-flex items-center gap-2.5 sm:gap-3" aria-label="Thriveus Home">
@@ -48,14 +48,14 @@ export default function Footer() {
                   alt="Thriveus Logo"
                   fill
                   sizes="40px"
-                  className="object-contain drop-shadow-[0_0_12px_rgba(23,130,168,0.45)]"
+                  className="object-contain drop-shadow-[0_0_12px_rgba(152,218,246,0.45)]"
                 />
               </div>
-              <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-white transition-colors duration-300 group-hover:text-[#1782A8]">
-                Thrive<span className="italic font-serif font-normal text-[#75559C]">us</span>
+              <span className="font-display text-xl sm:text-2xl font-bold tracking-[-0.05em] text-white transition-colors duration-300 group-hover:text-[#98DAF6]">
+                Thrive<span className="font-seasons font-bold italic tracking-[-0.05em] ml-[-0.02em]">us</span>
               </span>
             </Link>
-            <p className="font-display text-xs sm:text-sm tracking-wide text-white/90">
+            <p className="font-light text-xs sm:text-sm tracking-wide text-[#EAE7DC]/90">
               Curating Impact, One Experience at a Time.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#242057] bg-[#242057]/50 text-white transition-all duration-300 hover:border-[#1782A8] hover:bg-[#1782A8] hover:text-[#0B0A0D] shadow-sm"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#8A5FA8]/40 bg-[#1C164B] text-white transition-all duration-300 hover:border-[#98DAF6] hover:bg-[#98DAF6] hover:text-[#1C164B] shadow-sm"
               >
                 {social.icon}
               </a>

@@ -9,7 +9,7 @@ const CircularGallery = dynamic(() => import("@/components/CircularGallery"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full min-h-[500px] flex flex-col items-center justify-center gap-3 text-white/40">
-      <div className="h-8 w-8 rounded-full border-2 border-[#1782A8] border-t-transparent animate-spin" />
+      <div className="h-8 w-8 rounded-full border-2 border-[#98DAF6] border-t-transparent animate-spin" />
       <span className="font-display text-xs tracking-wider uppercase">Loading 3D Gallery...</span>
     </div>
   ),
@@ -60,17 +60,17 @@ export default function Services3DCarousel() {
   return (
     <section
       id="services"
-      className="relative w-full bg-[#0B0A0D] text-white pt-16 sm:pt-24 pb-14 sm:pb-20 border-t border-[#242057]/50 overflow-hidden"
+      className="relative w-full bg-[#1C164B] text-white pt-16 sm:pt-24 pb-14 sm:pb-20 border-t border-[#8A5FA8]/30 overflow-hidden"
     >
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#242057]/20 blur-[130px] rounded-full" />
-      <div className="pointer-events-none absolute top-1/3 left-1/3 w-[400px] h-[250px] bg-[#1782A8]/10 blur-[100px] rounded-full" />
+      {/* Background ambient lighting matching 3D curved visual language */}
+      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#8A5FA8]/20 blur-[130px] rounded-full" />
+      <div className="pointer-events-none absolute top-1/3 left-1/3 w-[400px] h-[250px] bg-[#98DAF6]/15 blur-[100px] rounded-full" />
 
       {/* Header Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mb-6 sm:mb-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-4 border-b border-[#242057]/50">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-4 border-b border-[#8A5FA8]/30">
           <div>
-            <span className="font-display text-xs uppercase tracking-widest text-[#1782A8] font-semibold block">
+            <span className="font-light text-xs uppercase tracking-widest text-[#98DAF6] font-semibold block">
               What We Deliver · Experiential Architecture
             </span>
             <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mt-1">
@@ -78,7 +78,7 @@ export default function Services3DCarousel() {
             </h2>
           </div>
 
-          <p className="text-xs sm:text-sm text-white/70 max-w-md font-light leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#EAE7DC]/80 max-w-md font-light leading-relaxed">
             Seven core experiential disciplines, delivered end-to-end across Dubai, Abu Dhabi, and the wider UAE.
           </p>
         </div>
@@ -102,10 +102,10 @@ export default function Services3DCarousel() {
       {/* Interactive Guidance & Service Quick Nav */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mt-4 sm:mt-6">
         {/* Drag Hint */}
-        <div className="flex items-center justify-center gap-2 text-center text-[11px] sm:text-xs text-white/50 mb-6">
-          <span className="text-[#1782A8]">↔</span>
+        <div className="flex items-center justify-center gap-2 text-center text-[11px] sm:text-xs text-[#EAE7DC]/60 mb-6">
+          <span className="text-[#98DAF6]">↔</span>
           <span className="tracking-wide">
-            Drag horizontally, use scroll wheel, or press <kbd className="px-1.5 py-0.5 bg-[#242057]/60 border border-[#242057] rounded text-[10px] text-white/80">←</kbd> <kbd className="px-1.5 py-0.5 bg-[#242057]/60 border border-[#242057] rounded text-[10px] text-white/80">→</kbd> to rotate the 3D gallery
+            Drag horizontally, use scroll wheel, or press <kbd className="px-1.5 py-0.5 bg-[#1C164B] border border-[#8A5FA8]/40 rounded text-[10px] text-white/90">←</kbd> <kbd className="px-1.5 py-0.5 bg-[#1C164B] border border-[#8A5FA8]/40 rounded text-[10px] text-white/90">→</kbd> to rotate the 3D gallery
           </span>
         </div>
 
@@ -115,9 +115,9 @@ export default function Services3DCarousel() {
             <Link
               key={pill.id}
               href="/services"
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#242057]/30 border border-[#242057] hover:border-[#1782A8] hover:bg-[#242057]/60 text-white/85 hover:text-white transition-all text-[11px] sm:text-xs font-display group"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#1C164B]/70 border border-[#8A5FA8]/40 hover:border-[#98DAF6] hover:bg-[#8A5FA8]/30 text-white/90 hover:text-white transition-all text-[11px] sm:text-xs font-display group"
             >
-              <span className="font-mono text-[10px] text-[#1782A8] font-bold group-hover:text-white transition-colors">
+              <span className="font-mono text-[10px] text-[#98DAF6] font-bold group-hover:text-white transition-colors">
                 {pill.num}
               </span>
               <span>{pill.name}</span>
@@ -129,7 +129,7 @@ export default function Services3DCarousel() {
         <div className="flex items-center justify-center gap-4">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 rounded-full bg-white text-[#0B0A0D] font-display text-xs sm:text-sm font-semibold tracking-wider uppercase px-6 sm:px-8 py-3.5 hover:bg-[#1782A8] hover:text-white transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(23,130,168,0.4)]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#98DAF6] text-[#1C164B] font-display text-xs sm:text-sm font-semibold tracking-wider uppercase px-6 sm:px-8 py-3.5 hover:bg-[#8A5FA8] hover:text-white transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(152,218,246,0.4)]"
           >
             <span>Explore All 7 Services</span>
             <span>→</span>
@@ -137,7 +137,7 @@ export default function Services3DCarousel() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-[#242057] hover:border-[#1782A8] text-white/90 hover:text-white font-display text-xs sm:text-sm font-medium tracking-wider uppercase px-6 sm:px-8 py-3.5 transition-all duration-300 bg-[#0B0A0D]/50 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-[#8A5FA8]/40 hover:border-[#98DAF6] text-[#EAE7DC] hover:text-[#98DAF6] font-display text-xs sm:text-sm font-medium tracking-wider uppercase px-6 sm:px-8 py-3.5 transition-all duration-300 bg-[#1C164B]/60 backdrop-blur-sm"
           >
             <span>Discuss a Brief</span>
           </Link>

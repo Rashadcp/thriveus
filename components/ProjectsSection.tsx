@@ -73,20 +73,20 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative w-full bg-white py-20 sm:py-36 px-5 sm:px-12 overflow-hidden text-[#0B0A0D] border-b border-[#242057]/15"
+      className="relative w-full bg-[#EAE7DC] py-20 sm:py-36 px-5 sm:px-12 overflow-hidden text-[#1C164B] border-b border-[#1C164B]/15"
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-12 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-[#242057]/15">
+        <div className="mb-12 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-[#1C164B]/15">
           <div>
-            <span className="font-display text-xs uppercase tracking-wider text-[#75559C] font-semibold block mb-2 sm:mb-3">
+            <span className="font-light text-xs uppercase tracking-widest text-[#8A5FA8] font-semibold block mb-2 sm:mb-3">
               SELECTED WORKS
             </span>
-            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0B0A0D]">
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1C164B]">
               Recent Productions
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-[#75559C] max-w-sm font-light leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#8A5FA8] max-w-sm font-light leading-relaxed">
             Curated corporate events delivered across Dubai, Abu Dhabi and the wider UAE.
           </p>
         </div>
@@ -100,7 +100,7 @@ export default function ProjectsSection() {
             >
               <div>
                 {/* Visual */}
-                <div className="relative h-56 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#242057]/5 border border-[#242057]/15">
+                <div className="relative h-56 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#1C164B]/5 border border-[#1C164B]/15">
                   <Image
                     src={prod.image}
                     alt={prod.title}
@@ -109,7 +109,7 @@ export default function ProjectsSection() {
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#0B0A0D]/80 backdrop-blur-md text-[#1782A8] px-2.5 py-1 rounded-full border border-white/10 font-semibold">
+                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/90 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold">
                       {prod.tag}
                     </span>
                   </div>
@@ -117,15 +117,15 @@ export default function ProjectsSection() {
 
                 {/* Content */}
                 <div className="mt-5 sm:mt-6 space-y-2">
-                  <span className="font-display text-xs text-[#75559C] block font-medium">
+                  <span className="font-display text-xs text-[#8A5FA8] block font-medium">
                     {prod.meta}
                   </span>
 
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-[#0B0A0D] group-hover:text-[#242057] transition-colors leading-snug">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-[#1C164B] group-hover:text-[#8A5FA8] transition-colors leading-snug">
                     {prod.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#0B0A0D]/75 font-light leading-relaxed pt-1">
+                  <p className="text-xs sm:text-sm text-[#1C164B]/75 font-light leading-relaxed pt-1">
                     {prod.description}
                   </p>
                 </div>

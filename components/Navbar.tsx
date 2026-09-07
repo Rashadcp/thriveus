@@ -44,11 +44,11 @@ export default function Navbar() {
         <div
           className={`mx-auto flex items-center justify-between transition-all duration-500 ${
             isScrolled
-              ? "max-w-6xl rounded-full bg-[#0B0A0D]/90 px-6 py-2.5 shadow-[0_12px_40px_rgba(11,10,13,0.6)] backdrop-blur-2xl border-none"
+              ? "max-w-6xl rounded-full bg-[#1C164B]/90 px-6 py-2.5 shadow-[0_12px_40px_rgba(28,22,75,0.7)] backdrop-blur-2xl border-none"
               : "max-w-7xl"
           }`}
         >
-          {/* Logo with new 3D Emblem & Brand Typography */}
+          {/* Logo with Brand Emblem & Helvetica Now + The Seasons Typography */}
           <Link
             href="/"
             className="group relative flex items-center gap-2.5 sm:gap-3 py-1 outline-none"
@@ -61,11 +61,11 @@ export default function Navbar() {
                 fill
                 priority
                 sizes="40px"
-                className="object-contain drop-shadow-[0_0_12px_rgba(23,130,168,0.45)]"
+                className="object-contain drop-shadow-[0_0_12px_rgba(152,218,246,0.45)]"
               />
             </div>
-            <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-white transition-colors duration-300 group-hover:text-[#1782A8]">
-              Thrive<span className="italic font-serif font-normal text-[#75559C]">us</span>
+            <span className="font-display text-xl sm:text-2xl font-bold tracking-[-0.05em] text-white transition-colors duration-300 group-hover:text-[#98DAF6]">
+              Thrive<span className="font-seasons font-bold italic tracking-[-0.05em] ml-[-0.02em]">us</span>
             </span>
           </Link>
 
@@ -83,8 +83,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`text-[12px] tracking-[0.14em] uppercase transition-colors duration-300 font-semibold ${
                     isActive
-                      ? "text-[#1782A8]"
-                      : "text-white/80 hover:text-[#1782A8]"
+                      ? "text-[#98DAF6]"
+                      : "text-white/85 hover:text-[#98DAF6]"
                   }`}
                 >
                   <span>{link.name}</span>
@@ -108,7 +108,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex md:hidden flex-col items-center justify-center w-10 h-10 rounded-full bg-[#242057]/60 text-white backdrop-blur-md focus:outline-none"
+            className="flex md:hidden flex-col items-center justify-center w-10 h-10 rounded-full bg-[#1C164B]/80 text-white border border-[#8A5FA8]/40 backdrop-blur-md focus:outline-none"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
           >
@@ -134,7 +134,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 flex flex-col bg-[#0B0A0D]/98 px-8 pt-32 pb-12 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-[#1C164B]/98 px-8 pt-32 pb-12 backdrop-blur-2xl md:hidden"
           >
             <nav className="flex flex-col gap-6">
               {NAV_LINKS.map((link, idx) => (
@@ -147,7 +147,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-display text-2xl font-bold tracking-tight text-white hover:text-[#1782A8]"
+                    className="font-display text-2xl font-bold tracking-tight text-white hover:text-[#98DAF6]"
                   >
                     {link.name}
                   </Link>
@@ -155,7 +155,7 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="mt-auto pt-8 border-t border-[#242057]">
+            <div className="mt-auto pt-8 border-t border-[#8A5FA8]/40">
               <MagneticButton
                 href="/contact"
                 variant="primary"

@@ -124,19 +124,19 @@ export default function DualMarqueeGallery() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-[#0B0A0D] pt-6 sm:pt-10 pb-14 sm:pb-24 border-b border-[#242057]"
+      className="relative w-full overflow-hidden bg-[#1C164B] pt-6 sm:pt-10 pb-14 sm:pb-24 border-b border-[#8A5FA8]/30"
     >
-      {/* 1. DUAL CURVED ANGLE TICKER RIBBONS (GPU-Accelerated Compositor Marquees) */}
-      <div className="relative w-full py-8 sm:py-12 overflow-hidden select-none">
-        {/* Background Deep Ink/Indigo Ribbon */}
-        <div className="relative z-10 w-[160vw] -ml-[30vw] -rotate-[2.5deg] skew-x-[-1deg] origin-center overflow-hidden py-1 transform-gpu">
-          <div className="animate-marquee flex items-center w-max bg-gradient-to-r from-[#0B0A0D] via-[#242057] to-[#0B0A0D] text-[#1782A8] py-3.5 sm:py-4.5 border-y border-[#242057] shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+      {/* 1. DUAL ANGLED TICKER RIBBONS (Secondary Brand Colors with Crisp High-Contrast Typography) */}
+      <div className="relative w-full py-8 sm:py-14 overflow-hidden select-none">
+        {/* Ribbon 1: Secondary Orchid Purple (#8A5FA8) with Crisp White Typography */}
+        <div className="relative z-10 w-[160vw] -ml-[30vw] -rotate-[1.8deg] origin-center overflow-hidden py-1 transform-gpu">
+          <div className="animate-marquee flex items-center w-max bg-[#8A5FA8] py-3.5 sm:py-4.5 border-y border-white/25 shadow-[0_8px_25px_rgba(0,0,0,0.45)]">
             {RIBBON_ROW_1.map((item, idx) => (
               <div key={`r1-${idx}`} className="flex items-center mx-4 sm:mx-8 whitespace-nowrap">
-                <span className="font-display text-xs sm:text-lg font-black uppercase tracking-tight text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
+                <span className="font-display text-xs sm:text-base md:text-lg font-black uppercase tracking-tight text-white drop-shadow-sm">
                   {item}
                 </span>
-                <span className="mx-4 sm:mx-8 text-[#1782A8] text-xs sm:text-sm select-none">
+                <span className="mx-4 sm:mx-8 text-[#98DAF6] text-xs sm:text-base select-none">
                   ✶
                 </span>
               </div>
@@ -144,15 +144,15 @@ export default function DualMarqueeGallery() {
           </div>
         </div>
 
-        {/* Foreground Deep Indigo/Purple Ribbon */}
-        <div className="relative z-20 w-[160vw] -ml-[30vw] -mt-3.5 sm:-mt-5 rotate-[1.8deg] skew-x-[1.5deg] origin-center overflow-hidden py-1 transform-gpu">
-          <div className="animate-marquee-reverse flex items-center w-max bg-gradient-to-r from-[#242057] via-[#75559C] to-[#242057] text-white py-4 sm:py-5 shadow-[0_12px_35px_rgba(11,10,13,0.7)] border-y border-[#1782A8]/40">
+        {/* Ribbon 2: Secondary Ice Blue (#98DAF6) with Deep Navy (#1C164B) Typography */}
+        <div className="relative z-20 w-[160vw] -ml-[30vw] mt-3 sm:mt-4 -rotate-[1.8deg] origin-center overflow-hidden py-1 transform-gpu">
+          <div className="animate-marquee-reverse flex items-center w-max bg-[#98DAF6] py-3.5 sm:py-4.5 border-y border-[#1C164B]/20 shadow-[0_12px_30px_rgba(0,0,0,0.55)]">
             {RIBBON_ROW_2.map((item, idx) => (
               <div key={`r2-${idx}`} className="flex items-center mx-4 sm:mx-8 whitespace-nowrap">
-                <span className="font-display text-xs sm:text-lg font-black uppercase tracking-tight text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
+                <span className="font-display text-xs sm:text-base md:text-lg font-black uppercase tracking-tight text-[#1C164B]">
                   {item}
                 </span>
-                <span className="mx-4 sm:mx-8 text-[#1782A8] text-xs sm:text-sm select-none">
+                <span className="mx-4 sm:mx-8 text-[#8A5FA8] text-xs sm:text-base select-none">
                   ✶
                 </span>
               </div>
@@ -185,7 +185,7 @@ export default function DualMarqueeGallery() {
                     }
                   : undefined
               }
-              className="group relative h-[215px] sm:h-[250px] md:h-[265px] w-[275px] sm:w-[350px] md:w-[380px] flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border border-[#242057] bg-[#242057] shadow-[0_10px_25px_rgba(11,10,13,0.5)] cursor-pointer transition-colors duration-300 hover:border-[#1782A8] origin-center snap-center select-none"
+              className="group relative h-[215px] sm:h-[250px] md:h-[265px] w-[275px] sm:w-[350px] md:w-[380px] flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border border-[#8A5FA8]/40 bg-[#1C164B] shadow-[0_10px_25px_rgba(0,0,0,0.5)] cursor-pointer transition-colors duration-300 hover:border-[#98DAF6] origin-center snap-center select-none"
             >
               {/* High-Contrast Photo */}
               <Image
@@ -197,12 +197,12 @@ export default function DualMarqueeGallery() {
                 loading="lazy"
               />
 
-              {/* Gradient Vignette - Always subtly present at bottom on mobile, intensifies on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A0D]/90 via-[#0B0A0D]/30 to-transparent opacity-85 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              {/* Gradient Vignette - always visible for crisp legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#1C164B]/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-              {/* Clean Editorial Caption - Visible on mobile, hover-revealed on desktop */}
-              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-20 pointer-events-none opacity-100 sm:opacity-0 translate-y-0 sm:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                <span className="font-display text-[10px] uppercase tracking-wider text-[#1782A8] block mb-0.5 sm:mb-1 font-semibold">
+              {/* Clean Editorial Caption - permanently visible */}
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-20 pointer-events-none opacity-100 translate-y-0 transition-all duration-300 ease-out">
+                <span className="font-light text-[10px] uppercase tracking-wider text-[#98DAF6] block mb-0.5 sm:mb-1 font-semibold">
                   {card.category}
                 </span>
                 <p className="font-display text-xs sm:text-base font-bold text-white leading-snug">
@@ -227,12 +227,12 @@ export default function DualMarqueeGallery() {
               onClick={() => scrollToCard(idx)}
               aria-label={`Go to experience ${idx + 1}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                idx === activeIndex ? "w-6 bg-[#1782A8]" : "w-1.5 bg-white/20"
+                idx === activeIndex ? "w-6 bg-[#98DAF6]" : "w-1.5 bg-white/20"
               }`}
             />
           ))}
         </div>
-        <span className="text-[10px] tracking-wider uppercase text-[#1782A8]">
+        <span className="text-[10px] tracking-wider uppercase text-[#98DAF6]">
           Swipe →
         </span>
       </div>

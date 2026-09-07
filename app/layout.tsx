@@ -1,14 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Inter } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import RouteTransition from "@/components/ui/RouteTransition";
-
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,11 +10,19 @@ const inter = Inter({
   display: "swap",
 });
 
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0B0A0D",
+  themeColor: "#1C164B",
 };
 
 export const metadata: Metadata = {
@@ -97,7 +98,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${sora.variable} ${inter.variable} min-h-full scroll-smooth`}
+      className={`${inter.variable} ${cormorant.variable} min-h-full scroll-smooth`}
     >
       <head>
         <link rel="preconnect" href="https://www.youtube.com" />
@@ -105,7 +106,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://i.ytimg.com" />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-[#0B0A0D] text-white antialiased selection:bg-[#1782A8] selection:text-white">
+      <body className="min-h-full flex flex-col font-sans bg-[#1C164B] text-white antialiased selection:bg-[#98DAF6] selection:text-[#1C164B]">
         <RouteTransition>{children}</RouteTransition>
       </body>
     </html>

@@ -23,6 +23,6 @@
 }
 
 .circular-gallery:focus-visible {
-  outline: 2px solid #1782A8;
+  outline: 2px solid #98DAF6;
   outline-offset: 4px;
 }

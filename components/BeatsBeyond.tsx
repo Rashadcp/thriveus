@@ -20,30 +20,32 @@ const CAPABILITY_TICKERS = [
 
 export default function BeatsBeyond() {
   return (
-    <section className="relative w-full bg-white py-16 sm:py-28 overflow-hidden text-[#0B0A0D] border-b border-[#242057]/15">
+    <section className="relative w-full bg-[#EAE7DC] py-16 sm:py-28 overflow-hidden text-[#1C164B] border-b border-[#1C164B]/15">
       <div className="mx-auto max-w-7xl px-5 sm:px-12 mb-10 sm:mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
           {/* Narrative Left */}
           <div className="lg:col-span-6 space-y-5">
-            <span className="font-display text-xs uppercase tracking-wider text-[#75559C] font-bold block">
+            <span className="font-light text-xs uppercase tracking-widest text-[#8A5FA8] font-semibold block">
               OUR APPROACH
             </span>
-            <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-[#0B0A0D] leading-tight">
+            <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-[#1C164B] leading-tight">
               Experiences That
               <br />
-              Bring Teams Together.
+              <span className="font-seasons italic font-bold text-[#8A5FA8]">
+                Bring Teams Together.
+              </span>
             </h2>
-            <p className="text-xs sm:text-base text-[#0B0A0D] leading-relaxed max-w-xl font-normal">
+            <p className="text-xs sm:text-base text-[#1C164B] leading-relaxed max-w-xl font-light">
               Thriveus brings a corporate intelligence approach to experience design, built on multi year relationships with enterprise teams across the UAE. Our expert team carries more than twenty years of combined experience curating unique experiences, large scale exhibitions, conferences and summits. We listen the way an insider listens, then design around your objectives, your culture and your people.
             </p>
-            <p className="text-xs sm:text-sm text-[#0B0A0D]/75 leading-relaxed max-w-xl">
+            <p className="text-xs sm:text-sm text-[#1C164B]/75 leading-relaxed max-w-xl font-light">
               From staging, lighting and logistics to games, facilitation and on the day coordination, everything is handled by one accountable partner. Whether it is a fully private experience deep in the desert, on a megayacht or an island, a gamified safety programme, a cultural celebration or a full conference and summit, we make it seamless, professional and memorable.
             </p>
           </div>
 
           {/* Large Editorial Visual */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] sm:h-[440px] w-full overflow-hidden rounded-2xl bg-[#242057]/5 shadow-[0_20px_50px_rgba(11,10,13,0.06)]">
+            <div className="relative aspect-[4/3] sm:h-[440px] w-full overflow-hidden rounded-2xl bg-[#1C164B]/5 shadow-[0_20px_50px_rgba(28,22,75,0.06)] border border-[#1C164B]/10">
               <Image
                 src="/images/gala-stage.jpg"
                 alt="Corporate Experience Production in Dubai"
@@ -55,38 +57,38 @@ export default function BeatsBeyond() {
           </div>
         </div>
 
-        {/* 3.6 Statistics Strip — Four Items, Paste Exactly With These Labels */}
-        <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-[#242057]/15">
+        {/* Statistics Strip */}
+        <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-[#1C164B]/15">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             <div className="space-y-1 sm:space-y-1.5">
-              <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0B0A0D] block">
+              <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1C164B] block">
                 300+
               </span>
-              <p className="font-display text-xs sm:text-sm text-[#75559C] font-medium leading-snug">
+              <p className="font-display text-xs sm:text-sm text-[#8A5FA8] font-medium leading-snug">
                 Clients Served by the Team
               </p>
             </div>
             <div className="space-y-1 sm:space-y-1.5">
-              <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0B0A0D] block">
+              <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1C164B] block">
                 20+
               </span>
-              <p className="font-display text-xs sm:text-sm text-[#75559C] font-medium leading-snug">
+              <p className="font-display text-xs sm:text-sm text-[#8A5FA8] font-medium leading-snug">
                 Years Combined Experience
               </p>
             </div>
             <div className="space-y-1 sm:space-y-1.5">
-              <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0B0A0D] block">
+              <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1C164B] block">
                 30+
               </span>
-              <p className="font-display text-xs sm:text-sm text-[#75559C] font-medium leading-snug">
+              <p className="font-display text-xs sm:text-sm text-[#8A5FA8] font-medium leading-snug">
                 Signature Events Delivered
               </p>
             </div>
             <div className="space-y-1 sm:space-y-1.5">
-              <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#0B0A0D] block">
+              <span className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1C164B] block">
                 3,000+
               </span>
-              <p className="font-display text-xs sm:text-sm text-[#75559C] font-medium leading-snug">
+              <p className="font-display text-xs sm:text-sm text-[#8A5FA8] font-medium leading-snug">
                 Participants Engaged
               </p>
             </div>
@@ -94,15 +96,15 @@ export default function BeatsBeyond() {
         </div>
       </div>
 
-      {/* Running Capabilities Marquee Ribbon in Deep Brand Ink & Indigo */}
-      <div className="relative w-full overflow-hidden border-t border-b border-[#242057] bg-[#0B0A0D] py-4 shadow-inner">
+      {/* Running Capabilities Marquee Ribbon in Deep Brand Indigo */}
+      <div className="relative w-full overflow-hidden border-t border-b border-[#8A5FA8]/30 bg-[#1C164B] py-4 shadow-inner">
         <div className="animate-marquee-reverse whitespace-nowrap flex items-center">
           {CAPABILITY_TICKERS.map((item, idx) => (
             <div key={idx} className="flex items-center mx-6">
               <span className="font-display text-xs sm:text-sm uppercase tracking-wider font-semibold text-white">
                 {item}
               </span>
-              <span className="mx-6 text-[#1782A8] text-xs">✶</span>
+              <span className="mx-6 text-[#98DAF6] text-xs">✶</span>
             </div>
           ))}
         </div>

@@ -20,19 +20,19 @@ export default function MagneticButton({
   variant = "primary",
 }: MagneticButtonProps) {
   const baseStyles =
-    "group relative inline-flex items-center justify-center font-display text-xs sm:text-sm tracking-[0.1em] uppercase font-semibold transition-all duration-300 select-none overflow-hidden rounded-full py-3.5 px-7 outline-none focus-visible:ring-2 focus-visible:ring-[#1782A8] hover:scale-[1.02] active:scale-[0.98]";
+    "group relative inline-flex items-center justify-center font-display text-xs sm:text-sm tracking-[0.1em] uppercase font-semibold transition-all duration-300 select-none overflow-hidden rounded-full py-3.5 px-7 outline-none focus-visible:ring-2 focus-visible:ring-[#98DAF6] hover:scale-[1.02] active:scale-[0.98]";
 
   const variantStyles = {
     primary:
-      "bg-[#0B0A0D] text-white hover:bg-[#242057] border border-[#1782A8]/60 transition-colors duration-300",
+      "bg-[#98DAF6] text-[#1C164B] hover:bg-[#8A5FA8] hover:text-white border border-[#98DAF6]/40 transition-colors duration-300",
     secondary:
-      "bg-transparent text-[#0B0A0D] border border-[#242057]/40 hover:border-[#1782A8] hover:bg-white transition-colors duration-300",
+      "bg-transparent text-[#1C164B] border border-[#1C164B]/40 hover:border-[#8A5FA8] hover:bg-[#EAE7DC] transition-colors duration-300",
     outline:
-      "bg-transparent text-white border border-white/20 hover:border-[#1782A8] hover:text-[#1782A8] transition-colors duration-300",
+      "bg-transparent text-white border border-white/20 hover:border-[#98DAF6] hover:text-[#98DAF6] transition-colors duration-300",
     ghost:
-      "bg-transparent text-[#75559C] hover:text-[#0B0A0D] p-0 hover:scale-100 transition-colors duration-300",
+      "bg-transparent text-[#8A5FA8] hover:text-[#98DAF6] p-0 hover:scale-100 transition-colors duration-300",
     dark:
-      "bg-[#242057] text-white border border-[#1782A8]/40 hover:border-[#1782A8] hover:bg-[#0B0A0D] transition-colors duration-300",
+      "bg-[#1C164B] text-white border border-[#8A5FA8]/40 hover:border-[#98DAF6] hover:bg-[#1C164B]/80 transition-colors duration-300",
   };
 
   const content = (

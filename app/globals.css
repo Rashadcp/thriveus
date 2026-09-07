@@ -1,39 +1,91 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "The Seasons";
+  src: local("The Seasons"), local("The Seasons Bold Italic"), local("TheSeasons-BoldItalic");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: local("Helvetica Now Display Bold"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Bold");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: local("Helvetica Now Display Regular"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Regular");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: local("Helvetica Now Display Light"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Light");
+  font-weight: 300;
+  font-display: swap;
+}
+
 @theme {
-  --color-indigo: #242057;
-  --color-purple: #75559C;
-  --color-teal: #1782A8;
-  --color-ink: #0B0A0D;
-  --color-white: #FFFFFF;
+  /* Official Brand Palette */
+  --color-brand-indigo: #1C164B;
+  --color-brand-blue: #98DAF6;
+  --color-brand-cream: #EAE7DC;
+  --color-brand-purple: #8A5FA8;
+  --color-brand-black: #000000;
 
-  /* Theme token aliases strictly mapped to Section 2.8 Brand Colours */
-  --color-midnight: #0B0A0D;
-  --color-cyan: #1782A8;
-  --color-lavender: #75559C;
-  --color-light-bg: #FFFFFF;
+  /* Theme token aliases strictly mapped to Brand Guidelines */
+  --color-indigo: #1C164B;
+  --color-purple: #8A5FA8;
+  --color-teal: #98DAF6;
+  --color-cyan: #98DAF6;
+  --color-ink: #1C164B;
+  --color-midnight: #1C164B;
+  --color-lavender: #8A5FA8;
+  --color-sand: #EAE7DC;
+  --color-cream: #EAE7DC;
+  --color-light-bg: #EAE7DC;
   --color-pure-white: #FFFFFF;
-  --color-text-primary: #0B0A0D;
-  --color-text-secondary: #75559C;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-text-primary: #1C164B;
+  --color-text-secondary: #8A5FA8;
 
-  --color-obsidian: #0B0A0D;
-  --color-navy-950: #0B0A0D;
-  --color-navy-900: #0B0A0D;
-  --color-navy-850: #242057;
-  --color-navy-800: #242057;
-  --color-navy-700: #242057;
-  --color-accent-blue: #1782A8;
-  --color-accent-cyan: #1782A8;
-  --color-accent-indigo: #75559C;
-  --font-display: var(--font-sora), system-ui, sans-serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
+  --color-obsidian: #000000;
+  --color-navy-950: #1C164B;
+  --color-navy-900: #1C164B;
+  --color-navy-850: #1C164B;
+  --color-navy-800: #1C164B;
+  --color-navy-700: #1C164B;
+  --color-accent-blue: #98DAF6;
+  --color-accent-cyan: #98DAF6;
+  --color-accent-indigo: #8A5FA8;
+  --color-accent-purple: #8A5FA8;
+
+  /* Official Typography */
+  --font-sans: "Helvetica Now Display", "Helvetica Now", "Helvetica Neue", var(--font-inter), Arial, sans-serif;
+  --font-display: "Helvetica Now Display", "Helvetica Now", "Helvetica Neue", var(--font-inter), Arial, sans-serif;
+  --font-body: "Helvetica Now Display", "Helvetica Now", "Helvetica Neue", var(--font-inter), Arial, sans-serif;
+  --font-seasons: "The Seasons", var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-accent: "The Seasons", var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-serif: "The Seasons", var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
 }
 
 :root {
-  --indigo: #242057;
-  --purple: #75559C;
-  --teal: #1782A8;
-  --ink: #0B0A0D;
+  --brand-indigo: #1C164B;
+  --brand-blue: #98DAF6;
+  --brand-cream: #EAE7DC;
+  --brand-purple: #8A5FA8;
+  --brand-black: #000000;
+
+  --indigo: #1C164B;
+  --purple: #8A5FA8;
+  --teal: #98DAF6;
+  --ink: #1C164B;
+  --sand: #EAE7DC;
   --white: #FFFFFF;
 }
 
@@ -47,16 +99,16 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), sans-serif;
-  background-color: #0B0A0D;
+  font-family: "Helvetica Now Display", "Helvetica Now", "Helvetica Neue", var(--font-inter), sans-serif;
+  background-color: #1C164B;
   color: #FFFFFF;
   overflow-x: clip;
   touch-action: manipulation;
 }
 
 ::selection {
-  background: #1782A8;
-  color: #FFFFFF;
+  background: #98DAF6;
+  color: #1C164B;
 }
 
 /* Seamless Hardware-Accelerated Continuous Marquee Animations */
@@ -115,17 +167,17 @@ body {
   display: none;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar in brand colors */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0A0D;
+  background: #1C164B;
 }
 ::-webkit-scrollbar-thumb {
-  background: #242057;
+  background: #8A5FA8;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1782A8;
+  background: #98DAF6;
 }
