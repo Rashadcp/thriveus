@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const TICKER_ROW_1 = [
   "THRIVEUS EXPERIENTIAL",
@@ -25,20 +25,9 @@ const TICKER_ROW_2 = [
   "EXECUTIVE LEADERSHIP & RETREATS",
 ];
 
-// 4x extended arrays to ensure 100% unbroken, infinite background coverage
-const EXTENDED_NAVY = [
-  ...TICKER_ROW_1,
-  ...TICKER_ROW_1,
-  ...TICKER_ROW_1,
-  ...TICKER_ROW_1,
-];
-
-const EXTENDED_BLUE = [
-  ...TICKER_ROW_2,
-  ...TICKER_ROW_2,
-  ...TICKER_ROW_2,
-  ...TICKER_ROW_2,
-];
+// Doubled to ensure seamless 0% -> -50% infinite hardware-accelerated marquee loop
+const RIBBON_ROW_1 = [...TICKER_ROW_1, ...TICKER_ROW_1];
+const RIBBON_ROW_2 = [...TICKER_ROW_2, ...TICKER_ROW_2];
 
 const GALLERY_IMAGES = [
   {
@@ -81,100 +70,135 @@ const GALLERY_IMAGES = [
 
 export default function DualMarqueeGallery() {
   const containerRef = useRef<HTMLElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Scroll tracking for scroll-driven horizontal translation
+  // Detect desktop for parallax drift (disabled on mobile to ensure zero touch latency)
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop, { passive: true });
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
+
+  // Desktop-only smooth scroll tracking for gentle gallery drift
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  // Smooth scroll translation over the extended marquee tracks
-  const blueX = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
-  const navyX = useTransform(scrollYProgress, [0, 1], ["-20%", "0%"]);
+  const galleryX = useTransform(scrollYProgress, [0, 1], ["4%", "-20%"]);
+  const galleryY = useTransform(scrollYProgress, [0, 1], ["0px", "-24px"]);
+  const smoothGalleryX = useSpring(galleryX, { stiffness: 90, damping: 24, mass: 0.5 });
+  const smoothGalleryY = useSpring(galleryY, { stiffness: 90, damping: 24, mass: 0.5 });
 
-  // Horizontal drift for the photo gallery row on scroll
-  const galleryX = useTransform(scrollYProgress, [0, 1], ["4%", "-22%"]);
+  // Mobile horizontal scroll tracker for active pagination indicator
+  const handleScroll = useCallback(() => {
+    if (!carouselRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) return;
+    const progress = scrollLeft / maxScroll;
+    const index = Math.min(
+      Math.max(0, Math.round(progress * (GALLERY_IMAGES.length - 1))),
+      GALLERY_IMAGES.length - 1
+    );
+    setActiveIndex(index);
+  }, []);
 
-  // Parallax Y-offset
-  const galleryY = useTransform(scrollYProgress, [0, 1], ["0px", "-30px"]);
+  const scrollToCard = (index: number) => {
+    if (!carouselRef.current) return;
+    const cards = carouselRef.current.querySelectorAll<HTMLElement>("[data-gallery-card]");
+    if (cards[index]) {
+      cards[index].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  };
 
   return (
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-[#0B0A0D] pt-6 sm:pt-10 pb-16 sm:pb-24 border-b border-[#242057]"
+      className="relative w-full overflow-hidden bg-[#0B0A0D] pt-6 sm:pt-10 pb-14 sm:pb-24 border-b border-[#242057]"
     >
-      {/* 1. DUAL CURVED ANGLE TICKER RIBBONS (Full-bleed unbroken background ribbons) */}
-      <div
-        className="relative w-full py-8 sm:py-12 overflow-hidden select-none"
-        style={{ perspective: "1000px" }}
-      >
-        {/* Background Deep Ink/Indigo Ribbon with 100% full background coverage */}
-        <div className="relative z-10 w-[150vw] -ml-[25vw] -rotate-[2.6deg] skew-x-[-1deg] origin-center overflow-visible">
-          <motion.div
-            style={{ x: navyX }}
-            className="flex items-center w-max bg-gradient-to-r from-[#0B0A0D] via-[#242057] to-[#0B0A0D] text-[#1782A8] py-3.5 sm:py-4.5 border-y border-[#242057] shadow-[0_15px_40px_rgba(11,10,13,0.8)] will-change-transform"
-          >
-            {EXTENDED_NAVY.map((item, idx) => (
-              <div key={idx} className="flex items-center mx-5 sm:mx-8 whitespace-nowrap">
-                <span className="font-display text-sm sm:text-xl font-black uppercase tracking-tight text-white drop-shadow-md">
+      {/* 1. DUAL CURVED ANGLE TICKER RIBBONS (GPU-Accelerated Compositor Marquees) */}
+      <div className="relative w-full py-8 sm:py-12 overflow-hidden select-none">
+        {/* Background Deep Ink/Indigo Ribbon */}
+        <div className="relative z-10 w-[160vw] -ml-[30vw] -rotate-[2.5deg] skew-x-[-1deg] origin-center overflow-hidden py-1 transform-gpu">
+          <div className="animate-marquee flex items-center w-max bg-gradient-to-r from-[#0B0A0D] via-[#242057] to-[#0B0A0D] text-[#1782A8] py-3.5 sm:py-4.5 border-y border-[#242057] shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+            {RIBBON_ROW_1.map((item, idx) => (
+              <div key={`r1-${idx}`} className="flex items-center mx-4 sm:mx-8 whitespace-nowrap">
+                <span className="font-display text-xs sm:text-lg font-black uppercase tracking-tight text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
                   {item}
                 </span>
-                <span className="mx-5 sm:mx-8 text-[#1782A8] text-xs sm:text-sm">
+                <span className="mx-4 sm:mx-8 text-[#1782A8] text-xs sm:text-sm select-none">
                   ✶
                 </span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
-        {/* Foreground Deep Indigo/Purple Ribbon with 100% full background coverage */}
-        <div className="relative z-20 w-[150vw] -ml-[25vw] -mt-3.5 sm:-mt-5 rotate-[1.8deg] skew-x-[1.5deg] origin-center overflow-visible">
-          <motion.div
-            style={{ x: blueX }}
-            className="flex items-center w-max bg-gradient-to-r from-[#242057] via-[#75559C] to-[#242057] text-white py-4 sm:py-5 shadow-[0_20px_50px_rgba(11,10,13,0.5)] border-y border-[#1782A8]/40 will-change-transform"
-          >
-            {EXTENDED_BLUE.map((item, idx) => (
-              <div key={idx} className="flex items-center mx-5 sm:mx-8 whitespace-nowrap">
-                <span className="font-display text-sm sm:text-xl font-black uppercase tracking-tight text-white drop-shadow-lg">
+        {/* Foreground Deep Indigo/Purple Ribbon */}
+        <div className="relative z-20 w-[160vw] -ml-[30vw] -mt-3.5 sm:-mt-5 rotate-[1.8deg] skew-x-[1.5deg] origin-center overflow-hidden py-1 transform-gpu">
+          <div className="animate-marquee-reverse flex items-center w-max bg-gradient-to-r from-[#242057] via-[#75559C] to-[#242057] text-white py-4 sm:py-5 shadow-[0_12px_35px_rgba(11,10,13,0.7)] border-y border-[#1782A8]/40">
+            {RIBBON_ROW_2.map((item, idx) => (
+              <div key={`r2-${idx}`} className="flex items-center mx-4 sm:mx-8 whitespace-nowrap">
+                <span className="font-display text-xs sm:text-lg font-black uppercase tracking-tight text-white [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
                   {item}
                 </span>
-                <span className="mx-5 sm:mx-8 text-[#1782A8] text-xs sm:text-sm">
+                <span className="mx-4 sm:mx-8 text-[#1782A8] text-xs sm:text-sm select-none">
                   ✶
                 </span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* 2. MEDIA CAROUSEL / GALLERY (HORIZONTAL ROW OF HIGH-CONTRAST CARDS) */}
-      <div className="relative mt-8 sm:mt-14 w-full overflow-x-auto sm:overflow-hidden scrollbar-none">
+      {/* 2. MEDIA CAROUSEL / GALLERY (Touch-Optimized Snap Carousel on Mobile, Parallax on Desktop) */}
+      <div
+        ref={carouselRef}
+        onScroll={handleScroll}
+        className="relative mt-6 sm:mt-12 w-full overflow-x-auto sm:overflow-hidden scrollbar-none overscroll-x-contain touch-pan-x"
+      >
         <motion.div
-          style={{ x: galleryX, y: galleryY }}
-          className="flex items-center gap-4 sm:gap-7 w-max px-4 sm:px-12 will-change-transform py-4 sm:py-6"
+          style={isDesktop ? { x: smoothGalleryX, y: smoothGalleryY } : undefined}
+          className="flex items-center gap-4 sm:gap-7 w-max px-5 sm:px-12 py-3 sm:py-6 snap-x snap-mandatory"
         >
           {GALLERY_IMAGES.map((card, idx) => (
             <motion.div
               key={idx}
-              whileHover={{
-                rotate: -2.5,
-                y: 6,
-                scale: 1.02,
-                transition: { type: "spring", stiffness: 320, damping: 18 },
-              }}
-              className="group relative h-[210px] sm:h-[250px] md:h-[265px] w-[270px] sm:w-[350px] md:w-[380px] flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border border-[#242057] bg-[#242057] shadow-[0_15px_45px_rgba(11,10,13,0.6)] cursor-pointer transition-colors duration-300 hover:border-[#1782A8] origin-center will-change-transform"
+              data-gallery-card
+              whileHover={
+                isDesktop
+                  ? {
+                      rotate: -2,
+                      y: 4,
+                      scale: 1.02,
+                      transition: { type: "spring", stiffness: 300, damping: 20 },
+                    }
+                  : undefined
+              }
+              className="group relative h-[215px] sm:h-[250px] md:h-[265px] w-[275px] sm:w-[350px] md:w-[380px] flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border border-[#242057] bg-[#242057] shadow-[0_10px_25px_rgba(11,10,13,0.5)] cursor-pointer transition-colors duration-300 hover:border-[#1782A8] origin-center snap-center select-none"
             >
               {/* High-Contrast Photo */}
               <Image
                 src={card.src}
                 alt={card.alt}
                 fill
-                sizes="(max-width: 640px) 270px, (max-width: 1024px) 350px, 380px"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.95] contrast-[1.05]"
+                sizes="(max-width: 640px) 275px, (max-width: 1024px) 350px, 380px"
+                className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                loading="lazy"
               />
 
               {/* Gradient Vignette - Always subtly present at bottom on mobile, intensifies on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A0D]/90 via-[#0B0A0D]/30 to-transparent opacity-80 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A0D]/90 via-[#0B0A0D]/30 to-transparent opacity-85 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               {/* Clean Editorial Caption - Visible on mobile, hover-revealed on desktop */}
               <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-20 pointer-events-none opacity-100 sm:opacity-0 translate-y-0 sm:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
@@ -188,6 +212,29 @@ export default function DualMarqueeGallery() {
             </motion.div>
           ))}
         </motion.div>
+      </div>
+
+      {/* 3. Mobile Active Slide Indicator (Clean Minimal Dot Navigation) */}
+      <div className="flex sm:hidden items-center justify-between px-6 mt-3 text-xs text-white/50">
+        <span className="font-mono text-[11px] tracking-wider uppercase">
+          0{activeIndex + 1} / 0{GALLERY_IMAGES.length}
+        </span>
+        <div className="flex items-center gap-1.5">
+          {GALLERY_IMAGES.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => scrollToCard(idx)}
+              aria-label={`Go to experience ${idx + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                idx === activeIndex ? "w-6 bg-[#1782A8]" : "w-1.5 bg-white/20"
+              }`}
+            />
+          ))}
+        </div>
+        <span className="text-[10px] tracking-wider uppercase text-[#1782A8]">
+          Swipe →
+        </span>
       </div>
     </section>
   );

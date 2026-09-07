@@ -99,6 +99,12 @@ export default function RootLayout({
       lang="en-GB"
       className={`${sora.variable} ${inter.variable} min-h-full scroll-smooth`}
     >
+      <head>
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://i.ytimg.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://i.ytimg.com" />
+      </head>
       <body className="min-h-full flex flex-col font-sans bg-[#0B0A0D] text-white antialiased selection:bg-[#1782A8] selection:text-white">
         <RouteTransition>{children}</RouteTransition>
       </body>
