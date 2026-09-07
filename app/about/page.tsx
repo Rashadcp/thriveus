@@ -45,7 +45,6 @@ export default function AboutPage() {
             <span className="font-seasons italic font-bold text-[#8A5FA8]">
               Thrive
             </span>
-            —
             <br className="hidden sm:inline" />
             {" "}Individuals &amp; Organisations.
           </h1>
