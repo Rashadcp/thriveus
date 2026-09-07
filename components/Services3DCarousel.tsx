@@ -21,8 +21,8 @@ const CIRCULAR_SERVICES = [
     text: "Enterprise Gatherings",
   },
   {
-    image: "/images/aramco-summit.jpg",
-    text: "Conferences & Productions",
+    image: "/images/our-approach-team.jpg",
+    text: "Team Celebrations",
   },
   {
     image: "/images/gala-dinner-ballroom.jpg",

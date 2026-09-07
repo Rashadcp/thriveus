@@ -47,7 +47,7 @@ export default function BeatsBeyond() {
           <div className="lg:col-span-6">
             <div className="relative aspect-[4/3] sm:h-[440px] w-full overflow-hidden rounded-2xl bg-[#1C164B]/5 shadow-[0_20px_50px_rgba(28,22,75,0.06)] border border-[#1C164B]/10">
               <Image
-                src="/images/our-approach-team.png"
+                src="/images/our-approach-team.jpg"
                 alt="Thriveus corporate team celebration and engagement event in Dubai"
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"

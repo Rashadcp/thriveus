@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Production {
   id: string;
@@ -14,57 +15,57 @@ interface Production {
 
 const PRODUCTIONS: Production[] = [
   {
-    id: "work-01",
-    tag: "ANNUAL STAFF EVENT",
-    title: "Enterprise Annual Staff Gathering · Grand Ballroom",
-    meta: "500+ attendees · Dubai",
+    id: "work-01-arena-games",
+    tag: "SIGNATURE FORMAT",
+    title: "The Arena Games · Annual Staff Event",
+    meta: "685+ guests · Dubai · February 2026",
     description:
-      "A full arena-scale corporate annual gathering uniting teams across departments under one roof with keynote presentations, collective team recognition, and an unforgettable celebration.",
+      "A full arena production for the annual staff event of a global engineering consultancy. Our Squid Game inspired arena format brought custom game zones, elimination style rounds, live scoring and a survival themed storyline that turned 685 colleagues into competing squads for one unforgettable afternoon.",
     image: "/images/corporate-ballroom-team.jpg",
   },
   {
-    id: "work-02",
-    tag: "CONFERENCES & SUMMITS",
-    title: "Aramco & Subsea 7 · Stakeholder Alignment Summit",
-    meta: "Enterprise Partners · Dubai",
+    id: "work-02-megayacht",
+    tag: "MARINE EXPERIENCE",
+    title: "Rhythm & Revelry · Luxury Megayacht Experience",
+    meta: "275 guests · Dubai Marina",
     description:
-      "End-to-end executive alignment summit featuring keynote presentations, interactive breakout sessions, stage lighting, and seamless audiovisual operations.",
-    image: "/images/aramco-summit.jpg",
+      "A private megayacht takeover combining live entertainment, curated dining and open water views of the Dubai skyline, produced end to end from charter to final guest departure.",
+    image: "/images/resort-leadership-circle.jpg",
   },
   {
-    id: "work-03",
+    id: "work-03-amazing-race",
     tag: "CHALLENGE RACE",
-    title: "The Team Challenge · Burj Al Arab Edition",
+    title: "The Amazing Race · City Edition",
     meta: "210+ participants · Across Dubai",
     description:
-      "A multi location urban challenge race moving teams through checkpoints across the city with live tracking, coordinated transport and a finale celebration.",
+      "A multi location urban challenge race for a global logistics leader, moving teams through checkpoints across the city with live tracking, coordinated transport and a finale celebration.",
     image: "/images/team-challenge-burj.jpg",
   },
   {
-    id: "work-04",
+    id: "work-04-mountain-retreat",
     tag: "EXECUTIVE RETREAT",
-    title: "Mountain Leadership Retreat · Jebel Hafeet",
+    title: "Mountain Leadership Retreat",
     meta: "Senior leadership team · Al Ain",
     description:
-      "A leadership retreat in the heights of Jebel Hafeet for the regional leadership of an enterprise firm, pairing structured strategy sessions with shared mountain expeditions and unhurried conversation.",
+      "A leadership retreat in the foothills of Jebel Hafeet for the regional leadership of a global energy services firm, pairing structured strategy sessions with the shared meals and unhurried conversation senior teams rarely get.",
     image: "/images/alain-mountain-summit.jpg",
   },
   {
-    id: "work-05",
-    tag: "GALA & CELEBRATION",
-    title: "Corporate Gala Dinner & Recognition Evening",
-    meta: "300+ guests · Dubai",
+    id: "work-05-channel-partner-award",
+    tag: "RECOGNITION EVENING",
+    title: "Channel Partner Award Night",
+    meta: "200 guests · January 2026",
     description:
-      "A premier recognition evening and gala dinner featuring elegant dining tables, custom awards, stage lighting, and curated entertainment moments.",
+      "A recognition evening for a free zone's channel partner network: staging, entertainment, custom awards and more than 200 curated gift boxes, engineered so every partner left feeling individually acknowledged.",
     image: "/images/gala-dinner-ballroom.jpg",
   },
   {
-    id: "work-06",
+    id: "work-06-onam-celebration",
     tag: "CULTURAL FESTIVAL",
-    title: "Cultural Drum Celebration & Festival",
-    meta: "350+ guests · UAE",
+    title: "Onam Cultural Celebration",
+    meta: "350 guests",
     description:
-      "A high-energy cultural festival and annual celebration with authentic traditional percussion, festive cuisine, and vibrant live performances that unite diverse teams.",
+      "A full scale Onam celebration for an engineering firm's workforce, from pookkalam and sadhya service to traditional performances, delivered with the cultural precision that makes these festivals feel owned rather than outsourced.",
     image: "/images/cultural-drum-celebration.jpg",
   },
 ];
@@ -91,7 +92,7 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        {/* 6 Real Productions in Responsive Grid */}
+        {/* 6 Exact Productions in Clean Responsive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12">
           {PRODUCTIONS.map((prod) => (
             <div
@@ -99,7 +100,7 @@ export default function ProjectsSection() {
               className="group flex flex-col justify-between"
             >
               <div>
-                {/* Visual */}
+                {/* Visual Container: Clean Image with Category Tag Badge */}
                 <div className="relative h-56 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#1C164B]/5 border border-[#1C164B]/15">
                   <Image
                     src={prod.image}
@@ -109,7 +110,7 @@ export default function ProjectsSection() {
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/90 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold">
+                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/90 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold shadow-sm">
                       {prod.tag}
                     </span>
                   </div>
@@ -129,6 +130,21 @@ export default function ProjectsSection() {
                     {prod.description}
                   </p>
                 </div>
+              </div>
+
+              {/* Footer Action */}
+              <div className="mt-5 pt-3.5 border-t border-[#1C164B]/10 flex items-center justify-between text-xs">
+                <span className="text-[#8A5FA8]/70 inline-flex items-center gap-1.5 font-medium uppercase tracking-wider text-[10px]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#8A5FA8]" />
+                  Curated Experience
+                </span>
+
+                <Link
+                  href="/works"
+                  className="text-[#1C164B]/60 hover:text-[#8A5FA8] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
+                >
+                  View in Works ↗
+                </Link>
               </div>
             </div>
           ))}

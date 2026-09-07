@@ -49,7 +49,7 @@ const SERVICES: ServiceItem[] = [
       "Turnkey Audio Visual",
       "Delegate Operations",
     ],
-    image: "/images/aramco-summit.jpg",
+    image: "/images/corporate-ballroom-team.jpg",
   },
   {
     id: "celebrations-cultural",

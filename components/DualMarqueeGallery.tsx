@@ -31,10 +31,10 @@ const RIBBON_ROW_2 = [...TICKER_ROW_2, ...TICKER_ROW_2];
 
 const GALLERY_IMAGES = [
   {
-    src: "/images/aramco-summit.jpg",
-    alt: "Aramco and Subsea 7 enterprise stakeholder alignment summit in Dubai",
-    category: "CONFERENCES & SUMMITS",
-    title: "Aramco & Subsea 7 · Alignment Summit",
+    src: "/images/corporate-ballroom-team.jpg",
+    alt: "Enterprise annual corporate team gathering in Dubai",
+    category: "ANNUAL GATHERINGS",
+    title: "Annual Staff Gathering · Grand Ballroom",
   },
   {
     src: "/images/team-challenge-burj.jpg",
