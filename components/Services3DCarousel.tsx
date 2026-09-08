@@ -97,8 +97,7 @@ export default function Services3DCarousel() {
           scrollEase={0.02}
           scrollSpeed={2}
           cardScale={0.6}
-          fontUrl="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap"
-          font="bold 20px Sora"
+          font='bold 22px "Helvetica Now Display", sans-serif'
           items={CIRCULAR_SERVICES}
         />
       </div>
@@ -121,7 +120,7 @@ export default function Services3DCarousel() {
               href="/services"
               className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#F2F0E8] border border-[#DEDACB] hover:border-[#8A5FA8] hover:bg-[#EAE7DC] text-[#1C164B] transition-all text-[11px] sm:text-xs font-display shadow-sm group"
             >
-              <span className="font-mono text-[10px] text-[#8A5FA8] font-bold transition-colors">
+              <span className="font-display text-[10px] text-[#8A5FA8] font-bold transition-colors">
                 {pill.num}
               </span>
               <span>{pill.name}</span>

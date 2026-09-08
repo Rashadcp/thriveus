@@ -217,7 +217,7 @@ export default function DualMarqueeGallery() {
 
       {/* 3. Mobile Active Slide Indicator (Clean Minimal Dot Navigation) */}
       <div className="flex sm:hidden items-center justify-between px-6 mt-3 text-xs text-white/50">
-        <span className="font-mono text-[11px] tracking-wider uppercase">
+        <span className="font-display text-[11px] font-medium tracking-wider uppercase text-white/70">
           0{activeIndex + 1} / 0{GALLERY_IMAGES.length}
         </span>
         <div className="flex items-center gap-1.5">

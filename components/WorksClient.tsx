@@ -13,6 +13,7 @@ export interface ProductionItem {
   meta: string;
   description: string;
   image: string;
+  backupImage?: string;
   youtubeId?: string;
 }
 
@@ -26,70 +27,121 @@ export const PRODUCTIONS: ProductionItem[] = [
     meta: "685+ guests · Dubai · February 2026",
     description:
       "A full arena production for the annual staff event of a global engineering consultancy. Our Squid Game inspired arena format brought custom game zones, elimination style rounds, live scoring and a survival themed storyline that turned 685 colleagues into competing squads for one unforgettable afternoon.",
-    image: "/images/arena-games-squidgame.jpg",
+    image: "https://i.ytimg.com/vi/97YFzz0Bk-Y/maxresdefault.jpg",
+    backupImage: "/images/arena-games-squidgame.jpg",
     youtubeId: "97YFzz0Bk-Y",
   },
   {
     id: "work-02-megayacht",
-    refCode: "PHOTO",
+    refCode: "V2",
     tag: "MARINE EXPERIENCE",
     category: "Marine & Experiential",
     title: "Rhythm & Revelry · Luxury Megayacht Experience",
     meta: "275 guests · Dubai Marina",
     description:
       "A private megayacht takeover combining live entertainment, curated dining and open water views of the Dubai skyline, produced end to end from charter to final guest departure.",
-    image: "/images/resort-leadership-circle.jpg",
+    image: "https://i.ytimg.com/vi/DTFL_27sPoo/maxresdefault.jpg",
+    backupImage: "/images/resort-leadership-circle.jpg",
+    youtubeId: "DTFL_27sPoo",
   },
   {
     id: "work-03-amazing-race",
-    refCode: "PHOTO",
+    refCode: "V3",
     tag: "CHALLENGE RACE",
     category: "Team Challenges",
     title: "The Amazing Race · City Edition",
     meta: "210+ participants · Across Dubai",
     description:
       "A multi location urban challenge race for a global logistics leader, moving teams through checkpoints across the city with live tracking, coordinated transport and a finale celebration.",
-    image: "/images/team-challenge-burj.jpg",
+    image: "https://i.ytimg.com/vi/lYgZKVe1UIk/maxresdefault.jpg",
+    backupImage: "/images/team-challenge-burj.jpg",
+    youtubeId: "lYgZKVe1UIk",
   },
   {
     id: "work-04-mountain-retreat",
-    refCode: "PHOTO",
+    refCode: "V4",
     tag: "EXECUTIVE RETREAT",
     category: "Executive Retreats",
     title: "Mountain Leadership Retreat",
     meta: "Senior leadership team · Al Ain",
     description:
       "A leadership retreat in the foothills of Jebel Hafeet for the regional leadership of a global energy services firm, pairing structured strategy sessions with the shared meals and unhurried conversation senior teams rarely get.",
-    image: "/images/alain-mountain-summit.jpg",
+    image: "https://i.ytimg.com/vi/LL4fVOxpfpg/maxresdefault.jpg",
+    backupImage: "/images/alain-mountain-summit.jpg",
+    youtubeId: "LL4fVOxpfpg",
   },
   {
     id: "work-05-channel-partner-award",
-    refCode: "V4",
+    refCode: "V5",
     tag: "RECOGNITION EVENING",
     category: "Celebrations & Galas",
     title: "Channel Partner Award Night",
     meta: "200 guests · January 2026",
     description:
       "A recognition evening for a free zone's channel partner network: staging, entertainment, custom awards and more than 200 curated gift boxes, engineered so every partner left feeling individually acknowledged.",
-    image: "/images/gala-dinner-ballroom.jpg",
+    image: "https://i.ytimg.com/vi/uUE_j7b9VEg/maxresdefault.jpg",
+    backupImage: "/images/gala-dinner-ballroom.jpg",
     youtubeId: "uUE_j7b9VEg",
   },
   {
     id: "work-06-onam-celebration",
-    refCode: "V5",
+    refCode: "V6",
     tag: "CULTURAL FESTIVAL",
     category: "Cultural & Community",
     title: "Onam Cultural Celebration",
     meta: "350 guests",
     description:
       "A full scale Onam celebration for an engineering firm's workforce, from pookkalam and sadhya service to traditional performances, delivered with the cultural precision that makes these festivals feel owned rather than outsourced.",
-    image: "/images/cultural-drum-celebration.jpg",
+    image: "https://i.ytimg.com/vi/efSenVMW-OA/maxresdefault.jpg",
+    backupImage: "/images/cultural-drum-celebration.jpg",
     youtubeId: "efSenVMW-OA",
+  },
+  {
+    id: "work-07-supplier-summit",
+    refCode: "V7",
+    tag: "CONFERENCES & SUMMITS",
+    category: "Conferences & Summits",
+    title: "Supplier Summit · Global Conference & Showcase",
+    meta: "Enterprise Partners · Dubai",
+    description:
+      "A premier supplier summit and conference for Veolia Water Technologies, featuring branded mainstage presentation environments, interactive supplier showcase booths, panel discussion setups, and seamless bilingual broadcasting.",
+    image: "https://i.ytimg.com/vi/yHJsQIrh8S0/maxresdefault.jpg",
+    backupImage: "/images/conference-summit.jpg",
+    youtubeId: "yHJsQIrh8S0",
+  },
+  {
+    id: "work-08-energy-challenge",
+    refCode: "V8",
+    tag: "CORPORATE ENGAGEMENT",
+    category: "Team Challenges",
+    title: "Energy Sector Team Challenge",
+    meta: "Dubai · Enterprise Workforce",
+    description:
+      "High-impact team building and collaborative problem-solving curated for the regional workforce of a leading global energy enterprise, combining outcome-driven simulations and high-energy engagement.",
+    image: "https://i.ytimg.com/vi/Mb3Y80sDdZY/maxresdefault.jpg",
+    backupImage: "/images/corporate-ballroom-team.jpg",
+    youtubeId: "Mb3Y80sDdZY",
+  },
+  {
+    id: "work-09-beach-programme",
+    refCode: "V9",
+    tag: "OUTDOOR TEAM BUILDING",
+    category: "Team Challenges",
+    title: "Beach Team Building · Coastal Challenge",
+    meta: "Halian UAE · Dubai Coast",
+    description:
+      "A high-octane seaside corporate team building expedition on the Dubai coastline, featuring custom sand obstacle courses, collaborative water relays, and rapid communication challenges.",
+    image: "https://i.ytimg.com/vi/ktB7HbTs0Gw/maxresdefault.jpg",
+    backupImage: "/images/family-carnival.jpg",
+    youtubeId: "ktB7HbTs0Gw",
   },
 ];
 
 function SafeThumbnail({ prod }: { prod: ProductionItem }) {
-  const [src, setSrc] = useState(prod.image);
+  const defaultThumb = prod.youtubeId
+    ? `https://i.ytimg.com/vi/${prod.youtubeId}/maxresdefault.jpg`
+    : prod.image;
+  const [src, setSrc] = useState(defaultThumb);
 
   return (
     <Image
@@ -101,8 +153,10 @@ function SafeThumbnail({ prod }: { prod: ProductionItem }) {
       onError={() => {
         if (src.includes("maxresdefault") && prod.youtubeId) {
           setSrc(`https://i.ytimg.com/vi/${prod.youtubeId}/hqdefault.jpg`);
+        } else if (src.includes("hqdefault") && prod.youtubeId) {
+          setSrc(`https://i.ytimg.com/vi/${prod.youtubeId}/mqdefault.jpg`);
         } else {
-          setSrc("/images/corporate-ballroom-team.jpg");
+          setSrc(prod.backupImage || "/images/corporate-ballroom-team.jpg");
         }
       }}
       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
@@ -156,7 +210,7 @@ export default function WorksClient() {
                 PORTFOLIO &amp; PRODUCTIONS
               </span>
               <span className="text-[#8A5FA8]">•</span>
-              <span className="text-xs uppercase tracking-widest text-[#5B5578] font-mono">
+              <span className="text-xs uppercase tracking-widest text-[#5B5578] font-display font-medium">
                 {PRODUCTIONS.length} CURATED EXPERIENCES
               </span>
             </div>
@@ -174,18 +228,18 @@ export default function WorksClient() {
               href="https://www.youtube.com/@ThriveusEvents"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-[#F2F0E8] hover:bg-[#EAE7DC] border border-[#DEDACB] hover:border-[#8A5FA8]/60 transition-all duration-300 group shadow-sm"
+              className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-[#FF0000] text-white hover:bg-[#CC0000] transition-all duration-300 group shadow-md hover:shadow-lg hover:scale-105"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#FF0000] text-white">
-                <svg className="h-4 w-4 fill-current ml-0.5" viewBox="0 0 24 24">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-[#FF0000] shadow-sm">
+                <svg className="h-3.5 w-3.5 fill-current ml-0.5" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </span>
               <div className="text-left">
-                <span className="text-[11px] uppercase tracking-wider text-[#8A5FA8] block font-semibold">
+                <span className="text-[10px] uppercase tracking-wider text-white/90 block font-medium">
                   Official Channel
                 </span>
-                <span className="text-xs text-[#1C164B] font-medium group-hover:text-[#8A5FA8] transition-colors">
+                <span className="font-display text-xs font-bold tracking-wide">
                   @ThriveusEvents on YouTube ↗
                 </span>
               </div>
@@ -248,7 +302,7 @@ export default function WorksClient() {
                           type="button"
                           onClick={() => handlePlay(prod)}
                           disabled={isLoading}
-                          className="group/btn absolute inset-0 flex flex-col items-center justify-center cursor-pointer focus:outline-none"
+                          className="group/btn absolute inset-0 flex items-center justify-center cursor-pointer focus:outline-none"
                           aria-label={`Watch event film for ${prod.title}`}
                         >
                           {isLoading ? (
@@ -256,34 +310,28 @@ export default function WorksClient() {
                               <div className="h-6 w-6 border-2 border-[#EAE7DC] border-t-transparent rounded-full animate-spin" />
                             </div>
                           ) : (
-                            <div className="flex flex-col items-center gap-2">
-                              <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#1C164B] text-[#EAE7DC] shadow-lg transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:bg-[#8A5FA8] group-hover/btn:text-white">
-                                <svg
-                                  className="h-5 w-5 sm:h-6 sm:w-6 fill-current translate-x-0.5"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path d="M8 5v14l11-7z" />
-                                </svg>
-                              </div>
-                              <span className="text-[11px] uppercase tracking-wider text-white font-semibold bg-[#1C164B]/85 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-white/20 shadow-md group-hover/btn:border-[#8A5FA8]">
-                                Watch Film
-                              </span>
+                            <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#1C164B]/90 backdrop-blur-sm text-[#EAE7DC] shadow-lg transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:bg-[#8A5FA8] group-hover/btn:text-white border border-white/20">
+                              <svg
+                                className="h-5 w-5 sm:h-6 sm:w-6 fill-current translate-x-0.5"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
                             </div>
                           )}
                         </button>
                       )}
                     </div>
 
-                    {/* Close / Return to Photo button when video is playing */}
+                    {/* Close button when video is playing */}
                     {hasVideo && isPlaying && (
                       <button
                         type="button"
                         onClick={() => handleClose(prod.id)}
-                        className="absolute top-2.5 right-2.5 z-30 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1C164B]/90 backdrop-blur-md text-white hover:text-white hover:bg-[#8A5FA8] transition-colors border border-white/20 text-xs font-semibold cursor-pointer shadow-lg"
-                        aria-label="Return to photo view"
+                        className="absolute top-2.5 right-2.5 z-30 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#1C164B]/90 backdrop-blur-md text-white hover:text-white hover:bg-[#8A5FA8] transition-all border border-white/20 text-xs sm:text-sm font-semibold cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+                        aria-label="Close video"
                       >
-                        <span>✕</span>
-                        <span className="text-[10px] uppercase tracking-wider">Photo</span>
+                        ✕
                       </button>
                     )}
                   </div>
@@ -305,42 +353,25 @@ export default function WorksClient() {
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="mt-5 pt-3.5 border-t border-[#DEDACB] flex items-center justify-between text-xs">
-                  {hasVideo ? (
-                    <button
-                      type="button"
-                      onClick={() => handlePlay(prod)}
-                      className="text-[#1C164B] hover:text-[#8A5FA8] transition-colors inline-flex items-center gap-1.5 font-semibold uppercase tracking-wider text-[11px] cursor-pointer"
-                    >
-                      <svg className="h-3 w-3 fill-current text-[#8A5FA8]" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                      <span>{isPlaying ? "Replay Film" : "Play Film"}</span>
-                    </button>
-                  ) : (
-                    <span className="text-[#8A5FA8] inline-flex items-center gap-1.5 font-medium uppercase tracking-wider text-[11px]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#8A5FA8]" />
-                      Photo Feature
-                    </span>
-                  )}
+                <div className="mt-5 pt-3.5 border-t border-[#DEDACB] flex items-center justify-between gap-2 text-xs">
+                  <span className="text-[#8A5FA8] inline-flex items-center gap-1.5 font-medium uppercase tracking-wider text-[11px]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#8A5FA8]" />
+                    {prod.tag}
+                  </span>
 
-                  {hasVideo ? (
-                    <a
-                      href={`https://www.youtube.com/watch?v=${prod.youtubeId}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#5B5578] hover:text-[#1C164B] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
-                    >
-                      YouTube ↗
-                    </a>
-                  ) : (
-                    <Link
-                      href="/contact"
-                      className="text-[#5B5578] hover:text-[#1C164B] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
-                    >
-                      Inquire ↗
-                    </Link>
-                  )}
+                  {/* High-visibility YouTube Button */}
+                  <a
+                    href={hasVideo ? `https://www.youtube.com/watch?v=${prod.youtubeId}` : "https://www.youtube.com/@ThriveusEvents"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FF0000] text-white hover:bg-[#CC0000] transition-all font-display text-[11px] font-bold tracking-wide shadow-sm hover:shadow hover:scale-105 ml-auto"
+                    aria-label={`Watch ${prod.title} on YouTube`}
+                  >
+                    <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    <span>Watch on YouTube ↗</span>
+                  </a>
                 </div>
               </div>
             );

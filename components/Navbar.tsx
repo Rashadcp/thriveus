@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
+  { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Works", href: "/works" },
   { name: "About", href: "/about" },
@@ -59,12 +60,14 @@ export default function Navbar() {
 
           {/* Clean Nav Links (No background / No pill dock) */}
           <nav
-            className="hidden md:flex items-center gap-8 lg:gap-11"
+            className="hidden md:flex items-center gap-6 lg:gap-9"
             aria-label="Main Navigation"
           >
             {NAV_LINKS.map((link) => {
               const isActive =
-                pathname === link.href || pathname.startsWith(link.href + "/");
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname.startsWith(link.href + "/");
 
               return (
                 <Link
@@ -153,7 +156,7 @@ export default function Navbar() {
                         className="flex items-center justify-between py-4 group"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="font-mono text-xs text-[#8A5FA8]">
+                          <span className="font-display text-xs text-[#8A5FA8] font-semibold">
                             0{idx + 1}
                           </span>
                           <span
