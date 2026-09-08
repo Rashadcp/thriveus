@@ -1,14 +1,25 @@
 import React from "react";
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MagneticButton from "@/components/ui/MagneticButton";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "About Us | Thriveus Corporate Experiences & Events UAE",
   description:
     "Thriveus Events Co. L.L.C is a Dubai based corporate engagement company designing and delivering corporate experiences across the UAE.",
+  alternates: {
+    canonical: "https://thriveus.ae/about",
+  },
+  openGraph: {
+    title: "About Us | Thriveus Corporate Experiences & Events UAE",
+    description:
+      "Thriveus Events Co. L.L.C is a Dubai based corporate engagement company designing and delivering corporate experiences across the UAE.",
+    url: "https://thriveus.ae/about",
+    siteName: "Thriveus",
+    images: ["/images/corporate-ballroom-team.jpg"],
+  },
 };
 
 const STATS = [

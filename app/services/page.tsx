@@ -1,14 +1,26 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MagneticButton from "@/components/ui/MagneticButton";
 
-export const metadata = {
-  title: "Our Services | Thriveus Corporate Experiences & Events UAE",
+export const metadata: Metadata = {
+  title: "Corporate Services & Experiential Formats | Thriveus UAE",
   description:
     "Discover Thriveus corporate services across the UAE: curated experiences, conferences, celebrations, experiential team building, training, and leadership retreats.",
+  alternates: {
+    canonical: "https://thriveus.ae/services",
+  },
+  openGraph: {
+    title: "Corporate Services & Experiential Formats | Thriveus UAE",
+    description:
+      "Discover Thriveus corporate services across the UAE: curated experiences, conferences, celebrations, experiential team building, training, and leadership retreats.",
+    url: "https://thriveus.ae/services",
+    siteName: "Thriveus",
+    images: ["/images/corporate-ballroom-team.jpg"],
+  },
 };
 
 interface ServiceItem {

@@ -2,8 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   compress: true,
+  experimental: {
+    optimizePackageImports: ["framer-motion"],
+  },
   images: {
-    formats: ["image/webp"],
+    formats: ["image/avif", "image/webp"],
     qualities: [75, 80, 85, 90, 95, 100],
     deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1600, 1920, 2048, 2560, 3840],
     imageSizes: [32, 48, 64, 96, 128, 256, 384, 512, 640, 768],
@@ -18,6 +21,19 @@ const nextConfig: NextConfig = {
         hostname: "i.ytimg.com",
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|otf|ttf|woff|woff2|mp4)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [

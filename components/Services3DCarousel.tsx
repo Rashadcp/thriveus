@@ -61,8 +61,27 @@ const SERVICE_PILLS = [
 ];
 
 export default function Services3DCarousel() {
+  const sectionRef = React.useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!sectionRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "350px" }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="services"
       className="relative w-full bg-[#EAE7DC] text-[#1C164B] pt-16 sm:pt-24 pb-14 sm:pb-20 border-t border-[#DEDACB] overflow-hidden"
     >
@@ -90,16 +109,23 @@ export default function Services3DCarousel() {
 
       {/* 3D Circular Gallery Container with proportional card scale */}
       <div className="relative z-10 w-full h-[420px] sm:h-[480px] md:h-[540px] my-1 sm:my-2">
-        <CircularGallery
-          bend={2.5}
-          textColor="#1C164B"
-          borderRadius={0.06}
-          scrollEase={0.02}
-          scrollSpeed={2}
-          cardScale={0.6}
-          font='bold 22px "Helvetica Now Display", sans-serif'
-          items={CIRCULAR_SERVICES}
-        />
+        {isInView ? (
+          <CircularGallery
+            bend={2.5}
+            textColor="#1C164B"
+            borderRadius={0.06}
+            scrollEase={0.02}
+            scrollSpeed={2}
+            cardScale={0.6}
+            font='bold 22px "Helvetica Now Display", sans-serif'
+            items={CIRCULAR_SERVICES}
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-[#5B5578]/40">
+            <div className="h-7 w-7 rounded-full border-2 border-[#8A5FA8] border-t-transparent animate-spin" />
+            <span className="font-display text-xs tracking-wider uppercase text-[#5B5578]">Loading 3D Gallery...</span>
+          </div>
+        )}
       </div>
 
       {/* Interactive Guidance & Service Quick Nav */}

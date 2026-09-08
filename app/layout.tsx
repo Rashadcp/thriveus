@@ -86,10 +86,48 @@ export const metadata: Metadata = {
       "Thriveus designs corporate experiences across the UAE. Team building, gamified learning, celebrations, retreats and conferences for enterprise teams.",
     images: ["/images/corporate-ballroom-team.jpg"],
   },
+  alternates: {
+    canonical: "https://thriveus.ae",
+  },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://thriveus.ae/#organization",
+      name: "Thriveus Events",
+      url: "https://thriveus.ae",
+      logo: "https://thriveus.ae/images/logo-nav-cream.png",
+      description:
+        "Thriveus curates corporate events, executive summits, team challenges, and experiential productions across Dubai and the UAE.",
+      email: "jahan@thriveus.ae",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+      },
+      sameAs: [
+        "https://www.youtube.com/@ThriveusEvents",
+        "https://www.instagram.com/thriveus.uae/",
+        "https://linkedin.com/company/thriveus",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://thriveus.ae/#website",
+      url: "https://thriveus.ae",
+      name: "Thriveus Corporate Events & Productions",
+      publisher: {
+        "@id": "https://thriveus.ae/#organization",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -103,10 +141,41 @@ export default function RootLayout({
       className={`${inter.variable} ${cormorant.variable} min-h-full scroll-smooth`}
     >
       <head>
+        {/* Resource Hints & CDNs */}
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://i.ytimg.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://i.ytimg.com" />
+
+        {/* Critical Font Preloads for instantaneous rendering without layout shift */}
+        <link
+          rel="preload"
+          href="/fonts/HelveticaNowDisplay-Bold.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/TheSeasons-Italic.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+
+        {/* Hero Poster Image Preload for 0ms LCP */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/corporate-ballroom-team.jpg"
+          fetchPriority="high"
+        />
+
+        {/* SEO Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-[#EAE7DC] text-[#1C164B] antialiased selection:bg-[#98DAF6] selection:text-[#1C164B]">
         <RouteTransition>{children}</RouteTransition>
