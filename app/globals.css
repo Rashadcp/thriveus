@@ -2,30 +2,46 @@
 
 @font-face {
   font-family: "The Seasons";
-  src: local("The Seasons"), local("The Seasons Bold Italic"), local("TheSeasons-BoldItalic");
-  font-weight: 700;
+  src: url("/fonts/TheSeasons-Italic.otf") format("opentype"),
+       local("The Seasons"), local("The Seasons Italic"), local("TheSeasons-Italic");
+  font-weight: 300 700;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Helvetica Now Display";
-  src: local("Helvetica Now Display Bold"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Bold");
+  src: url("/fonts/HelveticaNowDisplay-Bold.ttf") format("truetype"),
+       local("Helvetica Now Display Bold"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Bold");
   font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Helvetica Now Display";
-  src: local("Helvetica Now Display Regular"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Regular");
+  src: url("/fonts/HelveticaNowDisplay-Regular.ttf") format("truetype"),
+       local("Helvetica Now Display Regular"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Regular");
   font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Helvetica Now Display";
-  src: local("Helvetica Now Display Light"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Light");
+  src: url("/fonts/HelveticaNowDisplay-Regular.ttf") format("truetype"),
+       local("Helvetica Now Display Light"), local("Helvetica Now Display"), local("HelveticaNowDisplay-Light");
   font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: url("/fonts/HelveticaNowDisplay-Italic.ttf") format("truetype"),
+       local("Helvetica Now Display Italic"), local("HelveticaNowDisplay-Italic");
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
 
