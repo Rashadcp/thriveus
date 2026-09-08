@@ -53,6 +53,7 @@ export default function RevealImage({
           alt={alt}
           fill
           priority={priority}
+          quality={95}
           sizes={sizes}
           className={`object-cover object-center ${imageClassName}`}
         />

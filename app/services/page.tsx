@@ -125,68 +125,75 @@ const SERVICES: ServiceItem[] = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[#1C164B] text-white flex flex-col justify-between overflow-x-clip">
+    <main className="min-h-screen bg-[#EAE7DC] text-[#1C164B] flex flex-col justify-between overflow-x-clip">
       <Navbar />
 
       {/* Hero Header */}
-      <section className="relative pt-28 sm:pt-48 pb-16 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#8A5FA8]/30">
+      <section className="relative pt-28 sm:pt-48 pb-16 sm:pb-24 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#DEDACB]">
         <div className="max-w-4xl space-y-4 sm:space-y-6">
-          <span className="font-light text-xs sm:text-sm uppercase tracking-widest text-[#98DAF6] font-semibold block">
+          <span className="font-light text-xs sm:text-sm uppercase tracking-widest text-[#8A5FA8] font-semibold block">
             EXPERIENTIAL ARCHITECTURE
           </span>
-          <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-[#1C164B] leading-[1.1]">
             Our Services
           </h1>
-          <p className="mt-4 sm:mt-6 text-base sm:text-2xl text-[#EAE7DC]/90 leading-relaxed font-light max-w-3xl">
+          <p className="mt-4 sm:mt-6 text-base sm:text-2xl text-[#5B5578] leading-relaxed font-light max-w-3xl">
             Original corporate experiences, turnkey summits, cultural celebrations, and leadership development delivered across Dubai, Abu Dhabi, Al Ain, and UAE-wide.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <MagneticButton href="/contact" variant="primary">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-[#1C164B] text-[#EAE7DC] font-display text-xs sm:text-sm font-semibold tracking-wider uppercase px-7 py-3.5 hover:bg-[#8A5FA8] hover:text-white transition-all duration-300 shadow-md"
+            >
               Start a Conversation
-            </MagneticButton>
-            <MagneticButton href="/works" variant="outline">
+            </Link>
+            <Link
+              href="/works"
+              className="inline-flex items-center justify-center rounded-full border border-[#1C164B]/30 text-[#1C164B] font-display text-xs sm:text-sm font-medium tracking-wider uppercase px-7 py-3.5 hover:border-[#8A5FA8] hover:text-[#8A5FA8] transition-colors"
+            >
               Explore Recent Productions
-            </MagneticButton>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Seven Flagship Services */}
-      <section className="py-16 sm:py-28 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#8A5FA8]/30">
+      <section className="py-16 sm:py-28 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#DEDACB]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {SERVICES.map((srv) => (
             <div
               key={srv.id}
-              className="group flex flex-col justify-between rounded-2xl bg-[#1C164B]/60 border border-[#8A5FA8]/30 p-5 sm:p-6 transition-all duration-300 hover:border-[#98DAF6]/50 hover:bg-[#8A5FA8]/15"
+              className="group flex flex-col justify-between rounded-2xl bg-[#F2F0E8] border border-[#DEDACB] p-5 sm:p-6 transition-all duration-300 hover:border-[#8A5FA8]/50 hover:shadow-lg"
             >
               <div>
-                <div className="relative h-52 sm:h-60 w-full overflow-hidden rounded-xl bg-[#000000]/60 border border-[#8A5FA8]/30">
+                <div className="relative h-52 sm:h-60 w-full overflow-hidden rounded-xl bg-[#EAE7DC] border border-[#DEDACB]">
                   <Image
                     src={srv.image}
                     alt={srv.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 400px"
+                    quality={95}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/90 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold">
+                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/95 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold">
                       {srv.tag}
                     </span>
                   </div>
                 </div>
 
                 <div className="mt-5 space-y-3">
-                  <div className="flex items-center gap-2 font-display text-xs text-[#98DAF6]">
+                  <div className="flex items-center gap-2 font-display text-xs text-[#8A5FA8]">
                     <span className="font-bold">{srv.num}</span>
-                    <span className="text-[#8A5FA8]">/ 07</span>
+                    <span className="text-[#5B5578]">/ 07</span>
                   </div>
 
-                  <h2 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-[#98DAF6] transition-colors leading-snug">
+                  <h2 className="font-display text-lg sm:text-xl font-bold text-[#1C164B] group-hover:text-[#8A5FA8] transition-colors leading-snug">
                     {srv.title}
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-[#EAE7DC]/75 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-[#5B5578] leading-relaxed font-light">
                     {srv.description}
                   </p>
 
@@ -194,9 +201,9 @@ export default function ServicesPage() {
                     {srv.bullets.map((bullet) => (
                       <span
                         key={bullet}
-                        className="inline-flex items-center gap-1 font-display text-[10px] sm:text-xs text-white/85 bg-[#1C164B]/80 border border-[#8A5FA8]/30 rounded-md px-2.5 py-1"
+                        className="inline-flex items-center gap-1 font-display text-[10px] sm:text-xs text-[#1C164B] bg-[#EAE7DC] border border-[#DEDACB] rounded-md px-2.5 py-1"
                       >
-                        <span className="text-[#98DAF6]">✶</span>
+                        <span className="text-[#8A5FA8]">✶</span>
                         {bullet}
                       </span>
                     ))}
@@ -208,8 +215,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Bottom Conversion Banner */}
-      <section className="py-20 sm:py-32 px-5 sm:px-12 mx-auto max-w-7xl w-full text-center">
+      {/* Bottom Conversion Banner (Signature Closing Indigo CTA) */}
+      <section className="py-20 sm:py-32 px-5 sm:px-12 w-full bg-[#1C164B] text-white text-center">
         <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
           <h2 className="font-display text-2xl sm:text-5xl font-bold text-white leading-tight">
             Ready to Create Something{" "}
@@ -222,9 +229,12 @@ export default function ServicesPage() {
             Let&apos;s design an experience your people will remember.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
-            <MagneticButton href="/contact" variant="primary">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-[#98DAF6] text-[#1C164B] font-display text-xs sm:text-sm font-semibold tracking-wider uppercase px-7 py-3.5 hover:bg-[#8A5FA8] hover:text-white transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(152,218,246,0.4)]"
+            >
               Start a Conversation
-            </MagneticButton>
+            </Link>
             <Link
               href="/"
               className="inline-flex items-center justify-center px-5 py-3 text-xs sm:text-sm font-semibold text-[#98DAF6] hover:text-white transition-colors"

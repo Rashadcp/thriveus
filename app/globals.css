@@ -30,6 +30,21 @@
 }
 
 @theme {
+  /* Thriveus Brand Palette & Semantic Colors (Strict Brand Guide) */
+  --color-tu-indigo: #1C164B;
+  --color-tu-blue: #98DAF6;
+  --color-tu-cream: #EAE7DC;
+  --color-tu-purple: #8A5FA8;
+  --color-tu-black: #000000;
+  --color-tu-white: #FFFFFF;
+  --color-tu-indigo-800: #2A2160;
+  --color-tu-indigo-600: #453C86;
+  --color-tu-blue-soft: #C9EBFB;
+  --color-tu-cream-deep: #DEDACB;
+  --color-tu-cream-soft: #F2F0E8;
+  --color-text-muted: #5B5578;
+  --color-text-on-dark-muted: #9C97C0;
+
   /* Official Brand Palette */
   --color-brand-indigo: #1C164B;
   --color-brand-blue: #98DAF6;
@@ -58,8 +73,8 @@
   --color-navy-950: #1C164B;
   --color-navy-900: #1C164B;
   --color-navy-850: #1C164B;
-  --color-navy-800: #1C164B;
-  --color-navy-700: #1C164B;
+  --color-navy-800: #2A2160;
+  --color-navy-700: #453C86;
   --color-accent-blue: #98DAF6;
   --color-accent-cyan: #98DAF6;
   --color-accent-indigo: #8A5FA8;
@@ -75,6 +90,42 @@
 }
 
 :root {
+  /* Base Palette */
+  --tu-indigo: #1C164B;      /* primary dark — cover, dividers, closing */
+  --tu-blue: #98DAF6;        /* light blue */
+  --tu-cream: #EAE7DC;       /* warm neutral ground */
+  --tu-purple: #8A5FA8;      /* accent, sparing */
+  --tu-black: #000000;       /* accent, very sparing */
+  --tu-white: #FFFFFF;       /* knockout logo / rare hairlines only */
+
+  /* Tints & shades derived from the palette (oklch-harmonised) */
+  --tu-indigo-800: #2A2160;  /* raised indigo surface */
+  --tu-indigo-600: #453C86;  /* muted indigo line/label on dark */
+  --tu-blue-soft: #C9EBFB;   /* washed light blue */
+  --tu-cream-deep: #DEDACB;  /* cream hairline / divider on cream */
+  --tu-cream-soft: #F2F0E8;  /* lifted cream panel */
+
+  /* Semantic aliases */
+  --surface-page: var(--tu-cream);
+  --surface-panel: var(--tu-cream-soft);
+  --surface-dark: var(--tu-indigo);
+  --surface-dark-raised: var(--tu-indigo-800);
+
+  --text-strong: var(--tu-indigo);
+  --text-body: var(--tu-indigo);
+  --text-muted: #5B5578;
+  --text-accent: var(--tu-purple);
+
+  --text-on-dark: var(--tu-cream);
+  --text-on-dark-strong: var(--tu-white);
+  --text-on-dark-muted: #9C97C0;
+
+  --line-on-cream: var(--tu-cream-deep);
+  --line-on-dark: var(--tu-indigo-600);
+
+  --accent: var(--tu-purple);
+  --accent-cool: var(--tu-blue);
+
   --brand-indigo: #1C164B;
   --brand-blue: #98DAF6;
   --brand-cream: #EAE7DC;
@@ -96,12 +147,13 @@ html {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
   -webkit-tap-highlight-color: transparent;
+  background-color: #EAE7DC;
 }
 
 body {
   font-family: "Helvetica Now Display", "Helvetica Now", "Helvetica Neue", var(--font-inter), sans-serif;
-  background-color: #1C164B;
-  color: #FFFFFF;
+  background-color: #EAE7DC;
+  color: #1C164B;
   overflow-x: clip;
   touch-action: manipulation;
 }

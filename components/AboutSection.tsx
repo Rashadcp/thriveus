@@ -9,7 +9,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative w-full bg-[#EAE7DC] py-20 sm:py-32 px-5 sm:px-12 overflow-hidden text-[#1C164B] border-b border-[#1C164B]/15"
+      className="relative w-full bg-[#EAE7DC] py-20 sm:py-32 px-5 sm:px-12 overflow-hidden text-[#1C164B] border-b border-[#DEDACB]"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
@@ -39,7 +39,7 @@ export default function AboutSection() {
               <p className="text-[#1C164B] font-light">
                 At Thriveus, we believe everyone deserves to thrive. We create engaging team-building activities, leadership workshops, and corporate events across Dubai and the UAE.
               </p>
-              <p className="text-[#8A5FA8] text-xs sm:text-base leading-relaxed font-normal">
+              <p className="text-[#5B5578] text-xs sm:text-base leading-relaxed font-normal">
                 Our goal is simple: to bring teams together, build strong workplace culture, and create memorable corporate experiences.
               </p>
             </div>
@@ -65,12 +65,13 @@ export default function AboutSection() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             className="lg:col-span-5"
           >
-            <div className="relative aspect-[4/3] sm:h-[480px] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[#1C164B]/15 bg-[#EAE7DC] shadow-[0_20px_50px_rgba(28,22,75,0.08)]">
+            <div className="relative aspect-[4/3] sm:h-[480px] w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DEDACB] bg-[#F2F0E8] shadow-[0_20px_50px_rgba(28,22,75,0.06)]">
               <Image
                 src="/images/corporate-ballroom-team.jpg"
                 alt="Large enterprise corporate team celebrating together at a Thriveus event in Dubai"
                 fill
-                sizes="(max-width: 1024px) 100vw, 500px"
+                quality={95}
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center brightness-100 transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1C164B]/15 via-transparent to-transparent pointer-events-none" />

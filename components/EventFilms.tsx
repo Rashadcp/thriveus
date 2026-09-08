@@ -42,7 +42,7 @@ const EVENT_FILMS: FilmItem[] = [
     meta: "Dubai · Enterprise Workforce",
     description:
       "High-impact team building and collaborative problem-solving curated for the regional workforce of a leading global energy enterprise.",
-    thumbnail: "https://img.youtube.com/vi/Mb3Y80sDdZY/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Mb3Y80sDdZY/maxresdefault.jpg",
   },
 ];
 
@@ -54,7 +54,8 @@ function SafeThumbnail({ film }: { film: FilmItem }) {
       src={src}
       alt={film.title}
       fill
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      quality={92}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
       onError={() => {
         if (src.includes("maxresdefault")) {
           setSrc(`https://img.youtube.com/vi/${film.youtubeId}/hqdefault.jpg`);
@@ -62,7 +63,7 @@ function SafeThumbnail({ film }: { film: FilmItem }) {
           setSrc("/images/corporate-ballroom-team.jpg");
         }
       }}
-      className="object-cover object-center brightness-90 transition-transform duration-700 ease-out group-hover:scale-105"
+      className="object-cover object-center brightness-100 transition-transform duration-700 ease-out group-hover:scale-105"
     />
   );
 }

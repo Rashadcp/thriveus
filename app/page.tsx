@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <main className="relative w-full overflow-x-clip bg-[#1C164B] text-white">
+    <main className="relative w-full overflow-x-clip bg-[#EAE7DC] text-[#1C164B]">
       <Navbar />
       <Hero />
       <DualMarqueeGallery />

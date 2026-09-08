@@ -26,13 +26,13 @@ export default function MagneticButton({
     primary:
       "bg-[#98DAF6] text-[#1C164B] hover:bg-[#8A5FA8] hover:text-white border border-[#98DAF6]/40 transition-colors duration-300",
     secondary:
-      "bg-transparent text-[#1C164B] border border-[#1C164B]/40 hover:border-[#8A5FA8] hover:bg-[#EAE7DC] transition-colors duration-300",
+      "bg-[#1C164B] text-[#EAE7DC] border border-[#1C164B] hover:bg-[#8A5FA8] hover:text-white transition-colors duration-300",
     outline:
-      "bg-transparent text-white border border-white/20 hover:border-[#98DAF6] hover:text-[#98DAF6] transition-colors duration-300",
+      "bg-transparent text-[#EAE7DC] border border-[#EAE7DC]/30 hover:border-[#98DAF6] hover:text-[#98DAF6] transition-colors duration-300",
     ghost:
       "bg-transparent text-[#8A5FA8] hover:text-[#98DAF6] p-0 hover:scale-100 transition-colors duration-300",
     dark:
-      "bg-[#1C164B] text-white border border-[#8A5FA8]/40 hover:border-[#98DAF6] hover:bg-[#1C164B]/80 transition-colors duration-300",
+      "bg-[#1C164B] text-[#EAE7DC] border border-[#453C86] hover:border-[#98DAF6] hover:bg-[#2A2160] transition-colors duration-300",
   };
 
   const content = (

@@ -26,13 +26,13 @@ export default function ContactClient() {
     <section className="relative pt-32 sm:pt-44 pb-20 sm:pb-32 px-5 sm:px-12 mx-auto max-w-5xl w-full flex-1">
       {/* Simple Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-12 sm:mb-16">
-        <span className="font-display text-xs uppercase tracking-widest text-[#98DAF6] font-semibold">
+        <span className="font-display text-xs uppercase tracking-widest text-[#8A5FA8] font-semibold">
           GET IN TOUCH
         </span>
-        <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white">
-          Let&apos;s <span className="font-seasons italic font-bold text-[#98DAF6]">connect</span>.
+        <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-[#1C164B]">
+          Let&apos;s <span className="font-seasons italic font-bold text-[#8A5FA8]">connect</span>.
         </h1>
-        <p className="text-sm sm:text-base text-[#EAE7DC]/80 font-light leading-relaxed">
+        <p className="text-sm sm:text-base text-[#5B5578] font-light leading-relaxed">
           Planning a corporate event, summit, or experiential production in the UAE? Send us a quick note or reach out directly.
         </p>
       </div>
@@ -47,7 +47,7 @@ export default function ContactClient() {
             </span>
             <a
               href="mailto:jahan@thriveus.ae"
-              className="text-lg sm:text-2xl font-display font-bold text-[#98DAF6] hover:text-white transition-colors"
+              className="text-lg sm:text-2xl font-display font-bold text-[#1C164B] hover:text-[#8A5FA8] transition-colors"
             >
               jahan@thriveus.ae
             </a>
@@ -57,7 +57,7 @@ export default function ContactClient() {
             <span className="text-xs font-display uppercase tracking-wider text-[#8A5FA8] font-semibold block mb-1">
               Location
             </span>
-            <p className="text-base text-white font-medium">
+            <p className="text-base text-[#1C164B] font-medium">
               Dubai, United Arab Emirates
             </p>
           </div>
@@ -66,29 +66,29 @@ export default function ContactClient() {
             <span className="text-xs font-display uppercase tracking-wider text-[#8A5FA8] font-semibold block mb-1">
               Response Time
             </span>
-            <p className="text-sm text-[#EAE7DC]/80 font-light">
+            <p className="text-sm text-[#5B5578] font-light">
               We typically respond within 24 hours.
             </p>
           </div>
         </div>
 
         {/* Right: Very Simple 3-Field Form */}
-        <div className="md:col-span-7 bg-[#1C164B]/80 rounded-2xl p-6 sm:p-8 border border-[#8A5FA8]/30 shadow-xl">
+        <div className="md:col-span-7 bg-[#F2F0E8] rounded-2xl p-6 sm:p-8 border border-[#DEDACB] shadow-md">
           {submitted ? (
             <div className="py-8 text-center space-y-3">
-              <div className="h-12 w-12 rounded-full bg-[#98DAF6]/20 text-[#98DAF6] flex items-center justify-center mx-auto text-xl font-bold">
+              <div className="h-12 w-12 rounded-full bg-[#8A5FA8]/15 text-[#8A5FA8] flex items-center justify-center mx-auto text-xl font-bold">
                 ✓
               </div>
-              <h3 className="font-display text-xl font-bold text-white">
+              <h3 className="font-display text-xl font-bold text-[#1C164B]">
                 Message Prepared
               </h3>
-              <p className="text-xs sm:text-sm text-[#EAE7DC]/80 max-w-sm mx-auto">
+              <p className="text-xs sm:text-sm text-[#5B5578] max-w-sm mx-auto">
                 Your email client has opened with your details addressed to <strong>jahan@thriveus.ae</strong>. We look forward to speaking with you.
               </p>
               <button
                 type="button"
                 onClick={() => setSubmitted(false)}
-                className="pt-2 text-xs font-semibold text-[#98DAF6] hover:underline cursor-pointer"
+                className="pt-2 text-xs font-semibold text-[#8A5FA8] hover:underline cursor-pointer"
               >
                 Send another message
               </button>
@@ -96,7 +96,7 @@ export default function ContactClient() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-display font-medium uppercase tracking-wider text-[#EAE7DC]/80 mb-1.5">
+                <label className="block text-xs font-display font-medium uppercase tracking-wider text-[#1C164B] mb-1.5">
                   Name
                 </label>
                 <input
@@ -105,12 +105,12 @@ export default function ContactClient() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your name"
-                  className="w-full rounded-xl bg-[#000000]/40 border border-[#8A5FA8]/30 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#98DAF6] transition-colors"
+                  className="w-full rounded-xl bg-[#EAE7DC] border border-[#DEDACB] px-4 py-3 text-sm text-[#1C164B] placeholder-[#5B5578]/60 focus:outline-none focus:border-[#8A5FA8] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-display font-medium uppercase tracking-wider text-[#EAE7DC]/80 mb-1.5">
+                <label className="block text-xs font-display font-medium uppercase tracking-wider text-[#1C164B] mb-1.5">
                   Email
                 </label>
                 <input
@@ -119,12 +119,12 @@ export default function ContactClient() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="you@company.com"
-                  className="w-full rounded-xl bg-[#000000]/40 border border-[#8A5FA8]/30 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#98DAF6] transition-colors"
+                  className="w-full rounded-xl bg-[#EAE7DC] border border-[#DEDACB] px-4 py-3 text-sm text-[#1C164B] placeholder-[#5B5578]/60 focus:outline-none focus:border-[#8A5FA8] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-display font-medium uppercase tracking-wider text-[#EAE7DC]/80 mb-1.5">
+                <label className="block text-xs font-display font-medium uppercase tracking-wider text-[#1C164B] mb-1.5">
                   Message
                 </label>
                 <textarea
@@ -133,13 +133,13 @@ export default function ContactClient() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell us about your event (date, estimated guests, format)..."
-                  className="w-full rounded-xl bg-[#000000]/40 border border-[#8A5FA8]/30 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#98DAF6] transition-colors resize-none"
+                  className="w-full rounded-xl bg-[#EAE7DC] border border-[#DEDACB] px-4 py-3 text-sm text-[#1C164B] placeholder-[#5B5578]/60 focus:outline-none focus:border-[#8A5FA8] transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full rounded-full bg-[#98DAF6] text-[#1C164B] py-3.5 px-6 font-display text-xs uppercase tracking-wider font-bold shadow-[0_4px_20px_rgba(152,218,246,0.3)] hover:bg-[#8A5FA8] hover:text-white transition-all duration-300 cursor-pointer"
+                className="w-full rounded-full bg-[#1C164B] text-[#EAE7DC] py-3.5 px-6 font-display text-xs uppercase tracking-wider font-bold shadow-md hover:bg-[#8A5FA8] hover:text-white transition-all duration-300 cursor-pointer"
               >
                 Send Message
               </button>

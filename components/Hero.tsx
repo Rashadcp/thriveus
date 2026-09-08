@@ -15,7 +15,7 @@ export default function Hero() {
           playsInline
           preload="metadata"
           poster="/images/corporate-ballroom-team.jpg"
-          className="h-full w-full object-cover object-center brightness-[0.78] contrast-[1.05]"
+          className="h-full w-full object-cover object-center brightness-[0.88] contrast-[1.06]"
         >
           <source
             src="/hero-video-mobile.mp4"
@@ -26,13 +26,13 @@ export default function Hero() {
         </video>
 
         {/* Brand Indigo Overlays & 3D Atmospheric Glow */}
-        <div className="absolute inset-0 bg-[#1C164B]/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#1C164B]/40 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1C164B] via-transparent to-[#1C164B]/70 pointer-events-none" />
         <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#8A5FA8]/20 blur-[130px] rounded-full pointer-events-none" />
       </div>
 
       {/* Editorial Hero Content with Helvetica Now & The Seasons Italic Accent */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center pt-16 sm:pt-0">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 text-center pt-20 sm:pt-20">
         <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.12]">
           Curating{" "}
           <span className="font-seasons italic font-bold text-[#98DAF6]">

@@ -96,7 +96,8 @@ function SafeThumbnail({ prod }: { prod: ProductionItem }) {
       src={src}
       alt={prod.title}
       fill
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+      quality={95}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       onError={() => {
         if (src.includes("maxresdefault") && prod.youtubeId) {
           setSrc(`https://i.ytimg.com/vi/${prod.youtubeId}/hqdefault.jpg`);
@@ -147,22 +148,22 @@ export default function WorksClient() {
   return (
     <>
       {/* Header Section */}
-      <section className="relative pt-28 sm:pt-44 pb-12 sm:pb-16 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#8A5FA8]/30">
+      <section className="relative pt-28 sm:pt-44 pb-12 sm:pb-16 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#DEDACB]">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 sm:gap-8">
           <div className="max-w-3xl space-y-3 sm:space-y-4">
             <div className="flex items-center gap-2">
-              <span className="font-display text-xs uppercase tracking-widest text-[#98DAF6] font-semibold">
+              <span className="font-display text-xs uppercase tracking-widest text-[#8A5FA8] font-semibold">
                 PORTFOLIO &amp; PRODUCTIONS
               </span>
               <span className="text-[#8A5FA8]">•</span>
-              <span className="text-xs uppercase tracking-widest text-[#EAE7DC]/70 font-mono">
+              <span className="text-xs uppercase tracking-widest text-[#5B5578] font-mono">
                 {PRODUCTIONS.length} CURATED EXPERIENCES
               </span>
             </div>
-            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1C164B] leading-[1.1]">
               Recent Productions
             </h1>
-            <p className="text-sm sm:text-lg text-[#EAE7DC]/85 leading-relaxed font-light max-w-2xl">
+            <p className="text-sm sm:text-lg text-[#5B5578] leading-relaxed font-light max-w-2xl">
               Curated corporate events delivered across Dubai, Abu Dhabi, and the wider UAE. Each production is documented with high-definition event films captured live on location.
             </p>
           </div>
@@ -173,7 +174,7 @@ export default function WorksClient() {
               href="https://www.youtube.com/@ThriveusEvents"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-[#8A5FA8]/20 hover:bg-[#8A5FA8]/35 border border-[#8A5FA8]/40 hover:border-[#98DAF6]/60 transition-all duration-300 group"
+              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-[#F2F0E8] hover:bg-[#EAE7DC] border border-[#DEDACB] hover:border-[#8A5FA8]/60 transition-all duration-300 group shadow-sm"
             >
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#FF0000] text-white">
                 <svg className="h-4 w-4 fill-current ml-0.5" viewBox="0 0 24 24">
@@ -181,10 +182,10 @@ export default function WorksClient() {
                 </svg>
               </span>
               <div className="text-left">
-                <span className="text-[11px] uppercase tracking-wider text-[#98DAF6] block font-semibold">
+                <span className="text-[11px] uppercase tracking-wider text-[#8A5FA8] block font-semibold">
                   Official Channel
                 </span>
-                <span className="text-xs text-white font-medium group-hover:text-[#98DAF6] transition-colors">
+                <span className="text-xs text-[#1C164B] font-medium group-hover:text-[#8A5FA8] transition-colors">
                   @ThriveusEvents on YouTube ↗
                 </span>
               </div>
@@ -204,11 +205,11 @@ export default function WorksClient() {
             return (
               <div
                 key={prod.id}
-                className="group flex flex-col justify-between bg-[#1C164B]/60 rounded-2xl p-4 sm:p-5 border border-[#8A5FA8]/30 hover:border-[#98DAF6]/50 transition-all duration-300"
+                className="group flex flex-col justify-between bg-[#F2F0E8] rounded-2xl p-4 sm:p-5 border border-[#DEDACB] hover:border-[#8A5FA8]/50 hover:shadow-lg transition-all duration-300"
               >
                 <div>
                   {/* Media Container: Photo by default; YouTube embed on click */}
-                  <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-[#000000] border border-[#8A5FA8]/30">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-[#EAE7DC] border border-[#DEDACB]">
                     {/* Active YouTube Iframe using privacy-enhanced youtube-nocookie.com */}
                     {hasVideo && isPlaying && (
                       <iframe
@@ -239,7 +240,7 @@ export default function WorksClient() {
                       <SafeThumbnail prod={prod} />
 
                       {/* Ambient Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/85 via-[#1C164B]/25 to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1C164B]/80 via-[#1C164B]/20 to-transparent pointer-events-none" />
 
                       {/* Click-to-Play Button if video is present */}
                       {hasVideo && (
@@ -251,12 +252,12 @@ export default function WorksClient() {
                           aria-label={`Watch event film for ${prod.title}`}
                         >
                           {isLoading ? (
-                            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#98DAF6] text-[#1C164B] shadow-[0_0_35px_rgba(152,218,246,0.9)] animate-pulse">
-                              <div className="h-6 w-6 border-2 border-[#1C164B] border-t-transparent rounded-full animate-spin" />
+                            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#1C164B] text-[#EAE7DC] shadow-lg animate-pulse">
+                              <div className="h-6 w-6 border-2 border-[#EAE7DC] border-t-transparent rounded-full animate-spin" />
                             </div>
                           ) : (
                             <div className="flex flex-col items-center gap-2">
-                              <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#98DAF6] text-[#1C164B] shadow-[0_0_25px_rgba(152,218,246,0.6)] transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:bg-[#8A5FA8] group-hover/btn:text-white">
+                              <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#1C164B] text-[#EAE7DC] shadow-lg transition-all duration-300 group-hover/btn:scale-110 group-hover/btn:bg-[#8A5FA8] group-hover/btn:text-white">
                                 <svg
                                   className="h-5 w-5 sm:h-6 sm:w-6 fill-current translate-x-0.5"
                                   viewBox="0 0 24 24"
@@ -264,7 +265,7 @@ export default function WorksClient() {
                                   <path d="M8 5v14l11-7z" />
                                 </svg>
                               </div>
-                              <span className="text-[11px] uppercase tracking-wider text-white/95 font-semibold bg-[#1C164B]/80 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-white/20 shadow-md group-hover/btn:border-[#98DAF6]">
+                              <span className="text-[11px] uppercase tracking-wider text-white font-semibold bg-[#1C164B]/85 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-white/20 shadow-md group-hover/btn:border-[#8A5FA8]">
                                 Watch Film
                               </span>
                             </div>
@@ -278,7 +279,7 @@ export default function WorksClient() {
                       <button
                         type="button"
                         onClick={() => handleClose(prod.id)}
-                        className="absolute top-2.5 right-2.5 z-30 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1C164B]/90 backdrop-blur-md text-white/95 hover:text-[#1C164B] hover:bg-[#98DAF6] transition-colors border border-white/20 text-xs font-semibold cursor-pointer shadow-lg"
+                        className="absolute top-2.5 right-2.5 z-30 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1C164B]/90 backdrop-blur-md text-white hover:text-white hover:bg-[#8A5FA8] transition-colors border border-white/20 text-xs font-semibold cursor-pointer shadow-lg"
                         aria-label="Return to photo view"
                       >
                         <span>✕</span>
@@ -289,36 +290,36 @@ export default function WorksClient() {
 
                   {/* Production Content Details */}
                   <div className="mt-4 sm:mt-5 space-y-2">
-                    <span className="font-display text-xs text-[#98DAF6] block font-medium">
+                    <span className="font-display text-xs text-[#8A5FA8] block font-semibold">
                       {prod.meta}
                     </span>
 
-                    <h2 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-[#98DAF6] transition-colors leading-snug">
+                    <h2 className="font-display text-lg sm:text-xl font-bold text-[#1C164B] group-hover:text-[#8A5FA8] transition-colors leading-snug">
                       {prod.title}
                     </h2>
 
-                    <p className="text-xs sm:text-sm text-[#EAE7DC]/75 font-light leading-relaxed pt-1">
+                    <p className="text-xs sm:text-sm text-[#5B5578] font-light leading-relaxed pt-1">
                       {prod.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="mt-5 pt-3.5 border-t border-[#8A5FA8]/25 flex items-center justify-between text-xs">
+                <div className="mt-5 pt-3.5 border-t border-[#DEDACB] flex items-center justify-between text-xs">
                   {hasVideo ? (
                     <button
                       type="button"
                       onClick={() => handlePlay(prod)}
-                      className="text-[#98DAF6] hover:text-white transition-colors inline-flex items-center gap-1.5 font-semibold uppercase tracking-wider text-[11px] cursor-pointer"
+                      className="text-[#1C164B] hover:text-[#8A5FA8] transition-colors inline-flex items-center gap-1.5 font-semibold uppercase tracking-wider text-[11px] cursor-pointer"
                     >
-                      <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24">
+                      <svg className="h-3 w-3 fill-current text-[#8A5FA8]" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                       <span>{isPlaying ? "Replay Film" : "Play Film"}</span>
                     </button>
                   ) : (
-                    <span className="text-[#98DAF6]/75 inline-flex items-center gap-1.5 font-medium uppercase tracking-wider text-[11px]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#98DAF6]" />
+                    <span className="text-[#8A5FA8] inline-flex items-center gap-1.5 font-medium uppercase tracking-wider text-[11px]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#8A5FA8]" />
                       Photo Feature
                     </span>
                   )}
@@ -328,14 +329,14 @@ export default function WorksClient() {
                       href={`https://www.youtube.com/watch?v=${prod.youtubeId}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#EAE7DC]/60 hover:text-[#98DAF6] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
+                      className="text-[#5B5578] hover:text-[#1C164B] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
                     >
                       YouTube ↗
                     </a>
                   ) : (
                     <Link
                       href="/contact"
-                      className="text-[#EAE7DC]/60 hover:text-[#98DAF6] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
+                      className="text-[#5B5578] hover:text-[#1C164B] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
                     >
                       Inquire ↗
                     </Link>

@@ -61,13 +61,13 @@ export default function ClientReviews() {
   return (
     <section
       id="reviews"
-      className="relative w-full bg-[#FFFFFF] py-20 sm:py-28 lg:py-32 px-5 sm:px-10 lg:px-14 overflow-hidden text-[#1C164B]"
+      className="relative w-full bg-[#EAE7DC] py-20 sm:py-28 lg:py-32 px-5 sm:px-10 lg:px-14 overflow-hidden text-[#1C164B] border-b border-[#DEDACB]"
     >
       {/* Decorative ambient background curves matching presentation slides */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
         {/* Subtle top right purple flowing curve */}
         <svg
-          className="absolute -top-20 right-0 w-[550px] sm:w-[750px] lg:w-[950px] h-[600px] text-[#8A5FA8]/[0.07]"
+          className="absolute -top-20 right-0 w-[550px] sm:w-[750px] lg:w-[950px] h-[600px] text-[#8A5FA8]/[0.08]"
           viewBox="0 0 1000 700"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -79,8 +79,8 @@ export default function ClientReviews() {
         </svg>
 
         {/* Soft cyan & lavender ambient blurred spots */}
-        <div className="absolute top-1/3 -left-36 w-[450px] h-[450px] bg-[#98DAF6]/[0.12] rounded-full blur-[110px]" />
-        <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-[#8A5FA8]/[0.06] rounded-full blur-[130px]" />
+        <div className="absolute top-1/3 -left-36 w-[450px] h-[450px] bg-[#98DAF6]/[0.14] rounded-full blur-[110px]" />
+        <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-[#8A5FA8]/[0.08] rounded-full blur-[130px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -93,10 +93,10 @@ export default function ClientReviews() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08]">
-              <span className="text-[#3EA7DF]">STORIES </span>
+              <span className="text-[#8A5FA8]">STORIES </span>
               <span className="text-[#1C164B]">OF SUCCESS</span>
             </h2>
-            <p className="mt-2 text-sm sm:text-base lg:text-lg font-bold tracking-wider text-[#3EA7DF] uppercase">
+            <p className="mt-2 text-sm sm:text-base lg:text-lg font-bold tracking-wider text-[#5B5578] uppercase">
               IN THE VOICES OF OUR CLIENTS.
             </p>
           </motion.div>
@@ -111,7 +111,7 @@ export default function ClientReviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group flex flex-col justify-between items-center text-center p-6 sm:p-7 rounded-2xl bg-white/70 backdrop-blur-sm border border-[#1C164B]/10 hover:border-[#3EA7DF]/40 hover:shadow-[0_15px_35px_rgba(28,22,75,0.06)] hover:-translate-y-1 transition-all duration-300"
+              className="group flex flex-col justify-between items-center text-center p-6 sm:p-7 rounded-2xl bg-[#F2F0E8] border border-[#DEDACB] hover:border-[#8A5FA8]/50 hover:shadow-[0_15px_35px_rgba(28,22,75,0.06)] hover:-translate-y-1 transition-all duration-300"
             >
               <div className="w-full flex flex-col items-center">
                 {/* Brand Logo Container */}
@@ -120,24 +120,25 @@ export default function ClientReviews() {
                     src={review.logo}
                     alt={`${review.company} logo`}
                     fill
-                    sizes="(max-width: 640px) 150px, 180px"
-                    className="object-contain"
+                    quality={95}
+                    sizes="(max-width: 640px) 240px, 320px"
+                    className="object-contain [image-rendering:-webkit-optimize-contrast]"
                   />
                 </div>
 
                 {/* Review Text */}
-                <p className="text-[#2D3748] text-sm sm:text-[15px] leading-relaxed font-normal">
+                <p className="text-[#1C164B] text-sm sm:text-[15px] leading-relaxed font-light">
                   {review.quote}
                 </p>
               </div>
 
               {/* Author & Event Attribution */}
-              <div className="w-full mt-8 pt-4 border-t border-[#1C164B]/10 flex flex-col items-center text-center">
+              <div className="w-full mt-8 pt-4 border-t border-[#DEDACB] flex flex-col items-center text-center">
                 <p className="font-display font-bold text-base sm:text-lg text-[#1C164B] leading-snug">
                   {review.author},{" "}
-                  <span className="font-semibold">{review.companyTag}</span>
+                  <span className="font-semibold text-[#5B5578]">{review.companyTag}</span>
                 </p>
-                <p className="mt-1 text-xs sm:text-sm font-semibold text-[#3EA7DF] leading-snug">
+                <p className="mt-1 text-xs sm:text-sm font-semibold text-[#8A5FA8] leading-snug">
                   {review.event}
                 </p>
               </div>

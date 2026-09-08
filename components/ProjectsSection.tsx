@@ -74,11 +74,11 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative w-full bg-[#EAE7DC] py-20 sm:py-36 px-5 sm:px-12 overflow-hidden text-[#1C164B] border-b border-[#1C164B]/15"
+      className="relative w-full bg-[#EAE7DC] py-20 sm:py-36 px-5 sm:px-12 overflow-hidden text-[#1C164B] border-b border-[#DEDACB]"
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-12 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-[#1C164B]/15">
+        <div className="mb-12 sm:mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-[#DEDACB]">
           <div>
             <span className="font-light text-xs uppercase tracking-widest text-[#8A5FA8] font-semibold block mb-2 sm:mb-3">
               SELECTED WORKS
@@ -87,7 +87,7 @@ export default function ProjectsSection() {
               Recent Productions
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-[#8A5FA8] max-w-sm font-light leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#5B5578] max-w-sm font-light leading-relaxed">
             Curated corporate events delivered across Dubai, Abu Dhabi and the wider UAE.
           </p>
         </div>
@@ -101,19 +101,20 @@ export default function ProjectsSection() {
             >
               <div>
                 {/* Visual Container: Clean Image with Category Tag Badge */}
-                <div className="relative h-56 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#1C164B]/5 border border-[#1C164B]/15">
-                  <Image
-                    src={prod.image}
-                    alt={prod.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+                <div className="relative h-56 sm:h-72 w-full overflow-hidden rounded-2xl bg-[#F2F0E8] border border-[#DEDACB]">
+                    <Image
+                      src={prod.image}
+                      alt={prod.title}
+                      fill
+                      quality={95}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
                 </div>
 
                 {/* Content */}
                 <div className="mt-5 sm:mt-6 space-y-2">
-                  <span className="font-display text-xs text-[#8A5FA8] block font-medium">
+                  <span className="font-display text-xs text-[#5B5578] block font-medium">
                     {prod.meta}
                   </span>
 
@@ -121,22 +122,22 @@ export default function ProjectsSection() {
                     {prod.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#1C164B]/75 font-light leading-relaxed pt-1">
+                  <p className="text-xs sm:text-sm text-[#5B5578] font-light leading-relaxed pt-1">
                     {prod.description}
                   </p>
                 </div>
               </div>
 
               {/* Footer Action */}
-              <div className="mt-5 pt-3.5 border-t border-[#1C164B]/10 flex items-center justify-between text-xs">
-                <span className="text-[#8A5FA8]/70 inline-flex items-center gap-1.5 font-medium uppercase tracking-wider text-[10px]">
+              <div className="mt-5 pt-3.5 border-t border-[#DEDACB] flex items-center justify-between text-xs">
+                <span className="text-[#8A5FA8] inline-flex items-center gap-1.5 font-medium uppercase tracking-wider text-[10px]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#8A5FA8]" />
                   Curated Experience
                 </span>
 
                 <Link
                   href="/works"
-                  className="text-[#1C164B]/60 hover:text-[#8A5FA8] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
+                  className="text-[#1C164B]/70 hover:text-[#8A5FA8] transition-colors inline-flex items-center gap-1 font-medium text-[11px]"
                 >
                   View in Works ↗
                 </Link>

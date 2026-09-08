@@ -192,13 +192,14 @@ export default function DualMarqueeGallery() {
                 src={card.src}
                 alt={card.alt}
                 fill
-                sizes="(max-width: 640px) 275px, (max-width: 1024px) 350px, 380px"
+                quality={95}
+                sizes="(max-width: 640px) 70vw, 500px"
                 className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                 loading="lazy"
               />
 
-              {/* Gradient Vignette - always visible for crisp legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#1C164B]/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              {/* Refined Bottom Caption Vignette for crisp, bright photos */}
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#000000]/90 via-[#000000]/40 to-transparent pointer-events-none" />
 
               {/* Clean Editorial Caption - permanently visible */}
               <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-20 pointer-events-none opacity-100 translate-y-0 transition-all duration-300 ease-out">

@@ -5,10 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import MagneticButton from "./ui/MagneticButton";
 
 const NAV_LINKS = [
-  { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Works", href: "/works" },
   { name: "About", href: "/about" },
@@ -22,7 +20,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -35,56 +33,47 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-[#EAE7DC] border-b border-[#DEDACB] transition-all duration-300 ${
           isScrolled
-            ? "py-3 px-4 sm:px-8"
-            : "py-6 sm:py-7 px-6 sm:px-12"
+            ? "py-2 shadow-[0_4px_20px_rgba(28,22,75,0.06)]"
+            : "py-2.5 sm:py-3"
         }`}
       >
-        <div
-          className={`mx-auto flex items-center justify-between transition-all duration-500 ${
-            isScrolled
-              ? "max-w-6xl rounded-full bg-[#1C164B]/90 px-6 py-2.5 shadow-[0_12px_40px_rgba(28,22,75,0.7)] backdrop-blur-2xl border-none"
-              : "max-w-7xl"
-          }`}
-        >
-          {/* Logo with Brand Emblem & Helvetica Now + The Seasons Typography */}
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 flex items-center justify-between">
+          {/* Official Thriveus Brand Lockup */}
           <Link
             href="/"
-            className="group relative flex items-center gap-2.5 sm:gap-3 py-1 outline-none"
+            className="group relative flex items-center py-0.5 transition-opacity duration-200 hover:opacity-85 focus:outline-none"
             aria-label="Thriveus Home"
           >
-            <div className="relative h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src="/images/logo-icon.png"
-                alt="Thriveus Logo"
-                fill
-                priority
-                sizes="40px"
-                className="object-contain drop-shadow-[0_0_12px_rgba(152,218,246,0.45)]"
-              />
-            </div>
-            <span className="font-display text-xl sm:text-2xl font-bold tracking-[-0.05em] text-white transition-colors duration-300 group-hover:text-[#98DAF6]">
-              Thrive<span className="font-seasons font-bold italic tracking-[-0.05em] ml-[-0.02em]">us</span>
-            </span>
+            <Image
+              src="/images/logo-nav-cream.png"
+              alt="Thriveus"
+              width={180}
+              height={52}
+              priority
+              quality={100}
+              className="h-[32px] sm:h-[38px] md:h-[42px] w-auto object-contain [image-rendering:-webkit-optimize-contrast]"
+            />
           </Link>
 
-          {/* Center Agency Nav Links */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-10" aria-label="Main Navigation">
+          {/* Clean Nav Links (No background / No pill dock) */}
+          <nav
+            className="hidden md:flex items-center gap-8 lg:gap-11"
+            aria-label="Main Navigation"
+          >
             {NAV_LINKS.map((link) => {
               const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname === link.href || pathname.startsWith(link.href + "/");
+                pathname === link.href || pathname.startsWith(link.href + "/");
 
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-[12px] tracking-[0.14em] uppercase transition-colors duration-300 font-semibold ${
+                  className={`font-display text-xs sm:text-[13px] tracking-[0.14em] uppercase transition-colors duration-200 py-0.5 ${
                     isActive
-                      ? "text-[#98DAF6]"
-                      : "text-white/85 hover:text-[#98DAF6]"
+                      ? "text-[#8A5FA8] font-bold"
+                      : "text-[#1C164B] font-semibold hover:text-[#8A5FA8]"
                   }`}
                 >
                   <span>{link.name}</span>
@@ -93,76 +82,118 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Right CTA */}
+          {/* Right Luxury CTA Button */}
           <div className="hidden md:flex items-center">
-            <MagneticButton
+            <Link
               href="/contact"
-              variant="primary"
-              className="!py-2.5 !px-5 text-xs font-semibold !border-none !border-0 shadow-sm"
+              className="inline-flex items-center justify-center rounded-full bg-[#1C164B] text-[#EAE7DC] hover:bg-[#8A5FA8] hover:text-white px-5 py-2 font-display text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-sm active:scale-95"
             >
               Let&apos;s Create
-            </MagneticButton>
+            </Link>
           </div>
 
           {/* Mobile Toggle Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex md:hidden flex-col items-center justify-center w-10 h-10 rounded-full bg-[#1C164B]/80 text-white border border-[#8A5FA8]/40 backdrop-blur-md focus:outline-none"
+            className="flex md:hidden items-center justify-center w-8 h-8 rounded-full text-[#1C164B] focus:outline-none transition-transform active:scale-95"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
           >
-            <span
-              className={`block h-0.5 w-5 bg-white transition-all duration-300 ${
-                mobileMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-1"
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-white transition-all duration-300 ${
-                mobileMenuOpen ? "-rotate-45 -translate-y-0.5" : "translate-y-1"
-              }`}
-            />
+            <div className="w-5 h-3.5 flex flex-col justify-between items-center">
+              <span
+                className={`h-0.5 w-full bg-[#1C164B] rounded-full transition-all duration-300 ${
+                  mobileMenuOpen ? "rotate-45 translate-y-[6px]" : ""
+                }`}
+              />
+              <span
+                className={`h-0.5 w-full bg-[#1C164B] rounded-full transition-all duration-300 ${
+                  mobileMenuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`h-0.5 w-full bg-[#1C164B] rounded-full transition-all duration-300 ${
+                  mobileMenuOpen ? "-rotate-45 -translate-y-[6px]" : ""
+                }`}
+              />
+            </div>
           </button>
         </div>
       </header>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Luxury Editorial Mobile Drawer Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 flex flex-col bg-[#1C164B]/98 px-8 pt-32 pb-12 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-[#EAE7DC]/98 px-6 sm:px-10 pt-20 pb-10 backdrop-blur-2xl md:hidden overflow-y-auto"
           >
-            <nav className="flex flex-col gap-6">
-              {NAV_LINKS.map((link, idx) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.08 * idx, duration: 0.4 }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="font-display text-2xl font-bold tracking-tight text-white hover:text-[#98DAF6]"
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
+            <div className="flex-1 flex flex-col justify-between">
+              {/* Navigation Links with Numbering */}
+              <nav className="flex flex-col divide-y divide-[#DEDACB]">
+                {NAV_LINKS.map((link, idx) => {
+                  const isActive =
+                    link.href === "/"
+                      ? pathname === "/"
+                      : pathname === link.href || pathname.startsWith(link.href + "/");
 
-            <div className="mt-auto pt-8 border-t border-[#8A5FA8]/40">
-              <MagneticButton
-                href="/contact"
-                variant="primary"
-                className="w-full text-center py-4 uppercase tracking-widest text-sm"
-              >
-                Let&apos;s Create
-              </MagneticButton>
+                  return (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: -16 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 * idx, duration: 0.35 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center justify-between py-4 group"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="font-mono text-xs text-[#8A5FA8]">
+                            0{idx + 1}
+                          </span>
+                          <span
+                            className={`font-display text-2xl font-bold tracking-tight uppercase transition-colors ${
+                              isActive
+                                ? "text-[#8A5FA8]"
+                                : "text-[#1C164B] group-hover:text-[#8A5FA8]"
+                            }`}
+                          >
+                            {link.name}
+                          </span>
+                        </div>
+
+                        {isActive && (
+                          <span className="h-2 w-2 rounded-full bg-[#8A5FA8]" />
+                        )}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </nav>
+
+              {/* Bottom Card with Agency Info & CTA */}
+              <div className="pt-8 mt-6 border-t border-[#DEDACB] space-y-5">
+                <div className="flex items-center justify-between text-xs text-[#5B5578]">
+                  <span className="uppercase font-display tracking-wider font-semibold text-[#8A5FA8]">
+                    Dubai, UAE
+                  </span>
+                  <span>jahan@thriveus.ae</span>
+                </div>
+
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-full bg-[#1C164B] text-[#EAE7DC] hover:bg-[#8A5FA8] hover:text-white font-display text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-md active:scale-95"
+                >
+                  <span>Let&apos;s Create</span>
+                  <span className="text-sm">↗</span>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

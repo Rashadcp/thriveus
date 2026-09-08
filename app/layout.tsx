@@ -108,7 +108,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://i.ytimg.com" />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-[#1C164B] text-white antialiased selection:bg-[#98DAF6] selection:text-[#1C164B]">
+      <body className="min-h-full flex flex-col font-sans bg-[#EAE7DC] text-[#1C164B] antialiased selection:bg-[#98DAF6] selection:text-[#1C164B]">
         <RouteTransition>{children}</RouteTransition>
       </body>
     </html>
