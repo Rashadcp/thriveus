@@ -38,9 +38,9 @@ const GALLERY_IMAGES = [
   },
   {
     src: "/images/team-challenge-burj.jpg",
-    alt: "Corporate team challenge with live gamified competition in Dubai",
+    alt: "Amazing Race Challenge · City Escape corporate event in Dubai",
     category: "SIGNATURE FORMATS",
-    title: "The Team Challenge · Burj Al Arab Edition",
+    title: "Amazing Race Challenge · City Escape",
   },
   {
     src: "/images/cultural-drum-celebration.jpg",

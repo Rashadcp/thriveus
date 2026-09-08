@@ -47,7 +47,7 @@ const SERVICES: ServiceItem[] = [
       "Yacht, Island & Beach Escapes",
       "Fully Private Desert Experiences",
     ],
-    image: "/images/gala-dinner-ballroom.jpg",
+    image: "/images/yatch.jpg",
   },
   {
     id: "conferences-productions",
@@ -89,7 +89,7 @@ const SERVICES: ServiceItem[] = [
       "Beach, Island & Marine Formats",
       "Indoor Simulations",
     ],
-    image: "/images/resort-teambuilding-lawn.jpg",
+    image: "/images/desert-photo.jpeg",
   },
   {
     id: "coaching-training",
@@ -117,7 +117,7 @@ const SERVICES: ServiceItem[] = [
       "Leadership Programmes",
       "Built In Measurement",
     ],
-    image: "/images/team-challenge-burj.jpg",
+    image: "/images/squidimage.png",
   },
   {
     id: "leadership-retreats",
@@ -188,11 +188,6 @@ export default function ServicesPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="font-display text-[10px] uppercase tracking-wider bg-[#1C164B]/95 backdrop-blur-md text-[#98DAF6] px-2.5 py-1 rounded-full border border-[#98DAF6]/30 font-semibold">
-                      {srv.tag}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="mt-5 space-y-3">

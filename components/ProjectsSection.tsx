@@ -35,7 +35,7 @@ const PRODUCTIONS: Production[] = [
   {
     id: "work-03-amazing-race",
     tag: "CHALLENGE RACE",
-    title: "The Amazing Race · City Edition",
+    title: "Amazing Race Challenge · City Escape",
     meta: "210+ participants · Across Dubai",
     description:
       "A multi location urban challenge race for a global logistics leader, moving teams through checkpoints across the city with live tracking, coordinated transport and a finale celebration.",
