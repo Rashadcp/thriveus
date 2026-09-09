@@ -30,7 +30,7 @@ const PRODUCTIONS: Production[] = [
     meta: "275 guests · Dubai Marina",
     description:
       "A private megayacht takeover combining live entertainment, curated dining and open water views of the Dubai skyline, produced end to end from charter to final guest departure.",
-    image: "/images/resort-leadership-circle.jpg",
+    image: "/images/yatch2.jpg",
   },
   {
     id: "work-03-amazing-race",

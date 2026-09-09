@@ -37,10 +37,10 @@ const GALLERY_IMAGES = [
     title: "Annual Staff Gathering · Grand Ballroom",
   },
   {
-    src: "/images/team-challenge-burj.jpg",
-    alt: "Amazing Race Challenge · City Escape corporate event in Dubai",
-    category: "SIGNATURE FORMATS",
-    title: "Amazing Race Challenge · City Escape",
+    src: "/images/desert-private-setup.jpg",
+    alt: "Private luxury desert camp and dining setup under illuminated dunes",
+    category: "PRIVATE DESERT EXPERIENCE",
+    title: "Private Desert Setup · Luxury Dunes Camp",
   },
   {
     src: "/images/cultural-drum-celebration.jpg",
@@ -49,14 +49,14 @@ const GALLERY_IMAGES = [
     title: "Cultural Drum Celebration · Live Festival",
   },
   {
-    src: "/images/alain-mountain-summit.jpg",
+    src: "/images/gallery-mountain-session.jpg",
     alt: "Executive mountain leadership retreat in Jebel Hafeet, Al Ain",
     category: "LEADERSHIP RETREATS",
     title: "Mountain Retreat · Jebel Hafeet, Al Ain",
   },
   {
-    src: "/images/gala-dinner-ballroom.jpg",
-    alt: "Corporate gala dinner celebration and awards evening in luxury hotel ballroom",
+    src: "/images/gallery-spc-gala-celebration.jpg",
+    alt: "Corporate gala celebration and recognition evening in ballroom",
     category: "GALAS & AWARDS",
     title: "Corporate Gala Dinner · Luxury Ballroom",
   },
