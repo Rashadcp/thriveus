@@ -4,6 +4,7 @@ import DualMarqueeGallery from "@/components/DualMarqueeGallery";
 import AboutSection from "@/components/AboutSection";
 import Services3DCarousel from "@/components/Services3DCarousel";
 import BeatsBeyond from "@/components/BeatsBeyond";
+import SignatureExperiences from "@/components/SignatureExperiences";
 import ProjectsSection from "@/components/ProjectsSection";
 import ClientReviews from "@/components/ClientReviews";
 import FinalCTA from "@/components/FinalCTA";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <AboutSection />
       <Services3DCarousel />
       <BeatsBeyond />
+      <SignatureExperiences />
       <ProjectsSection />
       <ClientReviews />
       <FinalCTA />
