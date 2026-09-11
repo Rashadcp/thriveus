@@ -1,9 +1,19 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Hero() {
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  useEffect(() => {
+    // Short deferral allows critical image assets and layout to load immediately without video network contention
+    const timer = setTimeout(() => {
+      setLoadVideo(true);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative h-[100dvh] min-h-[580px] w-full overflow-hidden bg-[#1C164B] select-none flex items-center justify-center">
       {/* Fullscreen Background Video with Fast-Start Mobile & Desktop Sources */}
@@ -13,16 +23,20 @@ export default function Hero() {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           poster="/images/corporate-ballroom-team.jpg"
           className="h-full w-full object-cover object-center brightness-[0.88] contrast-[1.06]"
         >
-          <source
-            src="/hero-video-mobile.mp4"
-            type="video/mp4"
-            media="(max-width: 768px)"
-          />
-          <source src="/hero-video.mp4" type="video/mp4" />
+          {loadVideo && (
+            <>
+              <source
+                src="/hero-video-mobile.mp4"
+                type="video/mp4"
+                media="(max-width: 768px)"
+              />
+              <source src="/hero-video.mp4" type="video/mp4" />
+            </>
+          )}
         </video>
 
         {/* Brand Indigo Overlays & 3D Atmospheric Glow */}

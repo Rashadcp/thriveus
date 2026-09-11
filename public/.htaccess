@@ -48,3 +48,8 @@
   ExpiresByType font/woff "access plus 1 year"
   ExpiresByType video/mp4 "access plus 1 year"
 </IfModule>
+
+# 8. Gzip / Deflate Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
