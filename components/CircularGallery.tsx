@@ -135,21 +135,23 @@ function getFontSize(font: string) {
 function createTextTexture(gl: any, text: string, font = 'bold 30px monospace', color = 'black') {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d')!;
+  const dpr = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 2) : 1;
   context.font = font;
   const metrics = context.measureText(text);
   const textWidth = Math.ceil(metrics.width);
   const textHeight = Math.ceil(getFontSize(font) * 1.2);
-  canvas.width = textWidth + 20;
-  canvas.height = textHeight + 20;
+  canvas.width = (textWidth + 24) * dpr;
+  canvas.height = (textHeight + 24) * dpr;
+  context.scale(dpr, dpr);
   context.font = font;
   context.fillStyle = color;
   context.textBaseline = 'middle';
   context.textAlign = 'center';
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillText(text, canvas.width / 2, canvas.height / 2);
+  context.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+  context.fillText(text, (textWidth + 24) / 2, (textHeight + 24) / 2);
   const texture = new Texture(gl, { generateMipmaps: false });
   texture.image = canvas;
-  return { texture, width: canvas.width, height: canvas.height };
+  return { texture, width: textWidth + 24, height: textHeight + 24 };
 }
 
 class Title {
@@ -392,11 +394,15 @@ class Media {
       const effectiveX = Math.min(Math.abs(x), H);
 
       const arc = R - Math.sqrt(R * R - effectiveX * effectiveX);
+      const textHeight = this.plane.scale.y * 0.14;
+      // Vertically balance the downward curve and bottom title so the gallery is centered
+      const yOffset = this.bend > 0 ? (B_abs * 0.35 + textHeight * 0.45) : (-B_abs * 0.35);
+
       if (this.bend > 0) {
-        this.plane.position.y = -arc;
+        this.plane.position.y = -arc + yOffset;
         this.plane.rotation.z = -Math.sign(x) * Math.asin(effectiveX / R);
       } else {
-        this.plane.position.y = arc;
+        this.plane.position.y = arc + yOffset;
         this.plane.rotation.z = Math.sign(x) * Math.asin(effectiveX / R);
       }
     }

@@ -9,7 +9,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative w-full bg-[#EAE7DC] py-20 sm:py-32 px-5 sm:px-12 overflow-hidden text-[#1C164B] border-b border-[#DEDACB]"
+      className="relative w-full bg-[#EAE7DC] pt-16 pb-10 sm:pt-24 sm:pb-14 px-5 sm:px-12 overflow-hidden text-[#1C164B] border-b border-[#DEDACB]"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">

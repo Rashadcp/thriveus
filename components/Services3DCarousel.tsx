@@ -83,15 +83,15 @@ export default function Services3DCarousel() {
     <section
       ref={sectionRef}
       id="services"
-      className="relative w-full bg-[#EAE7DC] text-[#1C164B] pt-16 sm:pt-24 pb-14 sm:pb-20 border-t border-[#DEDACB] overflow-hidden"
+      className="relative w-full bg-[#EAE7DC] text-[#1C164B] pt-8 sm:pt-14 pb-12 sm:pb-16 overflow-hidden"
     >
       {/* Background ambient lighting matching 3D curved visual language */}
       <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#8A5FA8]/10 blur-[130px] rounded-full" />
       <div className="pointer-events-none absolute top-1/3 left-1/3 w-[400px] h-[250px] bg-[#98DAF6]/20 blur-[100px] rounded-full" />
 
       {/* Header Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mb-6 sm:mb-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-4 border-b border-[#DEDACB]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mb-2 sm:mb-4">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 sm:gap-4 pb-3 sm:pb-4 border-b border-[#DEDACB]">
           <div>
             <span className="font-light text-xs uppercase tracking-widest text-[#8A5FA8] font-semibold block">
               What We Deliver · Experiential Architecture
@@ -108,15 +108,15 @@ export default function Services3DCarousel() {
       </div>
 
       {/* 3D Circular Gallery Container with proportional card scale */}
-      <div className="relative z-10 w-full h-[420px] sm:h-[480px] md:h-[540px] my-1 sm:my-2">
+      <div className="relative z-10 w-full h-[360px] sm:h-[420px] md:h-[480px] my-0">
         {isInView ? (
           <CircularGallery
-            bend={2.5}
+            bend={1.8}
             textColor="#1C164B"
             borderRadius={0.06}
             scrollEase={0.02}
             scrollSpeed={2}
-            cardScale={0.6}
+            cardScale={0.8}
             font='bold 22px "Helvetica Now Display", sans-serif'
             items={CIRCULAR_SERVICES}
           />
@@ -129,17 +129,15 @@ export default function Services3DCarousel() {
       </div>
 
       {/* Interactive Guidance & Service Quick Nav */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mt-4 sm:mt-6">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 mt-2 sm:mt-4">
         {/* Drag Hint */}
-        <div className="flex items-center justify-center gap-2 text-center text-[11px] sm:text-xs text-[#5B5578] mb-6">
+        <div className="flex items-center justify-center gap-2 text-center text-[11px] sm:text-xs text-[#5B5578] mb-4 sm:mb-5">
           <span className="text-[#8A5FA8]">↔</span>
-          <span className="tracking-wide">
-            Drag horizontally, use scroll wheel, or press <kbd className="px-1.5 py-0.5 bg-[#F2F0E8] border border-[#DEDACB] rounded text-[10px] text-[#1C164B]">←</kbd> <kbd className="px-1.5 py-0.5 bg-[#F2F0E8] border border-[#DEDACB] rounded text-[10px] text-[#1C164B]">→</kbd> to rotate the 3D gallery
-          </span>
+          <span className="tracking-wide">Drag to explore</span>
         </div>
 
         {/* Quick Service Category Tags */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-4xl mx-auto mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-4xl mx-auto mb-6">
           {SERVICE_PILLS.map((pill) => (
             <Link
               key={pill.id}
@@ -155,18 +153,18 @@ export default function Services3DCarousel() {
         </div>
 
         {/* Action CTAs */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-2.5 sm:gap-4">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 rounded-full bg-[#1C164B] text-[#EAE7DC] font-display text-xs sm:text-sm font-semibold tracking-wider uppercase px-6 sm:px-8 py-3.5 hover:bg-[#8A5FA8] hover:text-white transition-all duration-300 shadow-md"
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#1C164B] text-[#EAE7DC] font-display text-[10px] sm:text-xs md:text-sm font-semibold tracking-wider uppercase px-3.5 sm:px-8 py-2.5 sm:py-3.5 hover:bg-[#8A5FA8] hover:text-white transition-all duration-300 shadow-md whitespace-nowrap"
           >
             <span>Explore All 7 Services</span>
-            <span>→</span>
+            <span className="shrink-0">→</span>
           </Link>
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-[#1C164B]/40 hover:border-[#8A5FA8] text-[#1C164B] hover:text-[#8A5FA8] font-display text-xs sm:text-sm font-medium tracking-wider uppercase px-6 sm:px-8 py-3.5 transition-all duration-300 bg-transparent"
+            className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#1C164B]/40 hover:border-[#8A5FA8] text-[#1C164B] hover:text-[#8A5FA8] font-display text-[10px] sm:text-xs md:text-sm font-medium tracking-wider uppercase px-3.5 sm:px-8 py-2.5 sm:py-3.5 transition-all duration-300 bg-transparent whitespace-nowrap"
           >
             <span>Discuss a Brief</span>
           </Link>
