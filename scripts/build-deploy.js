@@ -1,6 +1,7 @@
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const { ZipArchive } = require("archiver");
 
 const rootDir = path.resolve(__dirname, "..");
 const outDir = path.join(rootDir, "out");
@@ -30,21 +31,46 @@ if (fs.existsSync(htaccessSource)) {
   console.log("✅ .htaccess copied with security, gzip, and routing rules.");
 }
 
-console.log("\n📦 [4/4] Creating thriveus-deploy.zip for cPanel upload...");
+console.log("\n📦 [4/4] Creating thriveus-deploy.zip with Linux 0755/0644 permissions...");
 if (fs.existsSync(zipFile)) {
   fs.unlinkSync(zipFile);
 }
 
-// Use PowerShell Compress-Archive on Windows
-try {
-  execSync(
-    `powershell -Command "Compress-Archive -Path '${outDir}\\*' -DestinationPath '${zipFile}' -Force"`,
-    { stdio: "inherit" }
-  );
-  const stats = fs.statSync(zipFile);
-  const sizeMb = (stats.size / (1024 * 1024)).toFixed(2);
-  console.log(`\n🎉 SUCCESS! Deployment package created: thriveus-deploy.zip (${sizeMb} MB)`);
-  console.log(`📍 Path: ${zipFile}`);
-} catch (err) {
-  console.error("Error creating zip archive:", err);
+function createZip() {
+  return new Promise((resolve, reject) => {
+    const output = fs.createWriteStream(zipFile);
+    const archive = new ZipArchive({
+      zlib: { level: 9 },
+    });
+
+    output.on("close", () => {
+      const stats = fs.statSync(zipFile);
+      const sizeMb = (stats.size / (1024 * 1024)).toFixed(2);
+      console.log(
+        `\n🎉 SUCCESS! Deployment package created: thriveus-deploy.zip (${sizeMb} MB)`
+      );
+      console.log(`📍 Path: ${zipFile}`);
+      resolve();
+    });
+
+    archive.on("error", (err) => reject(err));
+    archive.pipe(output);
+
+    // Package contents of out/ with standard Linux cPanel permissions
+    archive.directory(outDir, false, (entry) => {
+      if (entry.stats && entry.stats.isDirectory()) {
+        entry.mode = 0o755;
+      } else {
+        entry.mode = 0o644;
+      }
+      return entry;
+    });
+
+    archive.finalize();
+  });
 }
+
+createZip().catch((err) => {
+  console.error("Error creating archive:", err);
+  process.exit(1);
+});
