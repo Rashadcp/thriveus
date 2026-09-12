@@ -18,7 +18,7 @@ export default function ContactClient() {
     const mailtoBody = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
-    window.location.href = `mailto:jahan@thriveus.ae?subject=${mailtoSubject}&body=${mailtoBody}`;
+    window.location.href = `mailto:info@thriveus.ae?subject=${mailtoSubject}&body=${mailtoBody}`;
     setSubmitted(true);
   };
 
@@ -46,10 +46,10 @@ export default function ContactClient() {
               Direct Email
             </span>
             <a
-              href="mailto:jahan@thriveus.ae"
+              href="mailto:info@thriveus.ae"
               className="text-lg sm:text-2xl font-display font-bold text-[#1C164B] hover:text-[#8A5FA8] transition-colors"
             >
-              jahan@thriveus.ae
+              info@thriveus.ae
             </a>
           </div>
 
@@ -83,7 +83,7 @@ export default function ContactClient() {
                 Message Prepared
               </h3>
               <p className="text-xs sm:text-sm text-[#5B5578] max-w-sm mx-auto">
-                Your email client has opened with your details addressed to <strong>jahan@thriveus.ae</strong>. We look forward to speaking with you.
+                Your email client has opened with your details addressed to <strong>info@thriveus.ae</strong>. We look forward to speaking with you.
               </p>
               <button
                 type="button"

@@ -185,7 +185,7 @@ export default function Navbar() {
                   <span className="uppercase font-display tracking-wider font-semibold text-[#8A5FA8]">
                     Dubai, UAE
                   </span>
-                  <span>jahan@thriveus.ae</span>
+                  <span>info@thriveus.ae</span>
                 </div>
 
                 <Link

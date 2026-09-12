@@ -37,6 +37,10 @@ const CIRCULAR_SERVICES = [
     text: "Desert & Outdoor Formats",
   },
   {
+    image: "/images/csr-desert-cleanup.jpg",
+    text: "CSR & Impact Drives",
+  },
+  {
     image: "/images/gallery-mountain-session.jpg",
     text: "Executive Retreats",
   },
@@ -55,9 +59,10 @@ const SERVICE_PILLS = [
   { id: "conferences", num: "02", name: "Summits & Productions" },
   { id: "galas", num: "03", name: "Galas & Culture" },
   { id: "teambuilding", num: "04", name: "Team Building" },
-  { id: "leadership", num: "05", name: "Capability Building" },
-  { id: "gamified", num: "06", name: "Gamified Learning" },
-  { id: "retreats", num: "07", name: "Executive Retreats" },
+  { id: "csr", num: "05", name: "CSR & Impact" },
+  { id: "leadership", num: "06", name: "Capability Building" },
+  { id: "gamified", num: "07", name: "Gamified Learning" },
+  { id: "retreats", num: "08", name: "Executive Retreats" },
 ];
 
 export default function Services3DCarousel() {
@@ -102,7 +107,7 @@ export default function Services3DCarousel() {
           </div>
 
           <p className="text-xs sm:text-sm text-[#5B5578] max-w-md font-light leading-relaxed">
-            Seven core experiential disciplines, delivered end-to-end across Dubai, Abu Dhabi, and the wider UAE.
+            Eight core experiential disciplines, delivered end-to-end across Dubai, Abu Dhabi, and the wider UAE.
           </p>
         </div>
       </div>
@@ -158,7 +163,7 @@ export default function Services3DCarousel() {
             href="/services"
             className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#1C164B] text-[#EAE7DC] font-display text-[10px] sm:text-xs md:text-sm font-semibold tracking-wider uppercase px-3.5 sm:px-8 py-2.5 sm:py-3.5 hover:bg-[#8A5FA8] hover:text-white transition-all duration-300 shadow-md whitespace-nowrap"
           >
-            <span>Explore All 7 Services</span>
+            <span>Explore All 8 Services</span>
             <span className="shrink-0">→</span>
           </Link>
 

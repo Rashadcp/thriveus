@@ -33,6 +33,10 @@ export const metadata: Metadata = {
   keywords: [
     "Corporate Events UAE",
     "Team Building Dubai",
+    "Corporate Social Responsibility Events UAE",
+    "CSR Events Dubai",
+    "CSR Team Building UAE",
+    "Corporate CSR Dubai",
     "Squid Game Styled Event Dubai",
     "Squid Game Inspired Team Building UAE",
     "Gamified Learning UAE",
@@ -106,7 +110,7 @@ const JSON_LD = {
       logo: "https://thriveus.ae/images/logo-nav-cream.png",
       description:
         "Thriveus curates corporate events, executive summits, team challenges, and experiential productions across Dubai and the UAE.",
-      email: "jahan@thriveus.ae",
+      email: "info@thriveus.ae",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Dubai",

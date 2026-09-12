@@ -32,6 +32,7 @@ const STATS = [
 const CAPABILITIES = [
   "Conferences & Corporate Productions",
   "Experiential Team Building",
+  "Corporate Social Responsibility (CSR) Events",
   "Curated Experiences & Signature Formats",
   "Celebrations & Cultural Events",
   "Coaching, Training & Capability Building",
@@ -69,6 +70,7 @@ export default function AboutPage() {
           <div className="lg:col-span-6 space-y-4 text-sm sm:text-base text-[#5B5578] font-light leading-relaxed">
             <p>
               We design and deliver corporate experiences for large enterprise clients across the UAE: conferences and summits, corporate celebrations and cultural events, team building programmes, gamified learning, leadership retreats and corporate training.
+              We design and deliver corporate experiences for large enterprise clients across the UAE: conferences and summits, corporate celebrations and cultural events, experiential team building, corporate social responsibility (CSR) initiatives, gamified learning, leadership retreats and corporate training.
             </p>
             <p>
               Our expert team carries more than twenty years of combined experience curating unique experiences, large scale exhibitions, conferences and summits, and today we prioritise serving our key clients in energy, engineering, logistics, water technologies and industrial automation.
@@ -118,6 +120,7 @@ export default function AboutPage() {
                 >
                   <span className="font-display text-xs text-[#8A5FA8] font-bold">
                     0{i + 1}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>{cap}</span>
                 </div>

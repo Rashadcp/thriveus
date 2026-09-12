@@ -9,14 +9,14 @@ import MagneticButton from "@/components/ui/MagneticButton";
 export const metadata: Metadata = {
   title: "Corporate Services & Experiential Formats | Thriveus UAE",
   description:
-    "Discover Thriveus corporate services across the UAE: curated experiences, conferences, celebrations, experiential team building, training, and leadership retreats.",
+    "Discover Thriveus corporate services across the UAE: curated experiences, conferences, celebrations, experiential team building, CSR events, capability training, and leadership retreats.",
   alternates: {
     canonical: "https://thriveus.ae/services",
   },
   openGraph: {
     title: "Corporate Services & Experiential Formats | Thriveus UAE",
     description:
-      "Discover Thriveus corporate services across the UAE: curated experiences, conferences, celebrations, experiential team building, training, and leadership retreats.",
+      "Discover Thriveus corporate services across the UAE: curated experiences, conferences, celebrations, experiential team building, CSR events, capability training, and leadership retreats.",
     url: "https://thriveus.ae/services",
     siteName: "Thriveus",
     images: ["/images/corporate-ballroom-team.jpg"],
@@ -92,8 +92,23 @@ const SERVICES: ServiceItem[] = [
     image: "/images/desert-photo.jpeg",
   },
   {
-    id: "coaching-training",
+    id: "csr-events",
     num: "05",
+    tag: "PURPOSE & IMPACT",
+    title: "Corporate Social Responsibility (CSR) Events",
+    description:
+      "High-impact CSR programmes and sustainability activations designed for corporate teams across Dubai, Abu Dhabi, and the UAE. From desert environmental cleanups and mangrove planting to community support drives and social cause challenges, we transform corporate responsibility into meaningful, hands-on team experiences with measurable real-world impact.",
+    bullets: [
+      "Desert Cleanups & Conservation",
+      "Mangrove & Marine Initiatives",
+      "Community & Social Impact Drives",
+      "Sustainability Team Challenges",
+    ],
+    image: "/images/csr-desert-cleanup.jpg",
+  },
+  {
+    id: "coaching-training",
+    num: "06",
     tag: "WHERE THRIVE IS EARNED",
     title: "Coaching, Training & Capability Building",
     description:
@@ -107,7 +122,7 @@ const SERVICES: ServiceItem[] = [
   },
   {
     id: "gamified-learning",
-    num: "06",
+    num: "07",
     tag: "LEARNING THAT LANDS",
     title: "Gamified Learning & Training",
     description:
@@ -121,7 +136,7 @@ const SERVICES: ServiceItem[] = [
   },
   {
     id: "leadership-retreats",
-    num: "07",
+    num: "08",
     tag: "EXECUTIVE OFFSITES",
     title: "Leadership Retreats",
     description:
@@ -150,7 +165,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="mt-4 sm:mt-6 text-base sm:text-2xl text-[#5B5578] leading-relaxed font-light max-w-3xl">
-            Original corporate experiences, turnkey summits, cultural celebrations, and leadership development delivered across Dubai, Abu Dhabi, Al Ain, and UAE-wide.
+            Original corporate experiences, turnkey summits, cultural celebrations, CSR impact initiatives, and leadership development delivered across Dubai, Abu Dhabi, Al Ain, and UAE-wide.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -170,7 +185,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Seven Flagship Services */}
+      {/* Eight Flagship Services */}
       <section className="py-16 sm:py-28 px-5 sm:px-12 mx-auto max-w-7xl w-full border-b border-[#DEDACB]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {SERVICES.map((srv) => (
@@ -193,7 +208,7 @@ export default function ServicesPage() {
                 <div className="mt-5 space-y-3">
                   <div className="flex items-center gap-2 font-display text-xs text-[#8A5FA8]">
                     <span className="font-bold">{srv.num}</span>
-                    <span className="text-[#5B5578]">/ 07</span>
+                    <span className="text-[#5B5578]">/ 08</span>
                   </div>
 
                   <h2 className="font-display text-lg sm:text-xl font-bold text-[#1C164B] group-hover:text-[#8A5FA8] transition-colors leading-snug">
